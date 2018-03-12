@@ -17,6 +17,10 @@ FUNCTION HWG_MSGINFO (cMessage, cTitle)
 
    LOCAL nRet
 
+   IF cTitle == NIL
+      cTitle := ""
+   ENDIF
+
    nRet := QMessageBox():information( QApplication():activeWindow(), cTitle, cMessage )
 
 RETURN nRet
