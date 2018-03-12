@@ -6,6 +6,13 @@
 
 */
 
+#ifdef __QT4XHB__
+#include "qt4xhb.ch"
+#endif
+#ifdef __QT5XHB__
+#include "qt5xhb.ch"
+#endif
+
 #include "hbutton.ch"
 #include "hbuttonex.ch"
 #include "hcheckbutton.ch"
