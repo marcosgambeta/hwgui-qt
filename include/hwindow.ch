@@ -1,0 +1,30 @@
+/*
+
+  HWGUIQt - módulo para Qt4xHb/Qt5xHb com sintaxe no estilo HWGUI
+
+  Copyright (C) 2018 Marcos Antonio Gambeta <marcosgambeta AT outlook DOT com>
+
+*/
+
+#xcommand ACTIVATE WINDOW <oObj> ;
+                   [ <lMaximized : MAXIMIZED> ] ;
+                   [ <lMinimized : MINIMIZED> ] ;
+                   [ <lFullScreen : FULLSCREEN> ] ;
+                   [ <lNoShow : NOSHOW> ] ;
+                   => ;
+                   <oObj>:activate( <.lMaximized.>, ;
+                                    <.lMinimized.>, ;
+                                    <.lFullScreen.>, ;
+                                    <.lNoShow.> )
+
+#xcommand CENTER WINDOW <oObj> => <oObj>:center()
+
+#xcommand MAXIMIZE WINDOW <oObj> => <oObj>:maximize()
+
+#xcommand MINIMIZE WINDOW <oObj> => <oObj>:minimize()
+
+#xcommand RESTORE WINDOW <oObj> => <oObj>:restore()
+
+#xcommand SHOW WINDOW <oObj> => <oObj>:show()
+
+#xcommand HIDE WINDOW <oObj> => <oObj>:hide()
