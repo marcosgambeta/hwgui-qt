@@ -13,6 +13,6 @@ Ou utilize o grupo de discussão abaixo:
 
 https://groups.google.com/forum/?hl=pt-BR#!forum/qtxhb-br
 
-IMPORTANTE: 
-Dúvidas serão exclarecidas somente por email. 
-HWGUIQt é um FOSS (Free and Open Source Software).
+IMPORTANTE:  
+Dúvidas serão exclarecidas somente por email.  
+HWGUIQt é um FOSS (Free and Open Source Software).  
