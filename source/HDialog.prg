@@ -22,6 +22,8 @@ CLASS HDialog INHERIT HCustomWindow
    METHOD new
    METHOD activate
    METHOD close
+   METHOD accept
+   METHOD reject
 
 ENDCLASS
 
@@ -76,6 +78,18 @@ RETURN NIL
 
 METHOD close () CLASS HDialog
 
-   ::oQt:done()
+   ::oQt:done() // TODO: requer parametro numerico
+
+RETURN NIL
+
+METHOD accept () CLASS HDialog
+
+   ::oQt:accept()
+
+RETURN NIL
+
+METHOD reject () CLASS HDialog
+
+   ::oQt:reject()
 
 RETURN NIL
