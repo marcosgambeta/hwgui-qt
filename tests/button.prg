@@ -1,0 +1,38 @@
+/*
+
+  HWGUIQt Project - Test Program
+
+  Copyright (C) 2018 Marcos Antonio Gambeta
+
+  E-mail:
+  marcosgambeta AT outlook DOT com
+
+  Website:
+  https://github.com/marcosgambeta/HWGUIQt
+
+*/
+
+#include "hwgui.ch"
+
+PROCEDURE Main ()
+
+   LOCAL oApp
+   LOCAL oDialog
+   LOCAL oButton
+
+   oApp := QApplication():new()
+
+   INIT DIALOG oDialog TITLE "Teste da classe HButton" SIZE 320,240
+
+   @ 10,10 BUTTON oButton CAPTION "Botão" SIZE 120,40 ;
+      ON INIT {||hwg_MsgInfo("Botão - ON INIT")} ;
+      ON CLICK {||hwg_MsgInfo("Botão - ON CLICK")} ;
+      OF oDialog
+
+   ACTIVATE DIALOG oDialog
+
+   oDialog:delete()
+
+   oApp:delete()
+
+RETURN
