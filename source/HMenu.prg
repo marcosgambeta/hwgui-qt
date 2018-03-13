@@ -22,20 +22,27 @@ ENDCLASS
 
 METHOD new (oParent,cTitle,cStyleSheet) CLASS HMenu
 
+   IF cTitle == NIL
+      cTitle := ""
+   ENDIF
+
    IF valtype(oParent) == "O"
       IF oParent:oQt:metaObject():className() == "QMenuBar"
          ::oQt := oParent:oQt:addMenu(cTitle)
       ELSEIF oParent:oQt:metaObject():className() == "QMenu"
          ::oQt := oParent:oQt:addMenu(cTitle)
       ELSE
-         ::oQt := QMenuBar():new(oParent:oQt)
+         ::oQt := QMenu():new(cTitle, oParent:oQt)
       ENDIF
    ELSE
-      ::oQt := QMenuBar():new()
+      //::oQt := QMenu():new(cTitle, HFILO():last():oQt)
+      ::oQt := HFILO():last():oQt:addMenu(cTitle)
    ENDIF
 
    IF valtype(cStyleSheet) == "C"
       ::oQt:setStyleSheet(cStyleSheet)
    ENDIF
+
+   HFILO():add(self)
 
 RETURN self

@@ -6,13 +6,13 @@
 
 */
 
-#xcommand BEGIN MENU <oObj> ;
+#xcommand BEGIN MENU [ <oObj> ] ;
           [ OF <oParent> ] ;
           [ TITLE <cTitle> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           => ;
-          <oObj> := HMenu():new( <oParent>, ;
+          [ <oObj> := ] HMenu():new( <oParent>, ;
                                  <cTitle>, ;
                                  <cStyleSheet> )
 
-#xcommand END MENU =>
+#xcommand END MENU => HFILO():remove()

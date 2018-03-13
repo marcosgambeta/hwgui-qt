@@ -13,4 +13,4 @@
           <oObj> := HMenuBar():new( <oParent>, ;
                                     <cStyleSheet> )
 
-#xcommand END MENUBAR =>
+#xcommand END MENUBAR => HFILO():remove()

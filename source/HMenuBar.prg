@@ -37,4 +37,6 @@ METHOD new (oParent,cStyleSheet) CLASS HMenuBar
       ::oQt:setStyleSheet(cStyleSheet)
    ENDIF
 
+   HFILO():add(self)
+
 RETURN self

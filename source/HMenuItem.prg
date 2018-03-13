@@ -33,7 +33,8 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
       IF valtype(oParent) == "O"
          ::oQt := oParent:oQt:addAction(cOption)
       ELSE
-        ::oQt := QAction():new(cOption)
+        //::oQt := QAction():new(cOption)
+        ::oQt := HFILO():last():oQt:addAction(cOption)
       ENDIF
 
       IF valtype(nId) == "N"
@@ -55,7 +56,8 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
       IF valtype(oParent) == "O"
          ::oQt := oParent:oQt:addSeparator()
       ELSE
-        ::oQt := QAction():new():setSeparator(.T.)
+        //::oQt := QAction():new():setSeparator(.T.)
+        ::oQt := HFILO():last():oQt:addSeparator()
       ENDIF
 
    ENDIF
