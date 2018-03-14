@@ -15,6 +15,7 @@
           [ STYLESHEET <cStyleSheet> ] ;
           [ FONT <oFont> ] ;
           [ MAIN ] ;
+          [ <lMDI:MDI> ] ;
           => ;
           <oObj> := HMainWindow():new( <oParent>, ;
                                        <nX>, ;
@@ -24,4 +25,5 @@
                                        <cToolTip>, ;
                                        <cStyleSheet>, ;
                                        <oFont>, ;
-                                       <cTitle> )
+                                       <cTitle>, ;
+                                       <.lMDI.> )

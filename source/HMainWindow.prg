@@ -16,6 +16,9 @@
 
 CLASS HMainWindow INHERIT HWindow
 
+   DATA lMDI INIT .F.
+   DATA oMdiArea
+
    METHOD new
    METHOD activate
    METHOD maximize
@@ -25,7 +28,7 @@ CLASS HMainWindow INHERIT HWindow
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStyleSheet,oFont,cTitle) CLASS HMainWindow
+METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStyleSheet,oFont,cTitle,lMDI) CLASS HMainWindow
 
    IF valtype(oParent) == "O"
       ::oQt := QMainWindow():new(oParent)
@@ -63,6 +66,13 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStyleSheet,oFont,cTitle) CLAS
    ::nTop    := ::oQt:y()
    ::nWidth  := ::oQt:width()
    ::nHeight := ::oQt:height()
+
+   ::lMDI := lMDI
+
+   IF lMDI
+      ::oMdiArea := QMdiArea():new()
+      ::oQt:setCentralWidget(::oMdiArea)
+   ENDIF
 
 RETURN self
 
