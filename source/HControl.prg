@@ -16,7 +16,7 @@
 
 CLASS HControl INHERIT HCustomWindow
 
-   DATA bInit
+   // DATA bInit (definido em HCustomWindow)
 
    METHOD getText
    METHOD setText

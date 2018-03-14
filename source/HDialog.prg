@@ -25,9 +25,15 @@ CLASS HDialog INHERIT HCustomWindow
    METHOD accept
    METHOD reject
 
+   METHOD onSize
+   METHOD onPaint
+   METHOD onGFocus
+   METHOD onLFocus
+
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStyleSheet,oFont,cTitle) CLASS HDialog
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTitle, ;
+             bInit, bSize, bPaint, bGFocus, bLFocus ) CLASS HDialog
 
    IF valtype(oParent) == "O"
       ::oQt := QDialog():new(oParent:oQt)
@@ -59,6 +65,30 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStyleSheet,oFont,cTitle) CLAS
       ::oQt:setWindowTitle(cTitle)
    ENDIF
 
+   IF valtype(bInit) == "B"
+      ::bInit := bInit
+   ENDIF
+
+   IF valtype(bSize) == "B"
+      ::bSize := bSize
+      ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bPaint) == "B"
+      ::bPaint := bPaint
+      ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bGFocus) == "B"
+      ::bGFocus := bGFocus
+      // TODO: janela ganha foco
+   ENDIF
+
+   IF valtype(bLFocus) == "B"
+      ::bLFocus := bLFocus
+      // TODO: janela perde foco
+   ENDIF
+
    // atualiza propriedades do objeto
 
    ::nLeft   := ::oQt:x()
@@ -71,6 +101,10 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStyleSheet,oFont,cTitle) CLAS
 RETURN self
 
 METHOD activate (lNoModal,bOnActivate,nShow) CLASS HDialog
+
+   IF valtype(::bInit) == "B"
+      eval(::bInit)
+   ENDIF
 
    ::oQt:exec()
 
@@ -91,5 +125,37 @@ RETURN NIL
 METHOD reject () CLASS HDialog
 
    ::oQt:reject()
+
+RETURN NIL
+
+METHOD onSize (oSender,oEvent) CLASS HDialog
+
+   IF valtype(::bSize) == "B"
+      eval(::bSize)
+   ENDIF
+
+RETURN NIL
+
+METHOD onPaint (oSender,oEvent) CLASS HDialog
+
+   IF valtype(::bPaint) == "B"
+      eval(::bPaint)
+   ENDIF
+
+RETURN NIL
+
+METHOD onGFocus (oSender,oEvent) CLASS HDialog
+
+   IF valtype(::bGFocus) == "B"
+      eval(::bGFocus)
+   ENDIF
+
+RETURN NIL
+
+METHOD onLFocus (oSender,oEvent) CLASS HDialog
+
+   IF valtype(::bLFocus) == "B"
+      eval(::bLFocus)
+   ENDIF
 
 RETURN NIL

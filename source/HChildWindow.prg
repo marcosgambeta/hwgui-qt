@@ -27,7 +27,8 @@ CLASS HChildWindow INHERIT HWindow
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStyleSheet,oFont,cTitle) CLASS HChildWindow
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTitle, ;
+             bInit, bSize, bPaint, bGFocus, bLFocus ) CLASS HChildWindow
 
    IF valtype(oParent) == "O"
       ::oQt := QWidget():new()
@@ -59,6 +60,30 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStyleSheet,oFont,cTitle) CLAS
       ::oQt:setWindowTitle(cTitle)
    ENDIF
 
+   IF valtype(bInit) == "B"
+      ::bInit := bInit
+   ENDIF
+
+   IF valtype(bSize) == "B"
+      ::bSize := bSize
+      ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bPaint) == "B"
+      ::bPaint := bPaint
+      ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bGFocus) == "B"
+      ::bGFocus := bGFocus
+      // TODO: janela ganha foco
+   ENDIF
+
+   IF valtype(bLFocus) == "B"
+      ::bLFocus := bLFocus
+      // TODO: janela perde foco
+   ENDIF
+
    // atualiza propriedades do objeto
 
    ::nLeft   := ::oQt:x()
@@ -69,6 +94,10 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStyleSheet,oFont,cTitle) CLAS
 RETURN self
 
 METHOD activate (lMaximized,lMinimized,lFullScreen,lNoShow) CLASS HChildWindow
+
+   IF valtype(::bInit) == "B"
+      eval(::bInit)
+   ENDIF
 
    IF valtype(lMaximized) == "L"
       IF lMaximized
@@ -124,5 +153,37 @@ METHOD close () CLASS HChildWindow
 
    ::oQt:close()
    ::oEventLoop:quit()
+
+RETURN NIL
+
+METHOD onSize (oSender,oEvent) CLASS HChildWindow
+
+   IF valtype(::bSize) == "B"
+      eval(::bSize)
+   ENDIF
+
+RETURN NIL
+
+METHOD onPaint (oSender,oEvent) CLASS HChildWindow
+
+   IF valtype(::bPaint) == "B"
+      eval(::bPaint)
+   ENDIF
+
+RETURN NIL
+
+METHOD onGFocus (oSender,oEvent) CLASS HChildWindow
+
+   IF valtype(::bGFocus) == "B"
+      eval(::bGFocus)
+   ENDIF
+
+RETURN NIL
+
+METHOD onLFocus (oSender,oEvent) CLASS HChildWindow
+
+   IF valtype(::bLFocus) == "B"
+      eval(::bLFocus)
+   ENDIF
 
 RETURN NIL

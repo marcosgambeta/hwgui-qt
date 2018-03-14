@@ -16,6 +16,12 @@
           [ FONT <oFont> ] ;
           [ MAIN ] ;
           [ <lMDI:MDI> ] ;
+          [ STYLE <nStyle> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON PAINT <bPaint> ] ;
+          [ ON GETFOCUS <bGFocus> ] ;
+          [ ON LOSTFOCUS <bLFocus> ] ;
           => ;
           <oObj> := HMainWindow():new( <oParent>, ;
                                        <nX>, ;
@@ -26,4 +32,9 @@
                                        <cStyleSheet>, ;
                                        <oFont>, ;
                                        <cTitle>, ;
-                                       <.lMDI.> )
+                                       <.lMDI.>, ;
+                                       <bInit>, ;
+                                       <bSize>, ;
+                                       <bPaint>, ;
+                                       <bGFocus>, ;
+                                       <bLFocus> )

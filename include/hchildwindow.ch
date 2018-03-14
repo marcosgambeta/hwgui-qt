@@ -14,6 +14,12 @@
           [ TOOLTIP <cToolTip> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ FONT <oFont> ] ;
+          [ STYLE <nStyle> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON PAINT <bPaint> ] ;
+          [ ON GETFOCUS <bGFocus> ] ;
+          [ ON LOSTFOCUS <bLFocus> ] ;
           => ;
           <oObj> := HChildWindow():new( <oParent>, ;
                                         <nX>, ;
@@ -23,4 +29,9 @@
                                         <cToolTip>, ;
                                         <cStyleSheet>, ;
                                         <oFont>, ;
-                                        <cTitle> )
+                                        <cTitle>, ;
+                                        <bInit>, ;
+                                        <bSize>, ;
+                                        <bPaint>, ;
+                                        <bGFocus>, ;
+                                        <bLFocus> )

@@ -23,12 +23,23 @@ CLASS HCustomWindow INHERIT HObject
 
    DATA lHide INIT .F. // .T. = visivel .F. = invisivel
 
+   DATA bInit
+   DATA bSize
+   DATA bPaint
+   DATA bGFocus
+   DATA bLFocus
+
    METHOD move
    METHOD show
    METHOD hide
    METHOD enable
    METHOD disable
    METHOD isEnabled
+
+//    METHOD onSize
+//    METHOD onPaint
+//    METHOD onGFocus
+//    METHOD onLFocus
 
 ENDCLASS
 
