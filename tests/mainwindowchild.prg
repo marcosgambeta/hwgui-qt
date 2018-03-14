@@ -21,7 +21,7 @@ PROCEDURE Main ()
 
    oApp := QApplication():new()
 
-   INIT WINDOW oMainWindow TITLE "Janela principal" SIZE 800,600 MAIN MDI
+   INIT WINDOW oMainWindow TITLE "Janela principal" SIZE 800,600 MAIN
 
    BEGIN MENUBAR oMenuBar OF oMainWindow
       BEGIN MENU oMenuA TITLE "Opções" OF oMenuBar
@@ -65,7 +65,7 @@ STATIC FUNCTION ChildWindow1 (oParent)
 
    LOCAL oWindow
 
-   INIT WINDOW oWindow MDICHILD TITLE "Janela 1" SIZE 640,480 OF oParent
+   INIT WINDOW oWindow CHILD TITLE "Janela 1" SIZE 640,480 OF oParent
 
    ACTIVATE WINDOW oWindow
 
@@ -77,7 +77,7 @@ STATIC FUNCTION ChildWindow2 (oParent)
 
    LOCAL oWindow
 
-   INIT WINDOW oWindow MDICHILD TITLE "Janela 2" SIZE 640,480 OF oParent
+   INIT WINDOW oWindow CHILD TITLE "Janela 2" SIZE 640,480 OF oParent
 
    ACTIVATE WINDOW oWindow
 
@@ -89,7 +89,7 @@ STATIC FUNCTION ChildWindow3 (oParent)
 
    LOCAL oWindow
 
-   INIT WINDOW oWindow MDICHILD TITLE "Janela 3" SIZE 640,480 OF oParent
+   INIT WINDOW oWindow CHILD TITLE "Janela 3" SIZE 640,480 OF oParent
 
    ACTIVATE WINDOW oWindow
 

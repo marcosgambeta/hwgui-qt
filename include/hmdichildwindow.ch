@@ -6,7 +6,7 @@
 
 */
 
-#xcommand INIT WINDOW <oObj> ;
+#xcommand INIT WINDOW <oObj> MDICHILD ;
           [ OF <oParent> ] ;
           [ TITLE <cTitle> ] ;
           [ AT <nX>,<nY> ] ;
@@ -14,7 +14,6 @@
           [ TOOLTIP <cToolTip> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ FONT <oFont> ] ;
-          [ MDICHILD ] ;
           => ;
           <oObj> := HMdiChildWindow():new( <oParent>, ;
                                            <nX>, ;
