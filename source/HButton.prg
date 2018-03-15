@@ -21,12 +21,11 @@ CLASS HButton INHERIT HControl
    METHOD new
    METHOD activate
    METHOD onClick
-   METHOD onGotFocus
-   METHOD onLostFocus
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,cText,bOnInit,bOnClick) CLASS HButton
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, cText, ;
+             bInit, bClick, bSize, bPaint, bGFocus, bLFocus ) CLASS HButton
 
    IF valtype(oParent) == "O"
       ::oQt := QPushButton():new(oParent:oQt)
@@ -70,12 +69,32 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
       ::oQt:setText(cText)
    ENDIF
 
-   IF valtype(bOnInit) == "B"
-      ::bInit := bOnInit
+   IF valtype(bInit) == "B"
+      ::bInit := bInit
    ENDIF
 
-   IF valtype(bOnClick) == "B"
-      ::bClick := bOnClick
+   IF valtype(bSize) == "B"
+      ::bSize := bSize
+      ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bPaint) == "B"
+      ::bPaint := bPaint
+      ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bGFocus) == "B"
+      ::bGFocus := bGFocus
+      ::oQt:onFocusInEvent( {|oSender,oEvent| ::onGFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bLFocus) == "B"
+      ::bLFocus := bLFocus
+      ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bClick) == "B"
+      ::bClick := bClick
       ::oQt:onClicked({||::onClick()}) // TODO: desconexão
    ENDIF
 
@@ -104,10 +123,4 @@ METHOD onClick () CLASS HButton
       eval(::bClick)
    ENDIF
 
-RETURN NIL
-
-METHOD onGotFocus () CLASS HButton
-RETURN NIL
-
-METHOD onLostFocus () CLASS HButton
 RETURN NIL

@@ -15,8 +15,12 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ OBJECTNAME <cObjectName> ] ;
-            [ ON INIT <bOnInit> ] ;
-            [ ON CLICK <bOnClick> ] ;
+            [ ON INIT <bInit> ] ;
+            [ ON CLICK <bClick> ] ;
+            [ ON SIZE <bSize> ] ;
+            [ ON PAINT <bPaint> ] ;
+            [ ON GETFOCUS <bGFocus> ] ;
+            [ ON LOSTFOCUS <bLFocus> ] ;
             => ;
             [ <oObj> := ] HButton():new( <oParent>, ;
                                          <nX>, ;
@@ -29,5 +33,9 @@
                                          <cStyleSheet>, ;
                                          <oFont>, ;
                                          <cText>, ;
-                                         <bOnInit>, ;
-                                         <bOnClick> )
+                                         <bInit>, ;
+                                         <bClick>, ;
+                                         <bSize>, ;
+                                         <bPaint>, ;
+                                         <bGFocus>, ;
+                                         <bLFocus> )

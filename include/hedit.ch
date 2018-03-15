@@ -15,7 +15,11 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ PICTURE <cPicture> ] ;
-            [ ON INIT <bOnInit> ] ;
+            [ ON INIT <bInit> ] ;
+            [ ON SIZE <bSize> ] ;
+            [ ON PAINT <bPaint> ] ;
+            [ ON GETFOCUS <bGFocus> ] ;
+            [ ON LOSTFOCUS <bLFocus> ] ;
             => ;
             [ <oObj> := ] HEdit():new( <oParent>, ;
                                        <nX>, ;
@@ -30,4 +34,8 @@
                                        <xVar>, ;
                                        {|x|iif(x==nil,<xVar>,<xVar>:=x)}, ;
                                        <cPicture>, ;
-                                       <bOnInit> )
+                                       <bInit>, ;
+                                       <bSize>, ;
+                                       <bPaint>, ;
+                                       <bGFocus>, ;
+                                       <bLFocus> )

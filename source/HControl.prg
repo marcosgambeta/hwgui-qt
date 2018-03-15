@@ -21,6 +21,11 @@ CLASS HControl INHERIT HCustomWindow
    METHOD getText
    METHOD setText
 
+   METHOD onSize
+   METHOD onPaint
+   METHOD onGFocus
+   METHOD onLFocus
+
 ENDCLASS
 
 // retorna o texto do controle
@@ -30,4 +35,36 @@ RETURN ::oQt:text()
 // define o texto do controle
 METHOD setText (cText) CLASS HControl
    ::oQt:setText(cText)
+RETURN NIL
+
+METHOD onSize (oSender,oEvent) CLASS HControl
+
+   IF valtype(::bSize) == "B"
+      eval(::bSize)
+   ENDIF
+
+RETURN NIL
+
+METHOD onPaint (oSender,oEvent) CLASS HControl
+
+   IF valtype(::bPaint) == "B"
+      eval(::bPaint)
+   ENDIF
+
+RETURN NIL
+
+METHOD onGFocus (oSender,oEvent) CLASS HControl
+
+   IF valtype(::bGFocus) == "B"
+      eval(::bGFocus)
+   ENDIF
+
+RETURN NIL
+
+METHOD onLFocus (oSender,oEvent) CLASS HControl
+
+   IF valtype(::bLFocus) == "B"
+      eval(::bLFocus)
+   ENDIF
+
 RETURN NIL

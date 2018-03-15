@@ -21,12 +21,14 @@ CLASS HCheckButton INHERIT HControl
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,cText,lValue,par13,bOnInit) CLASS HCheckButton
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             cText, lValue, par13, ;
+             bInit, bSize, bPaint, bGFocus, bLFocus ) CLASS HCheckButton
 
    IF valtype(oParent) == "O"
       ::oQt := QCheckBox():new(oParent:oQt)
    ELSE
-      ::oQt := QCheckBox():new()
+      ::oQt := QCheckBox():new(HFILO():last():oQt)
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
@@ -65,8 +67,32 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
       ::oQt:setCheckState(iif(lValue,Qt_Checked,Qt_Unchecked))
    ENDIF
 
-   IF valtype(bOnInit) == "B"
-      ::bInit := bOnInit
+   IF valtype(par13) == "L"
+      ::oQt:setCheckState(iif(par13,Qt_Checked,Qt_Unchecked))
+   ENDIF
+
+   IF valtype(bInit) == "B"
+      ::bInit := bInit
+   ENDIF
+
+   IF valtype(bSize) == "B"
+      ::bSize := bSize
+      ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bPaint) == "B"
+      ::bPaint := bPaint
+      ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bGFocus) == "B"
+      ::bGFocus := bGFocus
+      ::oQt:onFocusInEvent( {|oSender,oEvent| ::onGFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bLFocus) == "B"
+      ::bLFocus := bLFocus
+      ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
    ENDIF
 
    // atualiza propriedades do objeto

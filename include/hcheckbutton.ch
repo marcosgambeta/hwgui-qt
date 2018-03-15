@@ -15,7 +15,11 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ INIT <lValue> ] ;
-            [ ON INIT <bOnInit> ] ;
+            [ ON INIT <bInit> ] ;
+            [ ON SIZE <bSize> ] ;
+            [ ON PAINT <bPaint> ] ;
+            [ ON GETFOCUS <bGFocus> ] ;
+            [ ON LOSTFOCUS <bLFocus> ] ;
             => ;
             [ <oObj> := ] HCheckButton():new( <oParent>, ;
                                               <nX>, ;
@@ -29,8 +33,12 @@
                                               <oFont>, ;
                                               <cText>, ;
                                               <lValue>, ;
-                                              , ;
-                                              <bOnInit> )
+                                              NIL, ;
+                                              <bInit>,;
+                                              <bSize>, ;
+                                              <bPaint>, ;
+                                              <bGFocus>, ;
+                                              <bLFocus> )
 
 #xcommand @ <nX>,<nY> GET CHECKBOX [ <oObj> VAR ] <xVar> ;
             CAPTION <cText> ;
@@ -41,7 +49,11 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
-            [ ON INIT <bOnInit> ] ;
+            [ ON INIT <bInit> ] ;
+            [ ON SIZE <bSize> ] ;
+            [ ON PAINT <bPaint> ] ;
+            [ ON GETFOCUS <bGFocus> ] ;
+            [ ON LOSTFOCUS <bLFocus> ] ;
             => ;
             [ <oObj> := ] HCheckButton():new( <oParent>, ;
                                               <nX>, ;
@@ -56,4 +68,8 @@
                                               <cText>, ;
                                               .F., ;
                                               <xVar>, ;
-                                              <bOnInit> )
+                                              <bInit>,;
+                                              <bSize>, ;
+                                              <bPaint>, ;
+                                              <bGFocus>, ;
+                                              <bLFocus> )

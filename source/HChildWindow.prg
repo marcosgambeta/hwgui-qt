@@ -25,6 +25,11 @@ CLASS HChildWindow INHERIT HWindow
    METHOD restore
    METHOD close
 
+   METHOD onSize
+   METHOD onPaint
+   METHOD onGFocus
+   METHOD onLFocus
+
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTitle, ;
