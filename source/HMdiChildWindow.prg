@@ -83,12 +83,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTi
 
    IF valtype(bGFocus) == "B"
       ::bGFocus := bGFocus
-      // TODO: janela ganha foco
+      ::oQt:onWindowActivateEvent( {|oSender,oEvent| ::onGFocus(oSender,oEvent) } )
    ENDIF
 
    IF valtype(bLFocus) == "B"
       ::bLFocus := bLFocus
-      // TODO: janela perde foco
+      ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
    ENDIF
 
    // atualiza propriedades do objeto
