@@ -16,12 +16,36 @@
 
 CLASS HWGCustomWindow INHERIT HWGObject
 
-   DATA nLeft          // coordenada x do widget
-   DATA nTop           // coordenada y do widget
-   DATA nWidth         // largura do widget
-   DATA nHeight        // altura do widget
+   //DATA nLeft          // coordenada x do widget
+   ACCESS nLeft INLINE ::oQt:x()
+   ASSIGN nLeft(nX) INLINE ::oQt:move(nX,::oQt:y())
+   //DATA nTop           // coordenada y do widget
+   ACCESS nTop INLINE ::oQt:y()
+   ASSIGN nTop(nY) INLINE ::oQt:move(::oQt:x(),nY)
+   //DATA nWidth         // largura do widget
+   ACCESS nWidth INLINE ::oQt:width()
+   ASSIGN nWidth(nWidth) INLINE ::oQt:resize(nWidth,::oQt:height())
+   //DATA nHeight        // altura do widget
+   ACCESS nHeight INLINE ::oQt:height()
+   ASSIGN nHeight(nHeight) INLINE ::oQt:resize(::oQt:width(),nHeight)
 
    DATA lHide INIT .F. // .T. = visivel .F. = invisivel
+
+   ACCESS cToolTip INLINE ::oQt:toolTip()
+   ASSIGN cToolTip(cToolTip) INLINE ::oQt:setToolTip(cToolTip)
+
+   ACCESS cStatusTip INLINE ::oQt:statusTip()
+   ASSIGN cStatusTip(cStatusTip) INLINE ::oQt:setStatusTip(cStatusTip)
+
+   ACCESS cWhatsThis INLINE ::oQt:whatsThis()
+   ASSIGN cWhatsThis(cWhatsThis) INLINE ::oQt:setWhatsThis(cWhatsThis)
+
+   ACCESS cStyleSheet INLINE ::oQt:styleSheet()
+   ASSIGN cStyleSheet(cStyleSheet) INLINE ::oQt:setStyleSheet(cStyleSheet)
+
+// TODO: corrigir
+//    ACCESS oFont INLINE ::oQt:font()
+//    ASSIGN oFont(oFont) INLINE ::oQt:setFont(oFont)
 
    DATA bInit
    DATA bSize
