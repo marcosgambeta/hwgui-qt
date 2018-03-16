@@ -12,7 +12,7 @@
 
 */
 
-#include "hwgui.ch"
+#include "hwguiqt.ch"
 
 PROCEDURE Main ()
 
