@@ -33,7 +33,7 @@ CLASS HDialog INHERIT HCustomWindow
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTitle, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus ) CLASS HDialog
+             bInit, bSize, bPaint, bGFocus, bLFocus, bExit ) CLASS HDialog
 
    IF valtype(oParent) == "O"
       ::oQt := QDialog():new(oParent:oQt)
@@ -87,6 +87,10 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTi
    IF valtype(bLFocus) == "B"
       ::bLFocus := bLFocus
       ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bExit) == "B"
+      ::bExit := bExit
    ENDIF
 
    // atualiza propriedades do objeto

@@ -33,7 +33,7 @@ CLASS HMdiChildWindow INHERIT HWindow
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTitle, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus ) CLASS HMdiChildWindow
+             bInit, bSize, bPaint, bGFocus, bLFocus, bExit ) CLASS HMdiChildWindow
 
    IF valtype(oParent) == "O"
       ::oQt := QMdiSubWindow():new()
@@ -89,6 +89,10 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTi
    IF valtype(bLFocus) == "B"
       ::bLFocus := bLFocus
       ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bExit) == "B"
+      ::bExit := bExit
    ENDIF
 
    // atualiza propriedades do objeto

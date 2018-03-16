@@ -1,8 +1,16 @@
+#
+# HWGUIQt - módulo para Qt4xHb/Qt5xHb com sintaxe no estilo HWGUI
+#
+# Copyright (C) 2018 Marcos Antonio Gambeta <marcosgambeta AT outlook DOT com>
+#
+
 source\HBitmap.prg
+source\HBrowse.prg
 source\HButton.prg
 source\HButtonEx.prg
 source\HCheckButton.prg
 source\HChildWindow.prg
+source\HColumn.prg
 source\HComboBox.prg
 source\HControl.prg
 source\HCustomWindow.prg

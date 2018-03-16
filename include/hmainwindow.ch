@@ -22,6 +22,7 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON EXIT <bExit> ] ;
           => ;
           <oObj> := HMainWindow():new( <oParent>, ;
                                        <nX>, ;
@@ -37,4 +38,5 @@
                                        <bSize>, ;
                                        <bPaint>, ;
                                        <bGFocus>, ;
-                                       <bLFocus> )
+                                       <bLFocus>, ;
+                                       <bExit> )

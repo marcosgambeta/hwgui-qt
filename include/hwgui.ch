@@ -13,6 +13,7 @@
 #include "qt5xhb.ch"
 #endif
 
+#include "hbrowse.ch"
 #include "hbutton.ch"
 #include "hbuttonex.ch"
 #include "hcheckbutton.ch"

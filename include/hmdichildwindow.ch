@@ -20,6 +20,7 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON EXIT <bExit> ] ;
           => ;
           <oObj> := HMdiChildWindow():new( <oParent>, ;
                                            <nX>, ;
@@ -34,4 +35,5 @@
                                            <bSize>, ;
                                            <bPaint>, ;
                                            <bGFocus>, ;
-                                           <bLFocus> )
+                                           <bLFocus>, ;
+                                           <bExit> )

@@ -34,7 +34,7 @@ CLASS HMainWindow INHERIT HWindow
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTitle, lMDI, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus ) CLASS HMainWindow
+             bInit, bSize, bPaint, bGFocus, bLFocus, bExit ) CLASS HMainWindow
 
    IF valtype(oParent) == "O"
       ::oQt := QMainWindow():new(oParent)
@@ -88,6 +88,10 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTi
    IF valtype(bLFocus) == "B"
       ::bLFocus := bLFocus
       ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(bExit) == "B"
+      ::bExit := bExit
    ENDIF
 
    // atualiza propriedades do objeto
