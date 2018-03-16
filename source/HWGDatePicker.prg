@@ -24,14 +24,15 @@ CLASS HWGDatePicker INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,dDate,bOnInit) CLASS HWGDatePicker
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             dDate, bOnInit ) CLASS HWGDatePicker
 
    LOCAL oDate
 
    IF valtype(oParent) == "O"
       ::oQt := QLineEdit():new(oParent:oQt)
    ELSE
-      ::oQt := QLineEdit():new()
+      ::oQt := QLineEdit():new(HWGFILO():last():oQt)
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
