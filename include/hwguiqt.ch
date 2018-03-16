@@ -27,6 +27,7 @@
 #include "hwgdial.ch"
 #include "hwgdialog.ch"
 #include "hwgedit.ch"
+#include "hwgeditbox.ch"
 #include "hwgfont.ch"
 #include "hwgmainwindow.ch"
 #include "hwgmdichildwindow.ch"

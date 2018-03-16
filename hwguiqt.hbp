@@ -19,6 +19,7 @@ source\HWGDatePicker.prg
 source\HWGDial.prg
 source\HWGDialog.prg
 source\HWGEdit.prg
+source\HWGEditBox.prg
 source\HWGFILO.prg
 source\HWGFont.prg
 source\HWGGroup.prg
