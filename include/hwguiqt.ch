@@ -16,6 +16,7 @@
 #xtranslate __IIF(.T., [<true>], [<false>]) => <true>
 #xtranslate __IIF(.F., [<true>], [<false>]) => <false>
 
+#include "hwgaction.ch"
 #include "hwgbrowse.ch"
 #include "hwgbutton.ch"
 #include "hwgbuttonex.ch"

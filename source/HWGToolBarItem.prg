@@ -19,6 +19,7 @@ CLASS HWGToolBarItem INHERIT HWGControl
    DATA bAction
 
    METHOD new
+   METHOD newWithAction
 
 ENDCLASS
 
@@ -58,6 +59,20 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
         ::oQt := QAction():new():setSeparator(.T.)
       ENDIF
 
+   ENDIF
+
+RETURN self
+
+METHOD newWithAction ( oParent, oAction ) CLASS HWGToolBarItem
+
+   IF valtype(oParent) == "O"
+      ::oQt := oParent:oQt:addAction(oAction:oQt)
+   ELSE
+      IF HWGFILO():last():oQt:metaObject():className() == "QToolBar"
+         ::oQt := HWGFILO():last():oQt:addAction(oAction:oQt)
+      ELSE
+         ::oQt := oAction:oQt
+      ENDIF
    ENDIF
 
 RETURN self

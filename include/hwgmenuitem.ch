@@ -40,3 +40,7 @@
                                            NIL, ;
                                            NIL, ;
                                            .T. )
+
+#xcommand MENUITEM [ <oObj> ] USING ACTION <oAction> [ OF <oParent> ] [ <class:CLASS> <className> ] ;
+          => ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenuItem)():newWithAction( <oParent>, <oAction> )

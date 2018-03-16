@@ -40,3 +40,7 @@
                                               NIL, ;
                                               NIL, ;
                                               .T. )
+
+#xcommand TOOLBARITEM [ <oObj> ] USING ACTION <oAction> [ OF <oParent> ] [ <class:CLASS> <className> ] ;
+          => ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBarItem)():newWithAction( <oParent>, <oAction> )

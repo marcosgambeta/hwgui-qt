@@ -44,6 +44,8 @@ METHOD new (oParent,cStyleSheet,par3,par4,par5,par6,par7,par8,par9,par10,bOnInit
 
    ::activate()
 
+   HWGFILO():add(self)
+
 RETURN self
 
 METHOD activate () CLASS HWGToolBar

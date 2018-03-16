@@ -19,6 +19,7 @@ CLASS HWGMenuItem INHERIT HWGControl
    DATA bAction
 
    METHOD new
+   METHOD newWithAction
 
 ENDCLASS
 
@@ -60,6 +61,20 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
         ::oQt := HWGFILO():last():oQt:addSeparator()
       ENDIF
 
+   ENDIF
+
+RETURN self
+
+METHOD newWithAction (oParent,oAction) CLASS HWGMenuItem
+
+   IF valtype(oParent) == "O"
+      ::oQt := oParent:oQt:addAction(oAction:oQt)
+   ELSE
+      IF HWGFilo():last():oQt:metaObject():className() == "QMenu"
+         ::oQt := HWGFilo():last():oQt:addAction(oAction:oQt)
+      ELSE
+         ::oQt := oAction:oQt
+      ENDIF
    ENDIF
 
 RETURN self
