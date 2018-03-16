@@ -15,8 +15,9 @@
           [ <lItalic : ITALIC> ] ;
           [ <lUnderline : UNDERLINE> ] ;
           [ <lStrikeout : STRIKEOUT> ] ;
+          [ <class:CLASS> <className> ] ;
           => ;
-          <oObj> := HWGFont():add( <cName>, ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGFont)():add( <cName>, ;
                                    <nWidth>, ;
                                    <nHeight>, ;
                                    <nWeight>, ;

@@ -15,8 +15,9 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGTab():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGTab)():new( <oParent>, ;
                                         <nX>, ;
                                         <nY>, ;
                                         <nWidth>, ;

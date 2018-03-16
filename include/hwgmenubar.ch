@@ -9,8 +9,9 @@
 #xcommand BEGIN MENUBAR <oObj> ;
           [ OF <oParent> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
+          [ <class:CLASS> <className> ] ;
           => ;
-          <oObj> := HWGMenuBar():new( <oParent>, ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenuBar)():new( <oParent>, ;
                                       <cStyleSheet> )
 
 #xcommand END MENUBAR => HWGFILO():remove()

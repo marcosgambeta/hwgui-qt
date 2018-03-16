@@ -19,8 +19,9 @@
             [ PREFIX <cPrefix> ] ;
             [ SUFFIX <cSuffix> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGUpDown():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGUpDown)():new( <oParent>, ;
                                            <nX>, ;
                                            <nY>, ;
                                            <nWidth>, ;
@@ -51,8 +52,9 @@
             [ PREFIX <cPrefix> ] ;
             [ SUFFIX <cSuffix> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HUpDown():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGUpDown)():new( <oParent>, ;
                                          <nX>, ;
                                          <nY>, ;
                                          <nWidth>, ;

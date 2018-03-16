@@ -23,8 +23,9 @@
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
           [ ON EXIT <bExit> ] ;
+          [ <class:CLASS> <className> ] ;
           => ;
-          <oObj> := HWGMainWindow():new( <oParent>, ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGMainWindow)():new( <oParent>, ;
                                          <nX>, ;
                                          <nY>, ;
                                          <nWidth>, ;

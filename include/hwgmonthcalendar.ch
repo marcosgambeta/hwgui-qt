@@ -16,8 +16,9 @@
             [ FONT <oFont> ] ;
             [ INIT <dDate> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGMonthCalendar():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGMonthCalendar)():new( <oParent>, ;
                                                   <nX>, ;
                                                   <nY>, ;
                                                   <nWidth>, ;

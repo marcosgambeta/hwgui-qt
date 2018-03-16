@@ -16,8 +16,9 @@
             [ FONT <oFont> ] ;
             [ <lVertical : VERTICAL> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGProgressBar():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGProgressBar)():new( <oParent>, ;
                                                 <nX>, ;
                                                 <nY>, ;
                                                 <nWidth>, ;

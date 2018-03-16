@@ -15,8 +15,9 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGToolBar():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBar)():new( <oParent>, ;
                                             <nX>, ;
                                             <nY>, ;
                                             <nWidth>, ;
@@ -31,8 +32,9 @@
 #xcommand BEGIN TOOLBAR [ <oObj> ] ;
           [ OF <oParent> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
+          [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> ] := HWGToolBar():new( <oParent>, ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBar)():new( <oParent>, ;
                                           <cStyleSheet> )
 
 #xcommand END TOOLBAR =>

@@ -10,8 +10,9 @@
           [ OF <oParent> ] ;
           [ TITLE <cTitle> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
+          [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] HWGMenu():new( <oParent>, ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenu)():new( <oParent>, ;
                                        <cTitle>, ;
                                        <cStyleSheet> )
 

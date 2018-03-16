@@ -21,8 +21,9 @@
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
           [ ON EXIT <bExit> ] ;
+          [ <class:CLASS> <className> ] ;
           => ;
-          <oObj> := HWGMdiChildWindow():new( <oParent>, ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGMdiChildWindow)():new( <oParent>, ;
                                              <nX>, ;
                                              <nY>, ;
                                              <nWidth>, ;

@@ -17,8 +17,9 @@
             [ RANGE <nMinimum>,<nMaximum> ] ;
             [ <lNotchesVisible : NOTCHESVISIBLE> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGDial():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGDial)():new( <oParent>, ;
                                          <nX>, ;
                                          <nY>, ;
                                          <nWidth>, ;
@@ -45,8 +46,9 @@
             [ RANGE <nMinimum>,<nMaximum> ] ;
             [ <lNotchesVisible : NOTCHESVISIBLE> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGDial():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGDial)():new( <oParent>, ;
                                          <nX>, ;
                                          <nY>, ;
                                          <nWidth>, ;

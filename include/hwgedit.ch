@@ -20,8 +20,9 @@
             [ ON PAINT <bPaint> ] ;
             [ ON GETFOCUS <bGFocus> ] ;
             [ ON LOSTFOCUS <bLFocus> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGEdit():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGEdit)():new( <oParent>, ;
                                          <nX>, ;
                                          <nY>, ;
                                          <nWidth>, ;

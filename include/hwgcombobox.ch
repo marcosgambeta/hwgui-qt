@@ -15,8 +15,9 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGComboBox():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGComboBox)():new( <oParent>, ;
                                              <nX>, ;
                                              <nY>, ;
                                              <nWidth>, ;
@@ -39,8 +40,9 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGComboBox():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGComboBox)():new( <oParent>, ;
                                              <nX>, ;
                                              <nY>, ;
                                              <nWidth>, ;

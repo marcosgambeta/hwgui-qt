@@ -21,8 +21,9 @@
             [ ON PAINT <bPaint> ] ;
             [ ON GETFOCUS <bGFocus> ] ;
             [ ON LOSTFOCUS <bLFocus> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGButton():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGButton)():new( <oParent>, ;
                                            <nX>, ;
                                            <nY>, ;
                                            <nWidth>, ;

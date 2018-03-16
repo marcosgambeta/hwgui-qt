@@ -16,8 +16,9 @@
             [ FONT <oFont> ] ;
             [ INIT <dDate> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGDatePicker():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGDatePicker)():new( <oParent>, ;
                                                <nX>, ;
                                                <nY>, ;
                                                <nWidth>, ;

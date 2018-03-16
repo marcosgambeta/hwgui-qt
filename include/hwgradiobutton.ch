@@ -15,8 +15,9 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGRadioButton():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGRadioButton)():new( <oParent>, ;
                                                 <nX>, ;
                                                 <nY>, ;
                                                 <nWidth>, ;

@@ -15,8 +15,9 @@
           [ STYLESHEET <cStyleSheet> ] ;
           [ ID <nId> ] ;
           [ BITMAP <cBitmap> ] ;
+          [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] HWGMenuItem():new( <oParent>, ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenuItem)():new( <oParent>, ;
                                            <cOption>, ;
                                            <{bAction}>, ;
                                            <cToolTip>, ;
@@ -29,8 +30,9 @@
 
 #xcommand SEPARATOR [ <oObj> ] ;
           [ OF <oParent> ] ;
+          [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] HWGMenuItem():new( <oParent>, ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenuItem)():new( <oParent>, ;
                                            NIL, ;
                                            NIL, ;
                                            NIL, ;

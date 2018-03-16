@@ -10,7 +10,8 @@
           [ OF <oParent> ] ;
           [ VALUE <nValue> ] ;
           [ ACTION <bAction> ] ;
+          [ <class:CLASS> <className> ] ;
           => ;
-          <oObj> := HWGTimer():new( <oParent>, ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGTimer)():new( <oParent>, ;
                                     <nValue>, ;
                                     <bAction> )

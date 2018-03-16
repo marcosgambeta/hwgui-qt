@@ -14,8 +14,9 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGPanel():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGPanel)():new( <oParent>, ;
                                           <nX>, ;
                                           <nY>, ;
                                           <nWidth>, ;

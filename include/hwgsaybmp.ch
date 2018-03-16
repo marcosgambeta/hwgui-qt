@@ -14,8 +14,9 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGSayBmp():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGSayBmp)():new( <oParent>, ;
                                            <nX>, ;
                                            <nY>, ;
                                            <nWidth>, ;

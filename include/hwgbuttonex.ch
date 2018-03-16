@@ -15,8 +15,9 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HGWButtonEx():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGButtonEx)():new( <oParent>, ;
                                              <nX>, ;
                                              <nY>, ;
                                              <nWidth>, ;

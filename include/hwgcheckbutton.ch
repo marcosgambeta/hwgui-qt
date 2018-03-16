@@ -20,8 +20,9 @@
             [ ON PAINT <bPaint> ] ;
             [ ON GETFOCUS <bGFocus> ] ;
             [ ON LOSTFOCUS <bLFocus> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGCheckButton():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGCheckButton)():new( <oParent>, ;
                                                 <nX>, ;
                                                 <nY>, ;
                                                 <nWidth>, ;
@@ -54,8 +55,9 @@
             [ ON PAINT <bPaint> ] ;
             [ ON GETFOCUS <bGFocus> ] ;
             [ ON LOSTFOCUS <bLFocus> ] ;
+            [ <class:CLASS> <className> ] ;
             => ;
-            [ <oObj> := ] HWGCheckButton():new( <oParent>, ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGCheckButton)():new( <oParent>, ;
                                               <nX>, ;
                                               <nY>, ;
                                               <nWidth>, ;
