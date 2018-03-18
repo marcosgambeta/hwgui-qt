@@ -97,7 +97,7 @@ METHOD activate () CLASS HWGDial
 
 RETURN NIL
 
-METHOD value () CLASS HDial
+METHOD value () CLASS HWGDial
 RETURN ::oQt:value()
 
 METHOD setValue (nValue) CLASS HWGDial
