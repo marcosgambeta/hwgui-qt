@@ -15,6 +15,7 @@
           [ STYLESHEET <cStyleSheet> ] ;
           [ ID <nId> ] ;
           [ BITMAP <cBitmap> ] ;
+          [ <lDisabled:DISABLED> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenuItem)():new( <oParent>, ;
@@ -26,7 +27,8 @@
                                            <cStyleSheet>, ;
                                            .F., ;
                                            <nId>, ;
-                                           <cBitmap> )
+                                           <cBitmap>, ;
+                                           <.lDisabled.> )
 
 #xcommand SEPARATOR [ <oObj> ] ;
           [ OF <oParent> ] ;

@@ -14,6 +14,9 @@
 #endif
 #include "hbclass.ch"
 
+// TODO: QAction não é objeto visual
+//       herdar classe de HWGObject ?
+
 CLASS HWGMenuItem INHERIT HWGControl
 
    DATA bAction
@@ -23,7 +26,7 @@ CLASS HWGMenuItem INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, lSeparator, nId, cBitmap) CLASS HWGMenuItem
+METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, lSeparator, nId, cBitmap, lDisabled ) CLASS HWGMenuItem
 
    IF lSeparator == NIL
       lSeparator := .F.
@@ -48,6 +51,12 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
 
       IF valtype(bAction) == "B"
         ::bAction := bAction
+      ENDIF
+
+      IF valtype(lDisabled) == "L"
+         IF lDisabled
+            ::oQt:setEnabled(.F.)
+         ENDIF
       ENDIF
 
       ::oQt:onTriggered({||iif(valtype(::bAction)=="B",eval(::bAction),NIL)})
