@@ -107,6 +107,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTi
       ::oMdiArea := QMdiArea():new()
       ::oQt:setCentralWidget(::oMdiArea)
    ENDIF
+   
+   HWGFILO():add(self)
 
 RETURN self
 
