@@ -25,14 +25,19 @@ CLASS HWGDatePicker INHERIT HWGControl
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
-             dDate, bOnInit ) CLASS HWGDatePicker
+             dDate, ;
+             bOnInit, lDisabled ) CLASS HWGDatePicker
 
    LOCAL oDate
 
    IF valtype(oParent) == "O"
       ::oQt := QLineEdit():new(oParent:oQt)
    ELSE
-      ::oQt := QLineEdit():new(HWGFILO():last():oQt)
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QLineEdit():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QLineEdit():new()
+      ENDIF
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
@@ -73,6 +78,15 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
+   ENDIF
+
+   // TODO: enabled/disable deve agir nos dois objetos (::oQt e ::oActionButton)
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+         ::oActionButton:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto

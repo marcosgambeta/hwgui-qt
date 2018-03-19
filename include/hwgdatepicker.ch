@@ -16,6 +16,7 @@
             [ FONT <oFont> ] ;
             [ INIT <dDate> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGDatePicker)():new( <oParent>, ;
@@ -29,4 +30,32 @@
                                                <cStyleSheet>, ;
                                                <oFont>, ;
                                                <dDate>, ;
-                                               <bOnInit> )
+                                               <bOnInit>, ;
+                                               <.lDisabled.> )
+
+#xcommand @ <nX>,<nY> GET DATEPICKER [ <oObj> VAR ] <xVar> ;
+            [ OF <oParent> ] ;
+            [ SIZE <nWidth>,<nHeight> ] ;
+            [ TOOLTIP <cToolTip> ] ;
+            [ STATUSTIP <cStatusTip> ] ;
+            [ WHATSTHIS <cWhatsThis> ] ;
+            [ STYLESHEET <cStyleSheet> ] ;
+            [ FONT <oFont> ] ;
+            [ INIT <dDate> ] ;
+            [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
+            [ <class:CLASS> <className> ] ;
+            => ;
+            [ <oObj> := ] __IIF(<.class.>,<className>,HWGDatePicker)():new( <oParent>, ;
+                                               <nX>, ;
+                                               <nY>, ;
+                                               <nWidth>, ;
+                                               <nHeight>, ;
+                                               <cToolTip>, ;
+                                               <cStatusTip>, ;
+                                               <cWhatsThis>, ;
+                                               <cStyleSheet>, ;
+                                               <oFont>, ;
+                                               <dDate>, ;
+                                               <bOnInit>, ;
+                                               <.lDisabled.> )
