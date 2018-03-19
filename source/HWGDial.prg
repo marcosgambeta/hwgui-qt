@@ -26,12 +26,18 @@ CLASS HWGDial INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,nValue,nMinimum,nMaximum,lNotchesVisible,bOnInit) CLASS HWGDial
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             nValue, nMinimum, nMaximum, lNotchesVisible, ;
+             bOnInit, lDisabled ) CLASS HWGDial
 
    IF valtype(oParent) == "O"
       ::oQt := QDial():new(oParent:oQt)
    ELSE
-      ::oQt := QDial():new()
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QDial():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QDial():new()
+      ENDIF
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
@@ -76,6 +82,12 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto

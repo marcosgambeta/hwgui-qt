@@ -17,6 +17,7 @@
             [ RANGE <nMinimum>,<nMaximum> ] ;
             [ <lNotchesVisible : NOTCHESVISIBLE> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGDial)():new( <oParent>, ;
@@ -33,7 +34,8 @@
                                          <nMinimum>, ;
                                          <nMaximum>, ;
                                          <.lNotchesVisible.>, ;
-                                         <bOnInit> )
+                                         <bOnInit>, ;
+                                         <.lDisabled.> )
 
 #xcommand @ <nX>,<nY> DIAL [ <oObj> VAR ] <xVar> ;
             [ OF <oParent> ] ;
@@ -46,6 +48,7 @@
             [ RANGE <nMinimum>,<nMaximum> ] ;
             [ <lNotchesVisible : NOTCHESVISIBLE> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGDial)():new( <oParent>, ;
@@ -62,4 +65,5 @@
                                          <nMinimum>, ;
                                          <nMaximum>, ;
                                          <.lNotchesVisible.>, ;
-                                         <bOnInit> )
+                                         <bOnInit>, ;
+                                         <.lDisabled.> )
