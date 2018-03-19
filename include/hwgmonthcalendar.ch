@@ -16,6 +16,7 @@
             [ FONT <oFont> ] ;
             [ INIT <dDate> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGMonthCalendar)():new( <oParent>, ;
@@ -29,4 +30,5 @@
                                                   <cStyleSheet>, ;
                                                   <oFont>, ;
                                                   <dDate>, ;
-                                                  <bOnInit> )
+                                                  <bOnInit>, ;
+                                                  <.lDisabled.> )

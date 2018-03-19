@@ -21,14 +21,20 @@ CLASS HWGMonthCalendar INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,dDate,bOnInit) CLASS HWGMonthCalendar
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             dDate, ;
+             bOnInit, lDisabled ) CLASS HWGMonthCalendar
 
    LOCAL oDate
 
    IF valtype(oParent) == "O"
       ::oQt := QCalendarWidget():new(oParent:oQt)
    ELSE
-      ::oQt := QCalendarWidget():new()
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QCalendarWidget():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QCalendarWidget():new()
+      ENDIF
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
@@ -67,6 +73,12 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto
