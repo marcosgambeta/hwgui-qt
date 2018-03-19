@@ -21,7 +21,7 @@ CLASS HWGToolBar INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new (oParent,cStyleSheet,par3,par4,par5,par6,par7,par8,par9,par10,bOnInit) CLASS HWGToolBar
+METHOD new ( oParent, cStyleSheet, bOnInit, lDisabled ) CLASS HWGToolBar
 
    IF valtype(oParent) == "O"
       IF oParent:oQt:metaObject():className() == "QMainWindow"
@@ -31,7 +31,11 @@ METHOD new (oParent,cStyleSheet,par3,par4,par5,par6,par7,par8,par9,par10,bOnInit
          oParent:oQt:setToolBar(::oQt)
       ENDIF
    ELSE
-      ::oQt := QToolBar():new()
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QToolBar():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QToolBar():new()
+      ENDIF
    ENDIF
 
    IF valtype(cStyleSheet) == "C"
@@ -40,6 +44,12 @@ METHOD new (oParent,cStyleSheet,par3,par4,par5,par6,par7,par8,par9,par10,bOnInit
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    ::activate()

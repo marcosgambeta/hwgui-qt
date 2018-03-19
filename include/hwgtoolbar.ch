@@ -6,6 +6,8 @@
 
 */
 
+// TODO: manter esta sintaxe com coordenadas ?
+
 #xcommand @ <nX>,<nY> TOOLBAR [ <oObj> ] ;
             [ OF <oParent> ] ;
             [ SIZE <nWidth>,<nHeight> ] ;
@@ -15,6 +17,7 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBar)():new( <oParent>, ;
@@ -27,14 +30,19 @@
                                             <cWhatsThis>, ;
                                             <cStyleSheet>, ;
                                             <oFont>, ;
-                                            <bOnInit> )
+                                            <bOnInit>, ;
+                                            <.lDisabled.> )
 
 #xcommand BEGIN TOOLBAR [ <oObj> ] ;
           [ OF <oParent> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
+          [ ON INIT <bOnInit> ] ;
+          [ <lDisabled:DISABLED> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBar)():new( <oParent>, ;
-                                          <cStyleSheet> )
+                                          <cStyleSheet>, ;
+                                          <bOnInit>, ;
+                                          <.lDisabled.> )
 
-#xcommand END TOOLBAR =>
+#xcommand END TOOLBAR => HWGFILO():remove()
