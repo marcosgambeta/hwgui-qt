@@ -16,6 +16,7 @@
             [ FONT <oFont> ] ;
             [ <lVertical : VERTICAL> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGProgressBar)():new( <oParent>, ;
@@ -29,4 +30,5 @@
                                                 <cStyleSheet>, ;
                                                 <oFont>, ;
                                                 <.lVertical.>, ;
-                                                <bOnInit> )
+                                                <bOnInit>, ;
+                                                <.lDisabled.> )

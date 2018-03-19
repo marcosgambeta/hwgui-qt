@@ -21,12 +21,18 @@ CLASS HWGProgressBar INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,lVertical,bOnInit) CLASS HWGProgressBar
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             lVertical, ;
+             bOnInit, lDisabled ) CLASS HWGProgressBar
 
    IF valtype(oParent) == "O"
       ::oQt := QProgressBar():new(oParent:oQt)
    ELSE
-      ::oQt := QProgressBar():new()
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QProgressBar():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QProgressBar():new()
+      ENDIF
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
@@ -58,11 +64,19 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
    ENDIF
 
    IF valtype(lVertical) == "L"
-      ::oQt:setOrientation(Qt_Vertical)
+      IF lVertical
+         ::oQt:setOrientation(Qt_Vertical)
+      ENDIF
    ENDIF
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto
