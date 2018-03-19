@@ -22,7 +22,7 @@ PROCEDURE Main ()
 
    oApp := QApplication():new()
 
-   INIT DIALOG oDialog TITLE "Teste da classe HBrowse" SIZE 320,240
+   INIT DIALOG oDialog TITLE "Teste da classe HWGBrowse" SIZE 320,240
 
    @ 10,10 BROWSE oBrowse SIZE 320-20,240-20
 
