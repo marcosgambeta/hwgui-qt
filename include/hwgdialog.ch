@@ -39,4 +39,4 @@
                                      <bLFocus>, ;
                                      <bExit> )
 
-#xcommand ACTIVATE DIALOG <oObj> => <oObj>:activate()
+#xcommand ACTIVATE DIALOG <oObj> => HWGFILO():remove() ;; <oObj>:activate()
