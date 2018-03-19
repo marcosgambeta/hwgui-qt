@@ -22,6 +22,7 @@
             [ ON LOSTFOCUS <bLFocus> ] ;
             [ <lArray:ARRAY> ] ;
             [ <lDatabase:DATABASE> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGBrowse)():new( <oParent>, ;
@@ -40,4 +41,5 @@
                                            <bGFocus>, ;
                                            <bLFocus>, ;
                                            <.lArray.>, ;
-                                           <.lDatabase.> )
+                                           <.lDatabase.>, ;
+                                           <.lDisabled.> )

@@ -27,7 +27,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
              bInit, bSize, bPaint, bGFocus, bLFocus, ;
-             lArray, lDatabase ) CLASS HWGBrowse
+             lArray, lDatabase, lDisabled ) CLASS HWGBrowse
 
    IF valtype(oParent) == "O"
       ::oQt := QTableView():new(oParent:oQt)
@@ -89,6 +89,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(bLFocus) == "B"
       ::bLFocus := bLFocus
       ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto
