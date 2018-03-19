@@ -21,7 +21,9 @@ CLASS HWGComboBox INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,acItems,par12,bOnInit) CLASS HWGComboBox
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             acItems, par12, ;
+             bOnInit, lDisabled ) CLASS HWGComboBox
 
    IF valtype(oParent) == "O"
       ::oQt := QComboBox():new(oParent:oQt)
@@ -67,6 +69,12 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto

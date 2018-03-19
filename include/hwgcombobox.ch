@@ -15,6 +15,7 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGComboBox)():new( <oParent>, ;
@@ -29,7 +30,8 @@
                                              <oFont>, ;
                                              <aItems>, ;
                                              , ;
-                                             <bOnInit> )
+                                             <bOnInit>, ;
+                                             <.lDisabled.> )
 
 #xcommand @ <nX>,<nY> GET COMBOBOX [ <oObj> VAR ] <xVar> ITEMS <aItems> ;
             [ OF <oParent> ] ;
@@ -40,6 +42,7 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGComboBox)():new( <oParent>, ;
@@ -54,4 +57,5 @@
                                              <oFont>, ;
                                              <aItems>, ;
                                              <xVar>, ;
-                                             <bOnInit> )
+                                             <bOnInit>, ;
+                                             <.lDisabled.> )
