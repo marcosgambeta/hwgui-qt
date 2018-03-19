@@ -23,12 +23,16 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
              cText, lValue, par13, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus ) CLASS HWGCheckButton
+             bInit, bSize, bPaint, bGFocus, bLFocus, lDisabled ) CLASS HWGCheckButton
 
    IF valtype(oParent) == "O"
       ::oQt := QCheckBox():new(oParent:oQt)
    ELSE
-      ::oQt := QCheckBox():new(HWGFILO():last():oQt)
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QCheckBox():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QCheckBox():new()
+      ENDIF
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
@@ -93,6 +97,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(bLFocus) == "B"
       ::bLFocus := bLFocus
       ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto

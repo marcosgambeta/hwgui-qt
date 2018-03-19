@@ -20,6 +20,7 @@
             [ ON PAINT <bPaint> ] ;
             [ ON GETFOCUS <bGFocus> ] ;
             [ ON LOSTFOCUS <bLFocus> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGCheckButton)():new( <oParent>, ;
@@ -39,7 +40,8 @@
                                                 <bSize>, ;
                                                 <bPaint>, ;
                                                 <bGFocus>, ;
-                                                <bLFocus> )
+                                                <bLFocus>, ;
+                                                <.lDisabled.> )
 
 #xcommand @ <nX>,<nY> GET CHECKBOX [ <oObj> VAR ] <xVar> ;
             CAPTION <cText> ;
@@ -55,6 +57,7 @@
             [ ON PAINT <bPaint> ] ;
             [ ON GETFOCUS <bGFocus> ] ;
             [ ON LOSTFOCUS <bLFocus> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGCheckButton)():new( <oParent>, ;
@@ -74,4 +77,5 @@
                                               <bSize>, ;
                                               <bPaint>, ;
                                               <bGFocus>, ;
-                                              <bLFocus> )
+                                              <bLFocus>, ;
+                                              <.lDisabled.> )
