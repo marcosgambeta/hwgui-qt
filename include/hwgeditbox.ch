@@ -19,6 +19,7 @@
             [ ON PAINT <bPaint> ] ;
             [ ON GETFOCUS <bGFocus> ] ;
             [ ON LOSTFOCUS <bLFocus> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGEditBox)():new( <oParent>, ;
@@ -36,4 +37,5 @@
                                          <bSize>, ;
                                          <bPaint>, ;
                                          <bGFocus>, ;
-                                         <bLFocus> )
+                                         <bLFocus>, ;
+                                         <.lDisabled.> )
