@@ -21,12 +21,18 @@ CLASS HWGRadioButton INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,cText,bOnInit) CLASS HWGRadioButton
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             cText, ;
+             bOnInit, lDisabled ) CLASS HWGRadioButton
 
    IF valtype(oParent) == "O"
       ::oQt := QRadioButton():new(oParent:oQt)
    ELSE
-      ::oQt := QRadioButton():new()
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QRadioButton():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QRadioButton():new()
+      ENDIF
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
@@ -63,6 +69,12 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto

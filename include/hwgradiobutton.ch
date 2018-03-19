@@ -15,6 +15,7 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGRadioButton)():new( <oParent>, ;
@@ -28,4 +29,5 @@
                                                 <cStyleSheet>, ;
                                                 <oFont>, ;
                                                 <cText>, ;
-                                                <bOnInit> )
+                                                <bOnInit>, ;
+                                                <.lDisabled.> )
