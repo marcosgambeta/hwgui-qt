@@ -157,12 +157,12 @@ PROCEDURE Main ()
       END PAGE OF oTab5
    END PAGE OF oMainTab
 
-   @ 010,500-30 BUTTON oButton1 CAPTION "Botão1" SIZE 100,25 ON CLICK {||hwg_MsgInfo("botão 1")} OF oDialog
-   @ 110,500-30 BUTTON oButton2 CAPTION "Botão2" SIZE 100,25 ON CLICK {||hwg_MsgInfo("botão 2")} OF oDialog
-   @ 210,500-30 BUTTON oButton3 CAPTION "Botão3" SIZE 100,25 ON CLICK {||hwg_MsgInfo("botão 3")} OF oDialog
-   @ 310,500-30 BUTTON oButton4 CAPTION "Botão4" SIZE 100,25 ON CLICK {||hwg_MsgInfo("botão 4")} OF oDialog
-   @ 410,500-30 BUTTON oButton5 CAPTION "Botão5" SIZE 100,25 ON CLICK {||hwg_MsgInfo("botão 5")} OF oDialog
-   @ 510,500-30 BUTTON oButton6 CAPTION "Botão6" SIZE 100,25 ON CLICK {||hwg_MsgInfo("botão 6")} OF oDialog
+   @ 010,500-30 BUTTON oButton1 CAPTION "Botão1" SIZE 100,25 ON CLICK {||hwgqt_MsgInfo("botão 1")} OF oDialog
+   @ 110,500-30 BUTTON oButton2 CAPTION "Botão2" SIZE 100,25 ON CLICK {||hwgqt_MsgInfo("botão 2")} OF oDialog
+   @ 210,500-30 BUTTON oButton3 CAPTION "Botão3" SIZE 100,25 ON CLICK {||hwgqt_MsgInfo("botão 3")} OF oDialog
+   @ 310,500-30 BUTTON oButton4 CAPTION "Botão4" SIZE 100,25 ON CLICK {||hwgqt_MsgInfo("botão 4")} OF oDialog
+   @ 410,500-30 BUTTON oButton5 CAPTION "Botão5" SIZE 100,25 ON CLICK {||hwgqt_MsgInfo("botão 5")} OF oDialog
+   @ 510,500-30 BUTTON oButton6 CAPTION "Botão6" SIZE 100,25 ON CLICK {||hwgqt_MsgInfo("botão 6")} OF oDialog
 
    ACTIVATE DIALOG oDialog
 

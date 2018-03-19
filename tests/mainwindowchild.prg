@@ -29,14 +29,14 @@ PROCEDURE Main ()
          MENUITEM "Open" ACTION ChildWindow2(oMainWindow) BITMAP "images/open.png" OF oMenuA
          MENUITEM "Save" ACTION ChildWindow3(oMainWindow) BITMAP "images/save.png" OF oMenuA
          SEPARATOR OF oMenuA
-         MENUITEM "Cut" ACTION hwg_MsgInfo("cut") BITMAP "images/cut.png" OF oMenuA
-         MENUITEM "Copy" ACTION hwg_MsgInfo("copy") BITMAP "images/copy.png" OF oMenuA
-         MENUITEM "Paste" ACTION hwg_MsgInfo("paste") BITMAP "images/paste.png" OF oMenuA
+         MENUITEM "Cut" ACTION hwgqt_MsgInfo("cut") BITMAP "images/cut.png" OF oMenuA
+         MENUITEM "Copy" ACTION hwgqt_MsgInfo("copy") BITMAP "images/copy.png" OF oMenuA
+         MENUITEM "Paste" ACTION hwgqt_MsgInfo("paste") BITMAP "images/paste.png" OF oMenuA
          SEPARATOR OF oMenuA
          MENUITEM "Sair" ACTION oApp:quit() OF oMenuA
       END MENU
       BEGIN MENU oMenuB TITLE "Ajuda" OF oMenuBar
-         MENUITEM "Sobre este programa" ACTION hwg_MsgInfo("Teste com MDI", "Sobre este programa") OF oMenuB
+         MENUITEM "Sobre este programa" ACTION hwgqt_MsgInfo("Teste com MDI", "Sobre este programa") OF oMenuB
          MENUITEM "Sobre o Qt" ACTION oApp:aboutQt() OF oMenuB
       END MENU
    END MENUBAR
@@ -46,9 +46,9 @@ PROCEDURE Main ()
       TOOLBARITEM "Open" ACTION ChildWindow2(oMainWindow) BITMAP "images/open.png" OF oToolBar
       TOOLBARITEM "Save" ACTION ChildWindow3(oMainWindow) BITMAP "images/save.png" OF oToolBar
       SEPARATOR OF oToolBar
-      TOOLBARITEM "Cut" ACTION hwg_MsgInfo("cut") BITMAP "images/cut.png" OF oToolBar
-      TOOLBARITEM "Copy" ACTION hwg_MsgInfo("copy") BITMAP "images/copy.png" OF oToolBar
-      TOOLBARITEM "Paste" ACTION hwg_MsgInfo("paste") BITMAP "images/paste.png" OF oToolBar
+      TOOLBARITEM "Cut" ACTION hwgqt_MsgInfo("cut") BITMAP "images/cut.png" OF oToolBar
+      TOOLBARITEM "Copy" ACTION hwgqt_MsgInfo("copy") BITMAP "images/copy.png" OF oToolBar
+      TOOLBARITEM "Paste" ACTION hwgqt_MsgInfo("paste") BITMAP "images/paste.png" OF oToolBar
    END TOOLBAR
 
    ACTIVATE WINDOW oMainWindow

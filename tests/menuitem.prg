@@ -29,19 +29,19 @@ PROCEDURE Main ()
 
    BEGIN MENUBAR oMenuBar OF oMainWindow
       BEGIN MENU oMenuA TITLE "Menu &A" OF oMenuBar
-         MENUITEM "Opção A1" ACTION hwg_MsgInfo("A1") OF oMenuA
-         MENUITEM "Opção A2" ACTION hwg_MsgInfo("A2") OF oMenuA
-         MENUITEM "Opção A3" ACTION hwg_MsgInfo("A3") OF oMenuA
+         MENUITEM "Opção A1" ACTION hwgqt_MsgInfo("A1") OF oMenuA
+         MENUITEM "Opção A2" ACTION hwgqt_MsgInfo("A2") OF oMenuA
+         MENUITEM "Opção A3" ACTION hwgqt_MsgInfo("A3") OF oMenuA
       END MENU
       BEGIN MENU oMenuB TITLE "Menu &B" OF oMenuBar
-         MENUITEM "Opção B1" ACTION hwg_MsgInfo("B1") OF oMenuB
-         MENUITEM "Opção B2" ACTION hwg_MsgInfo("B2") OF oMenuB
-         MENUITEM "Opção B3" ACTION hwg_MsgInfo("B3") OF oMenuB
+         MENUITEM "Opção B1" ACTION hwgqt_MsgInfo("B1") OF oMenuB
+         MENUITEM "Opção B2" ACTION hwgqt_MsgInfo("B2") OF oMenuB
+         MENUITEM "Opção B3" ACTION hwgqt_MsgInfo("B3") OF oMenuB
       END MENU
       BEGIN MENU oMenuC TITLE "Menu &C" OF oMenuBar
-         MENUITEM "Opção C1" ACTION hwg_MsgInfo("C1") OF oMenuC
-         MENUITEM "Opção C2" ACTION hwg_MsgInfo("C2") OF oMenuC
-         MENUITEM "Opção C3" ACTION hwg_MsgInfo("C3") OF oMenuC
+         MENUITEM "Opção C1" ACTION hwgqt_MsgInfo("C1") OF oMenuC
+         MENUITEM "Opção C2" ACTION hwgqt_MsgInfo("C2") OF oMenuC
+         MENUITEM "Opção C3" ACTION hwgqt_MsgInfo("C3") OF oMenuC
       END MENU
    END MENUBAR
 

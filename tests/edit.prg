@@ -34,10 +34,10 @@ PROCEDURE Main ()
    @ 20,100 GET oEdit3 VAR cEdit3 SIZE 130,30
 
    @ 10,160 BUTTON oButtonOk CAPTION "Ok" SIZE 120,30 OF oDialog ;
-      ON CLICK {||hwg_MsgInfo("botão 'Ok' clicado")}
+      ON CLICK {||hwgqt_MsgInfo("botão 'Ok' clicado")}
 
    @ 150,160 BUTTON oButtonCancel CAPTION "Cancelar" SIZE 120,30 OF oDialog ;
-      ON CLICK {||hwg_MsgInfo("botão 'Cancelar' clicado")}
+      ON CLICK {||hwgqt_MsgInfo("botão 'Cancelar' clicado")}
 
    ACTIVATE DIALOG oDialog
 

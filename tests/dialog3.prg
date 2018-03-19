@@ -29,14 +29,14 @@ PROCEDURE Main ()
       ON LOSTFOCUS {||qout("oDialog-lostfocus")}
 
    @ 10,10 BUTTON oButtonOk CAPTION "Ok" SIZE 120,30 OF oDialog ;
-      ON CLICK {||hwg_MsgInfo("botão clicado")} ;
+      ON CLICK {||hwgqt_MsgInfo("botão clicado")} ;
       ON INIT {||qout("oButtonOk-init")} ;
       ON SIZE {||qout("oButtonOk-size")} ;
       ON GETFOCUS {||qout("oButtonOk-getfocus")} ;
       ON LOSTFOCUS {||qout("oButtonOk-lostfocus")}
 
    @ 10,130 BUTTON oButtonCancel CAPTION "Cancel" SIZE 120,30 OF oDialog ;
-      ON CLICK {||hwg_MsgInfo("botão clicado")} ;
+      ON CLICK {||hwgqt_MsgInfo("botão clicado")} ;
       ON INIT {||qout("oButtonCancel-init")} ;
       ON SIZE {||qout("oButtonCancel-size")} ;
       ON GETFOCUS {||qout("oButtonCancel-getfocus")} ;

@@ -25,8 +25,8 @@ PROCEDURE Main ()
    INIT DIALOG oDialog TITLE "Teste da classe HButton" SIZE 320,240
 
    @ 10,10 BUTTON oButton CAPTION "Botão" SIZE 120,40 ;
-      ON INIT {||hwg_MsgInfo("Botão - ON INIT")} ;
-      ON CLICK {||hwg_MsgInfo("Botão - ON CLICK")} ;
+      ON INIT {||hwgqt_MsgInfo("Botão - ON INIT")} ;
+      ON CLICK {||hwgqt_MsgInfo("Botão - ON CLICK")} ;
       OF oDialog
 
    ACTIVATE DIALOG oDialog

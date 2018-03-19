@@ -94,11 +94,11 @@ STATIC FUNCTION dialogo (oParent)
    ACTIVATE DIALOG oDialog
 
    IF oDialog:oQt:result() == 1
-      hwg_MsgInfo("Ok", "Resultado")
+      hwgqt_MsgInfo("Ok", "Resultado")
    ENDIF
 
    IF oDialog:oQt:result() == 0
-      hwg_MsgInfo("Cancel", "Resultado")
+      hwgqt_MsgInfo("Cancel", "Resultado")
    ENDIF
 
    oDialog:delete()

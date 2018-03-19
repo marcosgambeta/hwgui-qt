@@ -39,12 +39,12 @@ PROCEDURE Main ()
    INIT WINDOW oMainWindow TITLE "Janela principal" SIZE 800,600 MAIN
 
    // cria as ações que serão usadas nos menus e na barra de ferramentas
-   PREPARE ACTION oActionA1 TEXT "Opção A1" ICON "images/new.png"   TOOLTIP "Executa a opção A1" ON TRIGGERED hwg_msginfo("A1") OF oMainWindow
-   PREPARE ACTION oActionA2 TEXT "Opção A2" ICON "images/open.png"  TOOLTIP "Executa a opção A2" ON TRIGGERED hwg_msginfo("A2") OF oMainWindow
-   PREPARE ACTION oActionA3 TEXT "Opção A3" ICON "images/save.png"  TOOLTIP "Executa a opção A3" ON TRIGGERED hwg_msginfo("A3") OF oMainWindow
-   PREPARE ACTION oActionB1 TEXT "Opção B1" ICON "images/cut.png"   TOOLTIP "Executa a opção B1" ON TRIGGERED hwg_msginfo("B1") OF oMainWindow
-   PREPARE ACTION oActionB2 TEXT "Opção B2" ICON "images/copy.png"  TOOLTIP "Executa a opção B2" ON TRIGGERED hwg_msginfo("B2") OF oMainWindow
-   PREPARE ACTION oActionB3 TEXT "Opção B3" ICON "images/paste.png" TOOLTIP "Executa a opção B3" ON TRIGGERED hwg_msginfo("B3") OF oMainWindow
+   PREPARE ACTION oActionA1 TEXT "Opção A1" ICON "images/new.png"   TOOLTIP "Executa a opção A1" ON TRIGGERED hwgqt_msginfo("A1") OF oMainWindow
+   PREPARE ACTION oActionA2 TEXT "Opção A2" ICON "images/open.png"  TOOLTIP "Executa a opção A2" ON TRIGGERED hwgqt_msginfo("A2") OF oMainWindow
+   PREPARE ACTION oActionA3 TEXT "Opção A3" ICON "images/save.png"  TOOLTIP "Executa a opção A3" ON TRIGGERED hwgqt_msginfo("A3") OF oMainWindow
+   PREPARE ACTION oActionB1 TEXT "Opção B1" ICON "images/cut.png"   TOOLTIP "Executa a opção B1" ON TRIGGERED hwgqt_msginfo("B1") OF oMainWindow
+   PREPARE ACTION oActionB2 TEXT "Opção B2" ICON "images/copy.png"  TOOLTIP "Executa a opção B2" ON TRIGGERED hwgqt_msginfo("B2") OF oMainWindow
+   PREPARE ACTION oActionB3 TEXT "Opção B3" ICON "images/paste.png" TOOLTIP "Executa a opção B3" ON TRIGGERED hwgqt_msginfo("B3") OF oMainWindow
 
    // cria a barra de menus
    BEGIN MENUBAR oMenuBar OF oMainWindow

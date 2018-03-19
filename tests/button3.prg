@@ -27,18 +27,18 @@ PROCEDURE Main ()
    INIT DIALOG oDialog TITLE "Teste da classe HButton" SIZE 320,240
 
    @ 10,10 BUTTON oButton1 CAPTION "Botão 1" SIZE 120,40 ;
-      ON INIT {||hwg_MsgInfo("Botão 1 - ON INIT")} ;
-      ON CLICK {||hwg_MsgInfo("Botão 1 - ON CLICK")} ;
+      ON INIT {||hwgqt_MsgInfo("Botão 1 - ON INIT")} ;
+      ON CLICK {||hwgqt_MsgInfo("Botão 1 - ON CLICK")} ;
       OF oDialog
 
    @ 10,70 BUTTON oButton2 CAPTION "Botão 2" SIZE 120,40 ;
-      ON INIT {||hwg_MsgInfo("Botão 2 - ON INIT")} ;
-      ON CLICK {||hwg_MsgInfo("Botão 2 - ON CLICK")} ;
+      ON INIT {||hwgqt_MsgInfo("Botão 2 - ON INIT")} ;
+      ON CLICK {||hwgqt_MsgInfo("Botão 2 - ON CLICK")} ;
       OF oDialog
 
    @ 10,140 BUTTON oButton3 CAPTION "Botão 3" SIZE 120,40 ;
-      ON INIT {||hwg_MsgInfo("Botão 3 - ON INIT")} ;
-      ON CLICK {||hwg_MsgInfo("Botão 3 - ON CLICK")} ;
+      ON INIT {||hwgqt_MsgInfo("Botão 3 - ON INIT")} ;
+      ON CLICK {||hwgqt_MsgInfo("Botão 3 - ON CLICK")} ;
       OF oDialog
 
    ACTIVATE DIALOG oDialog

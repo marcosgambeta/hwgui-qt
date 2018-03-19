@@ -26,23 +26,23 @@ PROCEDURE Main ()
 
    BEGIN MENUBAR oMenuBar OF oMainWindow
       BEGIN MENU TITLE "Menu A"
-         MENUITEM "Opção A1" ACTION hwg_MsgInfo("A1")
-         MENUITEM "Opção A2" ACTION hwg_MsgInfo("A2")
-         MENUITEM "Opção A3" ACTION hwg_MsgInfo("A3")
+         MENUITEM "Opção A1" ACTION hwgqt_MsgInfo("A1")
+         MENUITEM "Opção A2" ACTION hwgqt_MsgInfo("A2")
+         MENUITEM "Opção A3" ACTION hwgqt_MsgInfo("A3")
          BEGIN MENU TITLE "Menu A4"
-            MENUITEM "Opção A41" ACTION hwg_MsgInfo("A41")
-            MENUITEM "Opção A42" ACTION hwg_MsgInfo("A42")
-            MENUITEM "Opção A43" ACTION hwg_MsgInfo("A43")
+            MENUITEM "Opção A41" ACTION hwgqt_MsgInfo("A41")
+            MENUITEM "Opção A42" ACTION hwgqt_MsgInfo("A42")
+            MENUITEM "Opção A43" ACTION hwgqt_MsgInfo("A43")
             BEGIN MENU TITLE "Menu A41"
-               MENUITEM "Opção A411" ACTION hwg_MsgInfo("A411")
-               MENUITEM "Opção A412" ACTION hwg_MsgInfo("A412")
-               MENUITEM "Opção A413" ACTION hwg_MsgInfo("A413")
+               MENUITEM "Opção A411" ACTION hwgqt_MsgInfo("A411")
+               MENUITEM "Opção A412" ACTION hwgqt_MsgInfo("A412")
+               MENUITEM "Opção A413" ACTION hwgqt_MsgInfo("A413")
             END MENU
          END MENU
          BEGIN MENU TITLE "Menu A5"
-            MENUITEM "Opção A51" ACTION hwg_MsgInfo("A51")
-            MENUITEM "Opção A52" ACTION hwg_MsgInfo("A52")
-            MENUITEM "Opção A53" ACTION hwg_MsgInfo("A53")
+            MENUITEM "Opção A51" ACTION hwgqt_MsgInfo("A51")
+            MENUITEM "Opção A52" ACTION hwgqt_MsgInfo("A52")
+            MENUITEM "Opção A53" ACTION hwgqt_MsgInfo("A53")
          END MENU
       END MENU
    END MENUBAR
