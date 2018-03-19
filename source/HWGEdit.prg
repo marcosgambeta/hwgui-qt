@@ -31,7 +31,7 @@ ENDCLASS
 
 METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
              xVar, bSetGet, par13, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus ) CLASS HWGEdit
+             bInit, bSize, bPaint, bGFocus, bLFocus, lDisabled ) CLASS HWGEdit
 
    IF valtype(oParent) == "O"
       ::oQt := QLineEdit():new(oParent:oQt)
@@ -104,6 +104,12 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(bLFocus) == "B"
       ::bLFocus := bLFocus
       ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto
