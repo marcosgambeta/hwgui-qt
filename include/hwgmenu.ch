@@ -11,9 +11,11 @@
           [ TITLE <cTitle> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ <class:CLASS> <className> ] ;
+          [ <lDisabled:DISABLED> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenu)():new( <oParent>, ;
                                        <cTitle>, ;
-                                       <cStyleSheet> )
+                                       <cStyleSheet>, ;
+                                       <.lDisabled.> )
 
 #xcommand END MENU => HWGFILO():remove()

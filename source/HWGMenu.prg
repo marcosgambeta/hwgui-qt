@@ -20,7 +20,7 @@ CLASS HWGMenu INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new (oParent,cTitle,cStyleSheet) CLASS HWGMenu
+METHOD new ( oParent, cTitle, cStyleSheet, lDisabled ) CLASS HWGMenu
 
    IF cTitle == NIL
       cTitle := ""
@@ -41,6 +41,12 @@ METHOD new (oParent,cTitle,cStyleSheet) CLASS HWGMenu
 
    IF valtype(cStyleSheet) == "C"
       ::oQt:setStyleSheet(cStyleSheet)
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    HWGFILO():add(self)
