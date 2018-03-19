@@ -10,8 +10,10 @@
           [ OF <oParent> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ <class:CLASS> <className> ] ;
+          [ <lDisabled:DISABLED> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenuBar)():new( <oParent>, ;
-                                      <cStyleSheet> )
+                                      <cStyleSheet>, ;
+                                      <.lDisabled.> )
 
 #xcommand END MENUBAR => HWGFILO():remove()
