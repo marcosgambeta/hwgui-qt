@@ -31,6 +31,9 @@ CLASS HWGCustomWindow INHERIT HWGObject
 
    DATA lHide INIT .F. // .T. = visivel .F. = invisivel
 
+   ACCESS lEnabled INLINE ::oQt:isEnabled()
+   ASSIGN lEnabled(lValue) INLINE ::oQt:setEnabled(lValue)
+
    ACCESS cToolTip INLINE ::oQt:toolTip()
    ASSIGN cToolTip(cToolTip) INLINE ::oQt:setToolTip(cToolTip)
 

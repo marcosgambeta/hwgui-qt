@@ -25,7 +25,7 @@ CLASS HWGButton INHERIT HWGControl
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, cText, ;
-             bInit, bClick, bSize, bPaint, bGFocus, bLFocus ) CLASS HWGButton
+             bInit, bClick, bSize, bPaint, bGFocus, bLFocus, lDisabled, cIcon ) CLASS HWGButton
 
    IF valtype(oParent) == "O"
       ::oQt := QPushButton():new(oParent:oQt)
@@ -96,6 +96,16 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(bClick) == "B"
       ::bClick := bClick
       ::oQt:onClicked({||::onClick()}) // TODO: desconexão
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(cIcon) == "C"
+      ::oQt:setIcon( QIcon():new(cIcon) )
    ENDIF
 
    // atualiza propriedades do objeto
