@@ -23,7 +23,7 @@ CLASS HWGToolBarItem INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, lSeparator, nId, cBitmap) CLASS HWGToolBarItem
+METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, lSeparator, nId, cBitmap, lDisabled ) CLASS HWGToolBarItem
 
    IF lSeparator == NIL
       lSeparator := .F.
@@ -51,6 +51,12 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
 
       IF valtype(bAction) == "B"
         ::bAction := bAction
+      ENDIF
+
+      IF valtype(lDisabled) == "L"
+         IF lDisabled
+            ::oQt:setEnabled(.F.)
+         ENDIF
       ENDIF
 
       ::oQt:onTriggered({||iif(valtype(::bAction)=="B",eval(::bAction),NIL)})
