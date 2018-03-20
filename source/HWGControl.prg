@@ -23,6 +23,7 @@ CLASS HWGControl INHERIT HWGCustomWindow
 
    METHOD configureGeometry
    METHOD configureTips
+   METHOD configureColors
 
    METHOD onSize
    METHOD onPaint
@@ -104,6 +105,40 @@ METHOD configureTips ( cToolTip, cStatusTip, cWhatsThis ) CLASS HWGControl
 
    IF valtype(cWhatsThis) == "C"
       ::oQt:setWhatsThis(cWhatsThis)
+   ENDIF
+
+RETURN NIL
+
+METHOD configureColors ( nColorRole1, xColor, nColorRole2, xBackColor ) CLASS HWGControl
+
+   // cor de frente (fore)
+   IF valtype(xColor) == "N"
+      ::oQt:palette():setColor(nColorRole1, QColor():new():setRGB(xColor))
+   ELSEIF valtype(xColor) == "C"
+      ::oQt:palette():setColor(nColorRole1, QColor():new(xColor))
+   ELSEIF valtype(xColor) == "A"
+      IF len(xColor) == 3
+         ::oQt:palette():setColor(nColorRole1, QColor():new(xColor[1],xColor[2],xColor[3]))
+      ENDIF
+   ELSEIF valtype(xColor) == "O"
+      ::oQt:palette():setColor(nColorRole1, xColor:oQt)
+   ENDIF
+
+   // cor de fundo (back)
+   IF valtype(xBackColor) == "N"
+      ::oQt:setAutoFillBackground(.T.)
+      ::oQt:palette():setColor(nColorRole2, QColor():new():setRGB(xBackColor))
+   ELSEIF valtype(xBackColor) == "C"
+      ::oQt:setAutoFillBackground(.T.)
+      ::oQt:palette():setColor(nColorRole2, QColor():new(xBackColor))
+   ELSEIF valtype(xBackColor) == "A"
+      IF len(xBackColor) == 3
+         ::oQt:setAutoFillBackground(.T.)
+         ::oQt:palette():setColor(nColorRole2, QColor():new(xBackColor[1],xBackColor[2],xBackColor[3]))
+      ENDIF
+   ELSEIF valtype(xBackColor) == "O"
+      ::oQt:setAutoFillBackground(.T.)
+      ::oQt:palette():setColor(nColorRole2, xBackColor:oQt)
    ENDIF
 
 RETURN NIL
