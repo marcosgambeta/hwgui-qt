@@ -21,7 +21,8 @@ CLASS HWGEditBox INHERIT HWGControl
 
 ENDCLASS
 
-METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+             cStyleSheet, oFont, xForeColor, xBackColor, ;
              cText, ;
              bInit, bSize, bPaint, bGFocus, bLFocus, lDisabled ) CLASS HWGEditBox
 
@@ -46,6 +47,8 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(oFont) == "O"
       ::oQt:setFont(oFont:oQt)
    ENDIF
+
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(cText) == "C"
       ::oQt:setPlainText(cText)

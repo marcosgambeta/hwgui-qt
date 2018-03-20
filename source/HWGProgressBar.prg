@@ -21,7 +21,8 @@ CLASS HWGProgressBar INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+             cStyleSheet, oFont, xForeColor, xBackColor, ;
              lVertical, ;
              bOnInit, lDisabled ) CLASS HWGProgressBar
 
@@ -46,6 +47,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(oFont) == "O"
       ::oQt:setFont(oFont:oQt)
    ENDIF
+
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(lVertical) == "L"
       IF lVertical

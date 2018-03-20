@@ -27,7 +27,8 @@ CLASS HWGStatic INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+             cStyleSheet, oFont, xForeColor, xBackColor, ;
              cText, bInit, bClick, bDblClick ) CLASS HWGStatic
 
    IF valtype(oParent) == "O"
@@ -52,9 +53,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::oQt:setFont(oFont:oQt)
    ENDIF
 
-   IF valtype(oFont) == "O"
-      ::oQt:setFont(oFont:oQt)
-   ENDIF
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(cText) == "C"
       ::oQt:setText(cText)

@@ -29,7 +29,8 @@ CLASS HWGEdit INHERIT HWGControl
 
 ENDCLASS
 
-METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+             cStyleSheet, oFont, xForeColor, xBackColor, ;
              xVar, bSetGet, par13, ;
              bInit, bSize, bPaint, bGFocus, bLFocus, ;
              lPassword, nMaxLength, lNoBorder, lReadOnly, lDisabled ) CLASS HWGEdit
@@ -55,6 +56,8 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(oFont) == "O"
       ::oQt:setFont(oFont:oQt)
    ENDIF
+
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(xVar) == "C" //.OR. valtype(xVar) == "N" .OR. valtype(xVar) == "D"
       ::cType := valtype(xVar)

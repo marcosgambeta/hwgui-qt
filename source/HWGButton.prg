@@ -24,7 +24,8 @@ CLASS HWGButton INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, cText, ;
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+             cStyleSheet, oFont, xForeColor, xBackColor, cText, ;
              bInit, bClick, bSize, bPaint, bGFocus, bLFocus, lDisabled, cIcon ) CLASS HWGButton
 
    IF valtype(oParent) == "O"
@@ -48,6 +49,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(oFont) == "O"
       ::oQt:setFont(oFont:oQt)
    ENDIF
+
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(cText) == "C"
       ::oQt:setText(cText)

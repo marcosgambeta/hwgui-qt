@@ -20,7 +20,9 @@ CLASS HWGPanel INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,bOnInit) CLASS HWGPanel
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+             cStyleSheet, xForeColor, xBackColor, ;
+             bOnInit ) CLASS HWGPanel
 
    IF valtype(oParent) == "O"
       ::oQt := QFrame():new(oParent:oQt)
@@ -35,6 +37,8 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
    IF valtype(cStyleSheet) == "C"
       ::oQt:setStyleSheet(cStyleSheet)
    ENDIF
+
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit

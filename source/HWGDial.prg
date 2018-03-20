@@ -26,7 +26,8 @@ CLASS HWGDial INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+             cStyleSheet, oFont, xForeColor, xBackColor, ;
              nValue, nMinimum, nMaximum, lNotchesVisible, ;
              bOnInit, lDisabled ) CLASS HWGDial
 
@@ -51,6 +52,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(oFont) == "O"
       ::oQt:setFont(oFont:oQt)
    ENDIF
+
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(nValue) == "N"
       ::oQt:setValue(nValue)

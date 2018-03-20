@@ -24,7 +24,8 @@ CLASS HWGDatePicker INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+             cStyleSheet, oFont, xForeColor, xBackColor, ;
              dDate, ;
              bOnInit, lDisabled ) CLASS HWGDatePicker
 
@@ -51,6 +52,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(oFont) == "O"
       ::oQt:setFont(oFont:oQt)
    ENDIF
+
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    ::oActionButton := QPushButton():new("...",::oQt:parent()):move(::oQt:x()+::oQt:width(),::oQt:y()):resize(30,::oQt:height())
    ::oActionButton:onClicked({||::showcalendar()})
