@@ -15,6 +15,7 @@
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGTab)():new( <oParent>, ;
@@ -28,7 +29,8 @@
                                         <cStyleSheet>, ;
                                         <oFont>, ;
                                         <aItems>, ;
-                                        <bOnInit> )
+                                        <bOnInit>, ;
+                                        <.lDisabled.> )
 
 #xcommand BEGIN PAGE <cTitle> OF <oTab> ;
           [ TOOLTIP <cToolTip> ] ;
