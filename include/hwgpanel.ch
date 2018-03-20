@@ -13,6 +13,8 @@
             [ STATUSTIP <cStatusTip> ] ;
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ ON INIT <bOnInit> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
@@ -25,4 +27,6 @@
                                           <cStatusTip>, ;
                                           <cWhatsThis>, ;
                                           <cStyleSheet>, ;
+                                          <xForeColor>, ;
+                                          <xBackColor>, ;
                                           <bOnInit> )

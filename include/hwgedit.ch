@@ -14,6 +14,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ PICTURE <cPicture> ] ;
             [ ON INIT <bInit> ] ;
             [ ON SIZE <bSize> ] ;
@@ -37,6 +39,8 @@
                                          <cWhatsThis>, ;
                                          <cStyleSheet>, ;
                                          <oFont>, ;
+                                         <xForeColor>, ;
+                                         <xBackColor>, ;
                                          <xVar>, ;
                                          {|x|iif(x==nil,<xVar>,<xVar>:=x)}, ;
                                          <cPicture>, ;

@@ -14,7 +14,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
-            [ OBJECTNAME <cObjectName> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ ON INIT <bInit> ] ;
             [ ON CLICK <bClick> ] ;
             [ ON SIZE <bSize> ] ;
@@ -23,6 +24,7 @@
             [ ON LOSTFOCUS <bLFocus> ] ;
             [ <lDisabled:DISABLED> ] ;
             [ ICON <cIcon> ] ;
+            [ OBJECTNAME <cObjectName> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGButton)():new( <oParent>, ;
@@ -35,6 +37,8 @@
                                            <cWhatsThis>, ;
                                            <cStyleSheet>, ;
                                            <oFont>, ;
+                                           <xForeColor>, ;
+                                           <xBackColor>, ;
                                            <cText>, ;
                                            <bInit>, ;
                                            <bClick>, ;

@@ -14,6 +14,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ ON INIT <bInit> ] ;
             [ ON CLICK <bClick> ] ;
             [ <lDisabled:DISABLED> ] ;
@@ -29,6 +31,8 @@
                                              <cWhatsThis>, ;
                                              <cStyleSheet>, ;
                                              <oFont>, ;
+                                             <xForeColor>, ;
+                                             <xBackColor>, ;
                                              <cText>, ;
                                              <bInit>, ;
                                              <bClick>, ;

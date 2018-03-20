@@ -14,6 +14,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ <lVertical : VERTICAL> ] ;
             [ ON INIT <bOnInit> ] ;
             [ <lDisabled:DISABLED> ] ;
@@ -29,6 +31,8 @@
                                                 <cWhatsThis>, ;
                                                 <cStyleSheet>, ;
                                                 <oFont>, ;
+                                                <xForeColor>, ;
+                                                <xBackColor>, ;
                                                 <.lVertical.>, ;
                                                 <bOnInit>, ;
                                                 <.lDisabled.> )

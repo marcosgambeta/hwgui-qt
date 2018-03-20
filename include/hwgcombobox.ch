@@ -14,6 +14,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ ON INIT <bOnInit> ] ;
             [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
@@ -28,6 +30,8 @@
                                              <cWhatsThis>, ;
                                              <cStyleSheet>, ;
                                              <oFont>, ;
+                                             <xForeColor>, ;
+                                             <xBackColor>, ;
                                              <aItems>, ;
                                              , ;
                                              <bOnInit>, ;
@@ -41,6 +45,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ ON INIT <bOnInit> ] ;
             [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
@@ -55,6 +61,8 @@
                                              <cWhatsThis>, ;
                                              <cStyleSheet>, ;
                                              <oFont>, ;
+                                             <xForeColor>, ;
+                                             <xBackColor>, ;
                                              <aItems>, ;
                                              <xVar>, ;
                                              <bOnInit>, ;

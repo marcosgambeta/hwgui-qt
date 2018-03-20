@@ -14,7 +14,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
-            [ OBJECTNAME <cObjectName> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ ON INIT <bInit> ] ;
             [ ON SIZE <bSize> ] ;
             [ ON PAINT <bPaint> ] ;
@@ -23,6 +24,7 @@
             [ <lArray:ARRAY> ] ;
             [ <lDatabase:DATABASE> ] ;
             [ <lDisabled:DISABLED> ] ;
+            [ OBJECTNAME <cObjectName> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGBrowse)():new( <oParent>, ;
@@ -35,6 +37,8 @@
                                            <cWhatsThis>, ;
                                            <cStyleSheet>, ;
                                            <oFont>, ;
+                                           <xForeColor>, ;
+                                           <xBackColor>, ;
                                            <bInit>, ;
                                            <bSize>, ;
                                            <bPaint>, ;

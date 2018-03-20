@@ -14,6 +14,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ RANGE <nMinimum>,<nMaximum> ] ;
             [ <lNotchesVisible : NOTCHESVISIBLE> ] ;
             [ ON INIT <bOnInit> ] ;
@@ -30,6 +32,8 @@
                                          <cWhatsThis>, ;
                                          <cStyleSheet>, ;
                                          <oFont>, ;
+                                         <xForeColor>, ;
+                                         <xBackColor>, ;
                                          <nValue>, ;
                                          <nMinimum>, ;
                                          <nMaximum>, ;
@@ -45,6 +49,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ RANGE <nMinimum>,<nMaximum> ] ;
             [ <lNotchesVisible : NOTCHESVISIBLE> ] ;
             [ ON INIT <bOnInit> ] ;
@@ -61,6 +67,8 @@
                                          <cWhatsThis>, ;
                                          <cStyleSheet>, ;
                                          <oFont>, ;
+                                         <xForeColor>, ;
+                                         <xBackColor>, ;
                                          <xVar>, ;
                                          <nMinimum>, ;
                                          <nMaximum>, ;

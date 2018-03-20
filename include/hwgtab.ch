@@ -14,6 +14,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ ON INIT <bOnInit> ] ;
             [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
@@ -28,6 +30,8 @@
                                         <cWhatsThis>, ;
                                         <cStyleSheet>, ;
                                         <oFont>, ;
+                                        <xForeColor>, ;
+                                        <xBackColor>, ;
                                         <aItems>, ;
                                         <bOnInit>, ;
                                         <.lDisabled.> )
@@ -38,13 +42,17 @@
           [ WHATSTHIS <cWhatsThis> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ FONT <oFont> ] ;
+          [ COLOR <xForeColor> ] ;
+          [ BACKCOLOR <xBackColor> ] ;
           => ;
           <oTab>:startPage( <cTitle>, ;
                             <cToolTip>, ;
                             <cStatusTip>, ;
                             <cWhatsThis>, ;
                             <cStyleSheet>, ;
-                            <oFont> )
+                            <oFont>, ;
+                            <xForeColor>, ;
+                            <xBackColor> )
 
 #xcommand END PAGE OF <oTab> ;
           => ;

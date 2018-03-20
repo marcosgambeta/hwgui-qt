@@ -14,6 +14,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ RANGE <nMinimum>,<nMaximum> ] ;
             [ INCREMENT <nStep> ] ;
             [ PREFIX <cPrefix> ] ;
@@ -32,6 +34,8 @@
                                            <cWhatsThis>, ;
                                            <cStyleSheet>, ;
                                            <oFont>, ;
+                                           <xForeColor>, ;
+                                           <xBackColor>, ;
                                            <nValue>, ;
                                            <nMinimum>, ;
                                            <nMaximum>, ;
@@ -49,6 +53,8 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
+            [ COLOR <xForeColor> ] ;
+            [ BACKCOLOR <xBackColor> ] ;
             [ RANGE <nMinimum>,<nMaximum> ] ;
             [ INCREMENT <nStep> ] ;
             [ PREFIX <cPrefix> ] ;
@@ -67,6 +73,8 @@
                                          <cWhatsThis>, ;
                                          <cStyleSheet>, ;
                                          <oFont>, ;
+                                         <xForeColor>, ;
+                                         <xBackColor>, ;
                                          <xVar>, ;
                                          <nMinimum>, ;
                                          <nMaximum>, ;
