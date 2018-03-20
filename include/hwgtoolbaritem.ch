@@ -15,6 +15,7 @@
           [ STYLESHEET <cStyleSheet> ] ;
           [ ID <nId> ] ;
           [ BITMAP <cBitmap> ] ;
+          [ <lDisabled:DISABLED> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBarItem)():new( <oParent>, ;
@@ -26,9 +27,10 @@
                                               <cStyleSheet>, ;
                                               .F., ;
                                               <nId>, ;
-                                              <cBitmap> )
+                                              <cBitmap>, ;
+                                              <.lDisabled.> )
 
-#xcommand SEPARATOR [ <oObj> ] ;
+#xcommand TOOLBARSEPARATOR [ <oObj> ] ;
           [ OF <oParent> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
