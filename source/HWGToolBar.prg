@@ -32,7 +32,13 @@ METHOD new ( oParent, cStyleSheet, bOnInit, lDisabled ) CLASS HWGToolBar
       ENDIF
    ELSE
       IF valtype(HWGFILO():last()) == "O"
-         ::oQt := QToolBar():new(HWGFILO():last():oQt)
+         IF HWGFILO():last():oQt:metaObject():className() == "QMainWindow"
+            ::oQt := HWGFILO():last():oQt:addToolBar("")
+         ELSE
+            ::oQt := QToolBar():new(HWGFILO():last():oQt)
+            HWGFILO():last():oQt:setToolBar(::oQt)
+         ENDIF
+         //::oQt := QToolBar():new(HWGFILO():last():oQt)
       ELSE
          ::oQt := QToolBar():new()
       ENDIF
