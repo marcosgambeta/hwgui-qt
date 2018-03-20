@@ -22,6 +22,7 @@ CLASS HWGControl INHERIT HWGCustomWindow
    METHOD setText
 
    METHOD configureGeometry
+   METHOD configureTips
 
    METHOD onSize
    METHOD onPaint
@@ -87,6 +88,22 @@ METHOD configureGeometry ( nX, nY, nWidth, nHeight ) CLASS HWGControl
 
    IF valtype(nHeight) == "N"
       ::oQt:resize(::oQt:width(),nHeight)
+   ENDIF
+
+RETURN NIL
+
+METHOD configureTips ( cToolTip, cStatusTip, cWhatsThis ) CLASS HWGControl
+
+   IF valtype(cToolTip) == "C"
+      ::oQt:setToolTip(cToolTip)
+   ENDIF
+
+   IF valtype(cStatusTip) == "C"
+      ::oQt:setStatusTip(cStatusTip)
+   ENDIF
+
+   IF valtype(cWhatsThis) == "C"
+      ::oQt:setWhatsThis(cWhatsThis)
    ENDIF
 
 RETURN NIL
