@@ -39,17 +39,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
 
-   IF valtype(cToolTip) == "C"
-      ::oQt:setToolTip(cToolTip)
-   ENDIF
-
-   IF valtype(cStatusTip) == "C"
-      ::oQt:setStatusTip(cStatusTip)
-   ENDIF
-
-   IF valtype(cWhatsThis) == "C"
-      ::oQt:setWhatsThis(cWhatsThis)
-   ENDIF
+   ::configureTips( cToolTip, cStatusTip, cWhatsThis )
 
    IF valtype(cStyleSheet) == "C"
       ::oQt:setStyleSheet(cStyleSheet)
