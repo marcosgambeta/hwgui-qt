@@ -16,12 +16,19 @@
 
 CLASS HWGStatic INHERIT HWGControl
 
+   DATA bInit
+   DATA bClick
+   DATA bDblClick
+
    METHOD new
    METHOD activate
+   METHOD onClick
+   METHOD onDblClick
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,cText,bOnInit) CLASS HWGStatic
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             cText, bInit, bClick, bDblClick ) CLASS HWGStatic
 
    IF valtype(oParent) == "O"
       ::oQt := QLabel():new(oParent:oQt)
@@ -69,8 +76,16 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
       ::oQt:setText(cText)
    ENDIF
 
-   IF valtype(bOnInit) == "B"
-      ::bInit := bOnInit
+   IF valtype(bInit) == "B"
+      ::bInit := bInit
+   ENDIF
+
+   IF valtype(bClick) == "B"
+      ::bClick := bClick
+   ENDIF
+
+   IF valtype(bDblClick) == "B"
+      ::bDblClick := bDblClick
    ENDIF
 
    // atualiza propriedades do objeto
@@ -80,6 +95,9 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
    ::nWidth  := ::oQt:width()
    ::nHeight := ::oQt:height()
 
+   ::oQt:onMouseButtonPressEvent({||::onClick()})
+   ::oQt:onMouseButtonDblClickEvent({||::onDblClick()})
+
    ::activate()
 
 RETURN self
@@ -88,6 +106,22 @@ METHOD activate () CLASS HWGStatic
 
    IF valtype(::bInit) == "B"
       eval(::bInit)
+   ENDIF
+
+RETURN NIL
+
+METHOD onClick () CLASS HWGStatic
+
+   IF valtype(::bClick) == "B"
+      eval(::bClick,self)
+   ENDIF
+
+RETURN NIL
+
+METHOD onDblClick () CLASS HWGStatic
+
+   IF valtype(::bDblClick) == "B"
+      eval(::bDblClick,self)
    ENDIF
 
 RETURN NIL

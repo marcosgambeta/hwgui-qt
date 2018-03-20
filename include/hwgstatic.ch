@@ -14,7 +14,9 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
-            [ ON INIT <bOnInit> ] ;
+            [ ON INIT <bInit> ] ;
+            [ ON CLICK <bClick> ] ;
+            [ ON DBLCLICK <bDblClick> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGStatic)():new( <oParent>, ;
@@ -28,4 +30,6 @@
                                            <cStyleSheet>, ;
                                            <oFont>, ;
                                            <cText>, ;
-                                           <bOnInit> )
+                                           <{bInit}>, ;
+                                           <{bClick}>, ;
+                                           <{bDblClick}> )
