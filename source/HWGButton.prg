@@ -37,13 +37,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ENDIF
    ENDIF
 
-   IF valtype(nX) == "N" .AND. valtype(nY) == "N"
-      ::oQt:move(nX,nY)
-   ENDIF
-
-   IF valtype(nWidth) == "N" .AND. valtype(nHeight) == "N"
-      ::oQt:resize(nWidth,nHeight)
-   ENDIF
+   ::configureGeometry( nX, nY, nWidth, nHeight )
 
    IF valtype(cToolTip) == "C"
       ::oQt:setToolTip(cToolTip)
@@ -107,13 +101,6 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(cIcon) == "C"
       ::oQt:setIcon( QIcon():new(cIcon) )
    ENDIF
-
-   // atualiza propriedades do objeto
-
-   ::nLeft   := ::oQt:x()
-   ::nTop    := ::oQt:y()
-   ::nWidth  := ::oQt:width()
-   ::nHeight := ::oQt:height()
 
    ::activate()
 
