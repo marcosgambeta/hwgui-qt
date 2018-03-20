@@ -20,6 +20,10 @@
             [ ON PAINT <bPaint> ] ;
             [ ON GETFOCUS <bGFocus> ] ;
             [ ON LOSTFOCUS <bLFocus> ] ;
+            [ <lPassword:PASSWORD> ] ;
+            [ MAXLENGTH <nMaxLength> ] ;
+            [ <lNoBorder:NOBORDER> ] ;
+            [ <lReadOnly:READONLY> ] ;
             [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
@@ -41,4 +45,8 @@
                                          <bPaint>, ;
                                          <bGFocus>, ;
                                          <bLFocus>, ;
+                                         <.lPassword.>, ;
+                                         <nMaxLength>, ;
+                                         <.lNoBorder.>, ;
+                                         <.lReadOnly.>, ;
                                          <.lDisabled.> )

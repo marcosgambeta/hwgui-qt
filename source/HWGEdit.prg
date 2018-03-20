@@ -31,7 +31,8 @@ ENDCLASS
 
 METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
              xVar, bSetGet, par13, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus, lDisabled ) CLASS HWGEdit
+             bInit, bSize, bPaint, bGFocus, bLFocus, ;
+             lPassword, nMaxLength, lNoBorder, lReadOnly, lDisabled ) CLASS HWGEdit
 
    IF valtype(oParent) == "O"
       ::oQt := QLineEdit():new(oParent:oQt)
@@ -104,6 +105,28 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(bLFocus) == "B"
       ::bLFocus := bLFocus
       ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(lPassword) == "L"
+      IF lPassword
+         ::oQt:setEchoMode(QLineEdit_Password)
+      ENDIF
+   ENDIF
+
+   IF valtype(nMaxLength) == "N"
+      ::oQt:setMaxLength(nMaxLength)
+   ENDIF
+
+   IF valtype(lNoBorder) == "L"
+      IF lNoBorder
+         ::oQt:setFrame(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lReadOnly) == "L"
+      IF lReadOnly
+         ::oQt:setReadOnly(.T.)
+      ENDIF
    ENDIF
 
    IF valtype(lDisabled) == "L"
