@@ -49,6 +49,7 @@ source\HWGToolBar.prg
 source\HWGToolBarItem.prg
 source\HWGUpDown.prg
 source\HWGWindow.prg
+source\miscfuncs.prg
 source\msgbox.prg
 
 -hblib
