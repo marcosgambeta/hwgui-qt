@@ -66,8 +66,11 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
       IF valtype(oParent) == "O"
          ::oQt := oParent:oQt:addSeparator()
       ELSE
-        //::oQt := QAction():new():setSeparator(.T.)
-        ::oQt := HWGFILO():last():oQt:addSeparator()
+         IF valtype(HWGFILO():last()) == "O"
+            ::oQt := HWGFILO():last():oQt:addSeparator()
+         ELSE
+            ::oQt := QAction():new():setSeparator(.T.)
+         ENDIF
       ENDIF
 
    ENDIF

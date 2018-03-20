@@ -43,6 +43,19 @@
                                            NIL, ;
                                            .T. )
 
+#xcommand MENUSEPARATOR [ <oObj> ] ;
+          [ OF <oParent> ] ;
+          [ <class:CLASS> <className> ] ;
+          => ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenuItem)():new( <oParent>, ;
+                                           NIL, ;
+                                           NIL, ;
+                                           NIL, ;
+                                           NIL, ;
+                                           NIL, ;
+                                           NIL, ;
+                                           .T. )
+
 #xcommand MENUITEM [ <oObj> ] USING ACTION <oAction> [ OF <oParent> ] [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenuItem)():newWithAction( <oParent>, <oAction> )
