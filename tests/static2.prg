@@ -31,7 +31,7 @@ PROCEDURE Main ()
    PREPARE FONT oFont2 NAME "Courier New" WIDTH 14 WEIGHT 50 ITALIC
    PREPARE FONT oFont3 NAME "Verdana" WIDTH 16 WEIGHT 25 UNDERLINE
 
-   INIT DIALOG oDialog TITLE "Teste da classe HStatic" SIZE 320,240
+   INIT DIALOG oDialog TITLE "Teste da classe HWGStatic" SIZE 320,240
 
    @ 10,10 SAY oSay1 CAPTION "Campo 1" SIZE 100,30 FONT oFont1 OF oDialog
 

@@ -23,7 +23,7 @@ PROCEDURE Main ()
 
    oApp := QApplication():new()
 
-   INIT DIALOG oDialog TITLE "Teste da classe HStatic" SIZE 320,240
+   INIT DIALOG oDialog TITLE "Teste da classe HWGStatic" SIZE 320,240
 
    @ 10,10 SAY oSay1 CAPTION "Campo 1" SIZE 100,30 OF oDialog
 
