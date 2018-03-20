@@ -24,12 +24,18 @@ CLASS HWGUpDown INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,nValue,nMinimum,nMaximum,nStep,cPrefix,cSuffix,bOnInit) CLASS HWGUpDown
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             nValue, nMinimum, nMaximum, nStep, cPrefix, cSuffix, ;
+             bOnInit, lDisabled ) CLASS HWGUpDown
 
    IF valtype(oParent) == "O"
       ::oQt := QSpinBox():new(oParent:oQt)
    ELSE
-      ::oQt := QSpinBox():new()
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QSpinBox():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QSpinBox():new()
+      ENDIF
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
@@ -82,6 +88,12 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto

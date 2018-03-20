@@ -19,6 +19,7 @@
             [ PREFIX <cPrefix> ] ;
             [ SUFFIX <cSuffix> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGUpDown)():new( <oParent>, ;
@@ -37,7 +38,8 @@
                                            <nStep>, ;
                                            <cPrefix>, ;
                                            <cSuffix>, ;
-                                           <bOnInit> )
+                                           <bOnInit>, ;
+                                           <.lDisabled.> )
 
 #xcommand @ <nX>,<nY> UPDOWN [ <oObj> VAR ] <xVar> ;
             [ OF <oParent> ] ;
@@ -52,6 +54,7 @@
             [ PREFIX <cPrefix> ] ;
             [ SUFFIX <cSuffix> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGUpDown)():new( <oParent>, ;
@@ -70,4 +73,5 @@
                                          <nStep>, ;
                                          <cPrefix>, ;
                                          <cSuffix>, ;
-                                         <bOnInit> )
+                                         <bOnInit>, ;
+                                         <.lDisabled.> )
