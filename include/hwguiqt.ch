@@ -22,6 +22,7 @@
 #include "hwgbuttonex.ch"
 #include "hwgcheckbutton.ch"
 #include "hwgchildwindow.ch"
+#include "hwgcolor.ch"
 #include "hwgcombobox.ch"
 #include "hwgdatepicker.ch"
 #include "hwgdial.ch"

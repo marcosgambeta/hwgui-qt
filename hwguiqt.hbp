@@ -11,6 +11,7 @@ source\HWGButton.prg
 source\HWGButtonEx.prg
 source\HWGCheckButton.prg
 source\HWGChildWindow.prg
+source\HWGColor.prg
 source\HWGColumn.prg
 source\HWGComboBox.prg
 source\HWGControl.prg
