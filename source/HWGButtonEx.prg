@@ -21,12 +21,18 @@ CLASS HWGButtonEx INHERIT HWGButton
 
 ENDCLASS
 
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,oFont,cText,par12,bOnInit) CLASS HWGButtonEx
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             cText, ;
+             bOnInit, bClick, lDisabled ) CLASS HWGButtonEx
 
    IF valtype(oParent) == "O"
       ::oQt := QPushButton():new(oParent:oQt)
    ELSE
-      ::oQt := QPushButton():new()
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QPushButton():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QPushButton():new()
+      ENDIF
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
@@ -63,6 +69,17 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
+   ENDIF
+
+   IF valtype(bClick) == "B"
+      ::bClick := bClick
+      ::oQt:onClicked({||::onClick()}) // TODO: desconexão
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
    ENDIF
 
    // atualiza propriedades do objeto

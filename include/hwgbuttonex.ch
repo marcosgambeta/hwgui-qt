@@ -14,7 +14,9 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ FONT <oFont> ] ;
-            [ ON INIT <bOnInit> ] ;
+            [ ON INIT <bInit> ] ;
+            [ ON CLICK <bClick> ] ;
+            [ <lDisabled:DISABLED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGButtonEx)():new( <oParent>, ;
@@ -27,6 +29,7 @@
                                              <cWhatsThis>, ;
                                              <cStyleSheet>, ;
                                              <oFont>, ;
-                                             <oFont>, ;
                                              <cText>, ;
-                                             <bOnInit> )
+                                             <bInit>, ;
+                                             <bClick>, ;
+                                             <.lDisabled.> )
