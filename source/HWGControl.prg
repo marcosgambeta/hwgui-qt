@@ -21,6 +21,8 @@ CLASS HWGControl INHERIT HWGCustomWindow
    METHOD getText
    METHOD setText
 
+   METHOD configureGeometry
+
    METHOD onSize
    METHOD onPaint
    METHOD onGFocus
@@ -65,6 +67,26 @@ METHOD onLFocus (oSender,oEvent) CLASS HWGControl
 
    IF valtype(::bLFocus) == "B"
       eval(::bLFocus)
+   ENDIF
+
+RETURN NIL
+
+METHOD configureGeometry ( nX, nY, nWidth, nHeight ) CLASS HWGControl
+
+   IF valtype(nX) == "N"
+      ::oQt:move(nX,::oQt:y())
+   ENDIF
+
+   IF valtype(nY) == "N"
+      ::oQt:move(::oQt:x(),nY)
+   ENDIF
+
+   IF valtype(nWidth) == "N"
+      ::oQt:resize(nWidth,::oQt:height())
+   ENDIF
+
+   IF valtype(nHeight) == "N"
+      ::oQt:resize(::oQt:width(),nHeight)
    ENDIF
 
 RETURN NIL
