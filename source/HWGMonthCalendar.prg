@@ -43,9 +43,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    ::configureStyleSheet( cStyleSheet )
 
-   IF valtype(oFont) == "O"
-      ::oQt:setFont(oFont:oQt)
-   ENDIF
+   ::configureFont( oFont )
 
    IF valtype(dDate) == "D"
       oDate := QDate():new(year(dDate),month(dDate),day(dDate))

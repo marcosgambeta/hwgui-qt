@@ -46,9 +46,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    ::configureStyleSheet( cStyleSheet )
 
-   IF valtype(oFont) == "O"
-      ::oQt:setFont(oFont:oQt)
-   ENDIF
+   ::configureFont( oFont )
 
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
