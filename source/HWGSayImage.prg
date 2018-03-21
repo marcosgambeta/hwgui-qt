@@ -26,12 +26,17 @@ CLASS HWGSayImage INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, cImage, bOnInit ) CLASS HWGSayImage
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, ;
+             cImage, bOnInit, lScaled ) CLASS HWGSayImage
 
    IF valtype(oParent) == "O"
       ::oQt := QLabel():new(oParent:oQt)
    ELSE
-      ::oQt := QLabel():new()
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QLabel():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QLabel():new()
+      ENDIF
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
@@ -47,6 +52,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
+   ENDIF
+
+   IF valtype(lScaled) == "L"
+      IF lScaled
+         ::oQt:setScaledContents(.T.)
+      ENDIF
    ENDIF
 
    ::activate()

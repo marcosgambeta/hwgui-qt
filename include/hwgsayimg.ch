@@ -14,6 +14,7 @@
             [ WHATSTHIS <cWhatsThis> ] ;
             [ STYLESHEET <cStyleSheet> ] ;
             [ ON INIT <bOnInit> ] ;
+            [ <lScaled:SCALED> ] ;
             [ <class:CLASS> <className> ] ;
             => ;
             [ <oObj> := ] __IIF(<.class.>,<className>,HWGSayImage)():new( <oParent>, ;
@@ -26,4 +27,5 @@
                                            <cWhatsThis>, ;
                                            <cStyleSheet>, ;
                                            <cImage>, ;
-                                           <bOnInit> )
+                                           <bOnInit>, ;
+                                           <.lScaled.> )
