@@ -118,6 +118,8 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ENDIF
    ENDIF
 
+   ::oQt:onTextEdited( {|oSender,cText|eval(::bSetGet,cText)} )
+
    ::activate()
 
 RETURN self
