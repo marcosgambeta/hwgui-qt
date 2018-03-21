@@ -21,8 +21,6 @@ CLASS HWGControl INHERIT HWGCustomWindow
    METHOD getText
    METHOD setText
 
-   METHOD configureTips
-
    METHOD onSize
    METHOD onPaint
    METHOD onGFocus
@@ -67,22 +65,6 @@ METHOD onLFocus (oSender,oEvent) CLASS HWGControl
 
    IF valtype(::bLFocus) == "B"
       eval(::bLFocus)
-   ENDIF
-
-RETURN NIL
-
-METHOD configureTips ( cToolTip, cStatusTip, cWhatsThis ) CLASS HWGControl
-
-   IF valtype(cToolTip) == "C"
-      ::oQt:setToolTip(cToolTip)
-   ENDIF
-
-   IF valtype(cStatusTip) == "C"
-      ::oQt:setStatusTip(cStatusTip)
-   ENDIF
-
-   IF valtype(cWhatsThis) == "C"
-      ::oQt:setWhatsThis(cWhatsThis)
    ENDIF
 
 RETURN NIL

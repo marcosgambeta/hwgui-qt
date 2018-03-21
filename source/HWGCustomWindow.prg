@@ -57,6 +57,7 @@ CLASS HWGCustomWindow INHERIT HWGObject
    DATA bLFocus
 
    METHOD configureGeometry
+   METHOD configureTips
    METHOD configureColors
 
    METHOD move
@@ -89,6 +90,22 @@ METHOD configureGeometry ( nX, nY, nWidth, nHeight ) CLASS HWGCustomWindow
 
    IF valtype(nHeight) == "N"
       ::oQt:resize(::oQt:width(),nHeight)
+   ENDIF
+
+RETURN NIL
+
+METHOD configureTips ( cToolTip, cStatusTip, cWhatsThis ) CLASS HWGCustomWindow
+
+   IF valtype(cToolTip) == "C"
+      ::oQt:setToolTip(cToolTip)
+   ENDIF
+
+   IF valtype(cStatusTip) == "C"
+      ::oQt:setStatusTip(cStatusTip)
+   ENDIF
+
+   IF valtype(cWhatsThis) == "C"
+      ::oQt:setWhatsThis(cWhatsThis)
    ENDIF
 
 RETURN NIL
