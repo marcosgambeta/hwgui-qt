@@ -56,6 +56,8 @@ CLASS HWGCustomWindow INHERIT HWGObject
    DATA bGFocus
    DATA bLFocus
 
+   METHOD configureGeometry
+
    METHOD move
    METHOD show
    METHOD hide
@@ -69,6 +71,26 @@ CLASS HWGCustomWindow INHERIT HWGObject
 //    METHOD onLFocus
 
 ENDCLASS
+
+METHOD configureGeometry ( nX, nY, nWidth, nHeight ) CLASS HWGCustomWindow
+
+   IF valtype(nX) == "N"
+      ::oQt:move(nX,::oQt:y())
+   ENDIF
+
+   IF valtype(nY) == "N"
+      ::oQt:move(::oQt:x(),nY)
+   ENDIF
+
+   IF valtype(nWidth) == "N"
+      ::oQt:resize(nWidth,::oQt:height())
+   ENDIF
+
+   IF valtype(nHeight) == "N"
+      ::oQt:resize(::oQt:width(),nHeight)
+   ENDIF
+
+RETURN NIL
 
 METHOD move ( nX, nY, nWidth, nHeight ) CLASS HWGCustomWindow
 
