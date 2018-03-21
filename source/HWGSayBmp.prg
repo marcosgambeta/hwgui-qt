@@ -15,43 +15,4 @@
 #include "hbclass.ch"
 
 CLASS HWGSayBmp INHERIT HWGSayImage
-
-   METHOD new
-   METHOD activate
-
 ENDCLASS
-
-METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,cBitmap,bOnInit) CLASS HWGSayBmp
-
-   IF valtype(oParent) == "O"
-      ::oQt := QLabel():new(oParent:oQt)
-   ELSE
-      ::oQt := QLabel():new()
-   ENDIF
-
-   ::configureGeometry( nX, nY, nWidth, nHeight )
-
-   ::configureTips( cToolTip, cStatusTip, cWhatsThis )
-
-   ::configureStyleSheet( cStyleSheet )
-
-   IF valtype(cBitmap) == "C"
-      ::oImage := QPixmap():new(cBitmap)
-      ::oQt:setPixmap(::oImage)
-   ENDIF
-
-   IF valtype(bOnInit) == "B"
-      ::bInit := bOnInit
-   ENDIF
-
-   ::activate()
-
-RETURN self
-
-METHOD activate () CLASS HWGSayBmp
-
-   IF valtype(::bInit) == "B"
-      eval(::bInit)
-   ENDIF
-
-RETURN NIL

@@ -41,6 +41,7 @@
 #include "hwgradiobutton.ch"
 #include "hwgsaybmp.ch"
 #include "hwgsayicon.ch"
+#include "hwgsayimg.ch"
 #include "hwgstatic.ch"
 #include "hwgtab.ch"
 #include "hwgtimer.ch"
