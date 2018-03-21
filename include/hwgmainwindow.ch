@@ -14,6 +14,8 @@
           [ TOOLTIP <cToolTip> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ FONT <oFont> ] ;
+          [ COLOR <xForeColor> ] ;
+          [ BACKCOLOR <xBackColor> ] ;
           [ MAIN ] ;
           [ <lMDI:MDI> ] ;
           [ STYLE <nStyle> ] ;
@@ -33,6 +35,8 @@
                                          <cToolTip>, ;
                                          <cStyleSheet>, ;
                                          <oFont>, ;
+                                         <xForeColor>, ;
+                                         <xBackColor>, ;
                                          <cTitle>, ;
                                          <.lMDI.>, ;
                                          <bInit>, ;

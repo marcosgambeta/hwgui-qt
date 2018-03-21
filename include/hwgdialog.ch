@@ -14,6 +14,8 @@
           [ TOOLTIP <cToolTip> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ FONT <oFont> ] ;
+          [ COLOR <xForeColor> ] ;
+          [ BACKCOLOR <xBackColor> ] ;
           [ STYLE <nStyle> ] ;
           [ ON INIT <bInit> ] ;
           [ ON SIZE <bSize> ] ;
@@ -31,6 +33,8 @@
                                      <cToolTip>, ;
                                      <cStyleSheet>, ;
                                      <oFont>, ;
+                                     <xForeColor>, ;
+                                     <xBackColor>, ;
                                      <cTitle>, ;
                                      <bInit>, ;
                                      <bSize>, ;

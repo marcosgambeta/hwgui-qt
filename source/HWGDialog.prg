@@ -32,7 +32,8 @@ CLASS HWGDialog INHERIT HWGCustomWindow
 
 ENDCLASS
 
-METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTitle, ;
+METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
+             xForeColor, xBackColor, cTitle, ;
              bInit, bSize, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGDialog
 
    IF valtype(oParent) == "O"
@@ -54,6 +55,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTi
    IF valtype(oFont) == "O"
       ::oQt:setFont(oFont:oQt)
    ENDIF
+
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(cTitle) == "C"
       ::oQt:setWindowTitle(cTitle)
