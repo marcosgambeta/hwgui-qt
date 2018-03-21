@@ -41,13 +41,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTi
       ::oQt := QDialog():new(QApplication():activeWindow())
    ENDIF
 
-   IF valtype(nX) == "N" .AND. valtype(nY) == "N"
-      ::oQt:move(nX,nY)
-   ENDIF
-
-   IF valtype(nWidth) == "N" .AND. valtype(nHeight) == "N"
-      ::oQt:resize(nWidth,nHeight)
-   ENDIF
+   ::configureGeometry( nX, nY, nWidth, nHeight )
 
    IF valtype(cToolTip) == "C"
       ::oQt:setToolTip(cToolTip)
@@ -92,13 +86,6 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTi
    IF valtype(bExit) == "B"
       ::bExit := bExit
    ENDIF
-
-   // atualiza propriedades do objeto
-
-   ::nLeft   := ::oQt:x()
-   ::nTop    := ::oQt:y()
-   ::nWidth  := ::oQt:width()
-   ::nHeight := ::oQt:height()
 
    HWGFILO():add(self)
 
