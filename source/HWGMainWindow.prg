@@ -42,9 +42,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
 
-   IF valtype(cToolTip) == "C"
-      ::oQt:setToolTip(cToolTip)
-   ENDIF
+   ::configureTips( cToolTip )
 
    IF valtype(cStyleSheet) == "C"
       ::oQt:setStyleSheet(cStyleSheet)
