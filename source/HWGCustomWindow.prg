@@ -59,6 +59,7 @@ CLASS HWGCustomWindow INHERIT HWGObject
    METHOD configureGeometry
    METHOD configureTips
    METHOD configureStyleSheet
+   METHOD configureFont
    METHOD configureColors
 
    METHOD move
@@ -115,6 +116,14 @@ METHOD configureStyleSheet ( cStyleSheet ) CLASS HWGCustomWindow
 
    IF valtype(cStyleSheet) == "C"
       ::oQt:setStyleSheet(cStyleSheet)
+   ENDIF
+
+RETURN NIL
+
+METHOD configureFont ( oFont ) CLASS HWGCustomWindow
+
+   IF valtype(oFont) == "O"
+      ::oQt:setFont(oFont:oQt)
    ENDIF
 
 RETURN NIL
