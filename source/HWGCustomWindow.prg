@@ -68,6 +68,7 @@ CLASS HWGCustomWindow INHERIT HWGObject
    METHOD enable
    METHOD disable
    METHOD isEnabled
+   METHOD setFocus
 
 //    METHOD onSize
 //    METHOD onPaint
