@@ -20,9 +20,6 @@ CLASS HWGMdiChildWindow INHERIT HWGWindow
 
    METHOD new
    METHOD activate
-   METHOD maximize
-   METHOD minimize
-   METHOD restore
    METHOD close
 
    METHOD onSize
@@ -139,24 +136,6 @@ METHOD activate (lMaximized,lMinimized,lFullScreen,lNoShow) CLASS HWGMdiChildWin
    ::oEventLoop := QEventLoop():new()
    ::oEventLoop:exec()
    ::oEventLoop:delete()
-
-RETURN NIL
-
-METHOD maximize () CLASS HWGMdiChildWindow
-
-   ::oQt:showMaximized()
-
-RETURN NIL
-
-METHOD minimize () CLASS HWGMdiChildWindow
-
-   ::oQt:showMinimized()
-
-RETURN NIL
-
-METHOD restore () CLASS HWGMdiChildWindow
-
-   ::oQt:showNormal()
 
 RETURN NIL
 

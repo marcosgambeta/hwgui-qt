@@ -21,9 +21,6 @@ CLASS HWGMainWindow INHERIT HWGWindow
 
    METHOD new
    METHOD activate
-   METHOD maximize
-   METHOD minimize
-   METHOD restore
    METHOD close
 
    METHOD onSize
@@ -107,7 +104,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, cTi
       ::oMdiArea := QMdiArea():new()
       ::oQt:setCentralWidget(::oMdiArea)
    ENDIF
-   
+
    HWGFILO():add(self)
 
 RETURN self
@@ -143,24 +140,6 @@ METHOD activate (lMaximized,lMinimized,lFullScreen,lNoShow) CLASS HWGMainWindow
    ELSE
       ::show()
    ENDIF
-
-RETURN NIL
-
-METHOD maximize () CLASS HWGMainWindow
-
-   ::oQt:showMaximized()
-
-RETURN NIL
-
-METHOD minimize () CLASS HWGMainWindow
-
-   ::oQt:showMinimized()
-
-RETURN NIL
-
-METHOD restore () CLASS HWGMainWindow
-
-   ::oQt:showNormal()
 
 RETURN NIL
 
