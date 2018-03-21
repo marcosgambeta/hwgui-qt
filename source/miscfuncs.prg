@@ -21,3 +21,9 @@ RETURN QApplication():desktop():screenGeometry():width()
 
 FUNCTION hwgqt_getdesktopheight ()
 RETURN QApplication():desktop():screenGeometry():height()
+
+FUNCTION hwgqt_copystringtoclipboard (cText)
+RETURN QApplication():clipboard():setText( cText )
+
+FUNCTION hwgqt_getclipboardtext ()
+RETURN QApplication():clipboard():text()
