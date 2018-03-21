@@ -15,3 +15,9 @@
 
 FUNCTION hwgqt_vcolor ( cColor )
 RETURN iif( valtype(cColor)=="C", "#"+cColor, NIL )
+
+FUNCTION hwgqt_getdesktopwidth ()
+RETURN QApplication():desktop():screenGeometry():width()
+
+FUNCTION hwgqt_getdesktopheight ()
+RETURN QApplication():desktop():screenGeometry():height()
