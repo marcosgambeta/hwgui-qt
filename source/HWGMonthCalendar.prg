@@ -22,7 +22,7 @@ CLASS HWGMonthCalendar INHERIT HWGControl
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
-             dDate, ;
+             xForeColor, xBackColor, dDate, ;
              bOnInit, lDisabled ) CLASS HWGMonthCalendar
 
    LOCAL oDate
@@ -44,6 +44,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ::configureStyleSheet( cStyleSheet )
 
    ::configureFont( oFont )
+
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(dDate) == "D"
       oDate := QDate():new(year(dDate),month(dDate),day(dDate))
