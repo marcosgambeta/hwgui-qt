@@ -19,6 +19,11 @@ CLASS HWGWindow INHERIT HWGCustomWindow
    METHOD getText
    METHOD setText
 
+   METHOD maximize
+   METHOD minimize
+   METHOD restore
+   METHOD fullScreen
+
 ENDCLASS
 
 // retorna o título da janela
@@ -28,4 +33,28 @@ RETURN ::oQt:windowTitle()
 // define o título da janela
 METHOD setText (cText) CLASS HWGWindow
    ::oQt:setWindowTitle(cTitle)
+RETURN NIL
+
+METHOD maximize () CLASS HWGWindow
+
+   ::oQt:showMaximized()
+
+RETURN NIL
+
+METHOD minimize () CLASS HWGWindow
+
+   ::oQt:showMinimized()
+
+RETURN NIL
+
+METHOD restore () CLASS HWGWindow
+
+   ::oQt:showNormal()
+
+RETURN NIL
+
+METHOD fullScreen () CLASS HWGWindow
+
+   ::oQt:showFullScreen()
+
 RETURN NIL
