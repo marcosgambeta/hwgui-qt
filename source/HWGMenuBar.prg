@@ -33,9 +33,7 @@ METHOD new ( oParent, cStyleSheet, lDisabled ) CLASS HWGMenuBar
       ::oQt := QMenuBar():new()
    ENDIF
 
-   IF valtype(cStyleSheet) == "C"
-      ::oQt:setStyleSheet(cStyleSheet)
-   ENDIF
+   ::configureStyleSheet( cStyleSheet )
 
    IF valtype(lDisabled) == "L"
       IF lDisabled

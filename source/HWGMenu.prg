@@ -39,9 +39,7 @@ METHOD new ( oParent, cTitle, cStyleSheet, lDisabled ) CLASS HWGMenu
       ::oQt := HWGFILO():last():oQt:addMenu(cTitle)
    ENDIF
 
-   IF valtype(cStyleSheet) == "C"
-      ::oQt:setStyleSheet(cStyleSheet)
-   ENDIF
+   ::configureStyleSheet( cStyleSheet )
 
    IF valtype(lDisabled) == "L"
       IF lDisabled

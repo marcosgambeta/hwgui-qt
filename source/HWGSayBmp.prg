@@ -33,9 +33,7 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
 
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
 
-   IF valtype(cStyleSheet) == "C"
-      ::oQt:setStyleSheet(cStyleSheet)
-   ENDIF
+   ::configureStyleSheet( cStyleSheet )
 
    IF valtype(cBitmap) == "C"
       ::oImage := QPixmap():new(cBitmap)

@@ -44,9 +44,7 @@ METHOD new ( oParent, cStyleSheet, bOnInit, lDisabled ) CLASS HWGToolBar
       ENDIF
    ENDIF
 
-   IF valtype(cStyleSheet) == "C"
-      ::oQt:setStyleSheet(cStyleSheet)
-   ENDIF
+   ::configureStyleSheet( cStyleSheet )
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit

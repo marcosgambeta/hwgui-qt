@@ -34,9 +34,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
 
-   IF valtype(cStyleSheet) == "C"
-      ::oQt:setStyleSheet(cStyleSheet)
-   ENDIF
+   ::configureStyleSheet( cStyleSheet )
 
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 

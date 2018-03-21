@@ -41,9 +41,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
 
-   IF valtype(cStyleSheet) == "C"
-      ::oQt:setStyleSheet(cStyleSheet)
-   ENDIF
+   ::configureStyleSheet( cStyleSheet )
 
    IF valtype(oFont) == "O"
       ::oQt:setFont(oFont:oQt)
