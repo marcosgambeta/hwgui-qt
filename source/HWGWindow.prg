@@ -16,6 +16,15 @@
 
 CLASS HWGWindow INHERIT HWGCustomWindow
 
+   DATA lMain INIT .F.
+   DATA lChild INIT .F.
+   DATA lMdi INIT .F.
+
+   DATA lClose INIT .F.
+
+   DATA oEventLoop
+   DATA oMdiArea
+
    METHOD getText
    METHOD setText
 

@@ -16,9 +16,6 @@
 
 CLASS HWGMainWindow INHERIT HWGWindow
 
-   DATA lMDI INIT .F.
-   DATA oMdiArea
-
    METHOD new
    METHOD activate
    METHOD close
@@ -54,6 +51,14 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
       ::oQt:setWindowTitle(cTitle)
    ENDIF
 
+   ::lMain := .T.
+   ::lMdi := lMDI
+
+   IF ::lMDI
+      ::oMdiArea := QMdiArea():new()
+      ::oQt:setCentralWidget(::oMdiArea)
+   ENDIF
+
    IF valtype(bInit) == "B"
       ::bInit := bInit
    ENDIF
@@ -80,13 +85,6 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
    IF valtype(bExit) == "B"
       ::bExit := bExit
-   ENDIF
-
-   ::lMDI := lMDI
-
-   IF lMDI
-      ::oMdiArea := QMdiArea():new()
-      ::oQt:setCentralWidget(::oMdiArea)
    ENDIF
 
    HWGFILO():add(self)

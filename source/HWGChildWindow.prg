@@ -16,8 +16,6 @@
 
 CLASS HWGChildWindow INHERIT HWGWindow
 
-   DATA oEventLoop
-
    METHOD new
    METHOD activate
    METHOD close
@@ -52,6 +50,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
    IF valtype(cTitle) == "C"
       ::oQt:setWindowTitle(cTitle)
    ENDIF
+
+   ::lChild := .T.
 
    IF valtype(bInit) == "B"
       ::bInit := bInit
