@@ -55,10 +55,10 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
 RETURN self
 
-METHOD activate (lMaximized,lMinimized,lFullScreen,lNoShow) CLASS HWGChildWindow
+METHOD activate ( lMaximized, lMinimized, lFullScreen, lNoShow ) CLASS HWGChildWindow
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
    IF valtype(lMaximized) == "L"
