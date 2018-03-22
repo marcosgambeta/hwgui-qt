@@ -34,6 +34,7 @@
 #include "hwgedit.ch"
 #include "hwgeditbox.ch"
 #include "hwgfont.ch"
+#include "hwggrid.ch"
 #include "hwgmainwindow.ch"
 #include "hwgmdichildwindow.ch"
 #include "hwgmenu.ch"

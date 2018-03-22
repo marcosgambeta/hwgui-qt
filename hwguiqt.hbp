@@ -23,6 +23,7 @@ source\HWGEdit.prg
 source\HWGEditBox.prg
 source\HWGFILO.prg
 source\HWGFont.prg
+source\HWGGrid.prg
 source\HWGGroup.prg
 source\HWGIcon.prg
 source\HWGLIFO.prg
