@@ -6,9 +6,13 @@
 
 */
 
+#ifndef HWGUIQT_CH
+#define HWGUIQT_CH
+
 #ifdef __QT4XHB__
 #include "qt4xhb.ch"
 #endif
+
 #ifdef __QT5XHB__
 #include "qt5xhb.ch"
 #endif
@@ -49,3 +53,5 @@
 #include "hwgtoolbaritem.ch"
 #include "hwgupdown.ch"
 #include "hwgwindow.ch"
+
+#endif /* HWGUIQT_CH */
