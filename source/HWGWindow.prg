@@ -33,6 +33,16 @@ CLASS HWGWindow INHERIT HWGCustomWindow
    METHOD restore
    METHOD fullScreen
 
+   METHOD configureEvents
+   METHOD connectEvents
+
+   METHOD onPaint
+   METHOD onSize
+   METHOD onGetFocus
+   METHOD onLostFocus
+
+   METHOD close
+
 ENDCLASS
 
 // retorna o título da janela
@@ -65,5 +75,80 @@ RETURN NIL
 METHOD fullScreen () CLASS HWGWindow
 
    ::oQt:showFullScreen()
+
+RETURN NIL
+
+METHOD configureEvents ( bSize, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGWindow
+
+   IF valtype(bSize) == "B"
+      ::bSize := bSize
+   ENDIF
+
+   IF valtype(bPaint) == "B"
+      ::bPaint := bPaint
+   ENDIF
+
+   IF valtype(bGFocus) == "B"
+      ::bGFocus := bGFocus
+   ENDIF
+
+   IF valtype(bLFocus) == "B"
+      ::bLFocus := bLFocus
+   ENDIF
+
+   IF valtype(bExit) == "B"
+      ::bExit := bExit
+   ENDIF
+
+RETURN NIL
+
+METHOD connectEvents () CLASS HWGWindow
+
+   ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
+   ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
+   ::oQt:onWindowActivateEvent( {|oSender,oEvent| ::onGetFocus(oSender,oEvent) } )
+   ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLostFocus(oSender,oEvent) } )
+
+RETURN NIL
+
+METHOD onPaint (oSender,oEvent) CLASS HWGWindow
+
+   IF valtype(::bPaint) == "B"
+      eval(::bPaint)
+   ENDIF
+
+RETURN NIL
+
+METHOD onSize (oSender,oEvent) CLASS HWGWindow
+
+   IF valtype(::bSize) == "B"
+      eval(::bSize)
+   ENDIF
+
+RETURN NIL
+
+METHOD onGetFocus (oSender,oEvent) CLASS HWGWindow
+
+   IF valtype(::bGFocus) == "B"
+      eval(::bGFocus)
+   ENDIF
+
+RETURN NIL
+
+METHOD onLostFocus (oSender,oEvent) CLASS HWGWindow
+
+   IF valtype(::bLFocus) == "B"
+      eval(::bLFocus)
+   ENDIF
+
+RETURN NIL
+
+METHOD close () CLASS HWGWindow
+
+   ::oQt:close()
+
+   IF valtype(::oEventLoop) == "O"
+      ::oEventLoop:quit()
+   ENDIF
 
 RETURN NIL

@@ -30,7 +30,16 @@ METHOD new ( oParent, cStyleSheet, lDisabled ) CLASS HWGMenuBar
          oParent:oQt:setMenuBar(::oQt)
       ENDIF
    ELSE
-      ::oQt := QMenuBar():new()
+      IF valtype(HWGFILO():last()) == "O"
+         IF HWGFILO():last():oQt:metaObject():className() == "QMainWindow"
+            ::oQt := HWGFILO():last():oQt:menuBar()
+         ELSE
+            ::oQt := QMenuBar():new(HWGFILO():last():oQt)
+            HWGFILO():last():oQt:setMenuBar(::oQt)
+         ENDIF
+      ELSE
+         ::oQt := QMenuBar():new()
+      ENDIF
    ENDIF
 
    ::configureStyleSheet( cStyleSheet )

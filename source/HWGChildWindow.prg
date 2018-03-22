@@ -18,12 +18,6 @@ CLASS HWGChildWindow INHERIT HWGWindow
 
    METHOD new
    METHOD activate
-   METHOD close
-
-   METHOD onSize
-   METHOD onPaint
-   METHOD onGFocus
-   METHOD onLFocus
 
 ENDCLASS
 
@@ -38,13 +32,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
-
    ::configureTips( cToolTip )
-
    ::configureStyleSheet( cStyleSheet )
-
    ::configureFont( oFont )
-
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(cTitle) == "C"
@@ -57,29 +47,11 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
       ::bInit := bInit
    ENDIF
 
-   IF valtype(bSize) == "B"
-      ::bSize := bSize
-      ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
-   ENDIF
+   ::configureEvents( bSize, bPaint, bGFocus, bLFocus, bExit )
 
-   IF valtype(bPaint) == "B"
-      ::bPaint := bPaint
-      ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
-   ENDIF
+   ::connectEvents()
 
-   IF valtype(bGFocus) == "B"
-      ::bGFocus := bGFocus
-      ::oQt:onWindowActivateEvent( {|oSender,oEvent| ::onGFocus(oSender,oEvent) } )
-   ENDIF
-
-   IF valtype(bLFocus) == "B"
-      ::bLFocus := bLFocus
-      ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
-   ENDIF
-
-   IF valtype(bExit) == "B"
-      ::bExit := bExit
-   ENDIF
+   HWGFILO():add(self)
 
 RETURN self
 
@@ -115,47 +87,10 @@ METHOD activate (lMaximized,lMinimized,lFullScreen,lNoShow) CLASS HWGChildWindow
       ::show()
    ENDIF
 
+   HWGFILO():remove()
+
    ::oEventLoop := QEventLoop():new()
    ::oEventLoop:exec()
    ::oEventLoop:delete()
-
-RETURN NIL
-
-METHOD close () CLASS HWGChildWindow
-
-   ::oQt:close()
-   ::oEventLoop:quit()
-
-RETURN NIL
-
-METHOD onSize (oSender,oEvent) CLASS HWGChildWindow
-
-   IF valtype(::bSize) == "B"
-      eval(::bSize)
-   ENDIF
-
-RETURN NIL
-
-METHOD onPaint (oSender,oEvent) CLASS HWGChildWindow
-
-   IF valtype(::bPaint) == "B"
-      eval(::bPaint)
-   ENDIF
-
-RETURN NIL
-
-METHOD onGFocus (oSender,oEvent) CLASS HWGChildWindow
-
-   IF valtype(::bGFocus) == "B"
-      eval(::bGFocus)
-   ENDIF
-
-RETURN NIL
-
-METHOD onLFocus (oSender,oEvent) CLASS HWGChildWindow
-
-   IF valtype(::bLFocus) == "B"
-      eval(::bLFocus)
-   ENDIF
 
 RETURN NIL
