@@ -25,6 +25,7 @@ source\HWGFILO.prg
 source\HWGFont.prg
 source\HWGGroup.prg
 source\HWGIcon.prg
+source\HWGLIFO.prg
 source\HWGLine.prg
 source\HWGMainWindow.prg
 source\HWGMdiChildWindow.prg
