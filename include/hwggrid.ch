@@ -21,6 +21,7 @@
             [ ON PAINT <bPaint> ] ;
             [ ON GETFOCUS <bGFocus> ] ;
             [ ON LOSTFOCUS <bLFocus> ] ;
+            [ ITEMCOUNT <nItemCount> ] ;
             [ <lDisabled:DISABLED> ] ;
             [ OBJECTNAME <cObjectName> ] ;
             [ <class:CLASS> <className> ] ;
@@ -42,4 +43,5 @@
                                            <bPaint>, ;
                                            <bGFocus>, ;
                                            <bLFocus>, ;
+                                           <nItemCount>, ;
                                            <.lDisabled.> )

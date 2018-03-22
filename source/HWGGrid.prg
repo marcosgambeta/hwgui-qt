@@ -17,6 +17,8 @@
 CLASS HWGGrid INHERIT HWGControl
 
    DATA oModel
+   DATA nItemCount INIT 0
+   DATA aColumns INIT {}
 
    METHOD new
    METHOD activate
@@ -25,7 +27,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus, lDisabled ) CLASS HWGGrid
+             bInit, bSize, bPaint, bGFocus, bLFocus, nItemCount, lDisabled ) CLASS HWGGrid
 
    IF valtype(oParent) == "O"
       ::oQt := QTableView():new(oParent:oQt)
@@ -67,6 +69,10 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
    ENDIF
 
+   IF valtype(nItemCount) == "N"
+      ::nItemCount := nItemCount
+   ENDIF
+
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
@@ -74,7 +80,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ENDIF
 
    // cria o modelo
-   ::oModel := HBrowseArrayModel():new()
+   ::oModel := HWGGridModel():new()
 
    // armazena no modelo o objeto browse
    ::oModel:oBrowse := self
@@ -96,7 +102,7 @@ RETURN NIL
 
 //-----------------------------------------------------------------//
 
-CLASS HBrowseArrayModel INHERIT HAbstractTableModelV2
+CLASS HWGGridModel INHERIT HAbstractTableModelV2
 
    DATA oBrowse
 
@@ -110,7 +116,7 @@ CLASS HBrowseArrayModel INHERIT HAbstractTableModelV2
 
 END CLASS
 
-METHOD new (...) CLASS HBrowseArrayModel
+METHOD new (...) CLASS HWGGridModel
 
    ::super:new(...)
 
@@ -123,13 +129,13 @@ METHOD new (...) CLASS HBrowseArrayModel
 
 RETURN self
 
-METHOD rowCount () CLASS HBrowseArrayModel
-RETURN len( ::oBrowse:aArray )
+METHOD rowCount () CLASS HWGGridModel
+RETURN ::oBrowse:nItemCount
 
-METHOD columnCount () CLASS HBrowseArrayModel
-RETURN iif( len( ::oBrowse:aArray ) > 0, len( ::oBrowse:aArray[1] ), 0 )
+METHOD columnCount () CLASS HWGGridModel
+RETURN len( ::oBrowse:aColumns )
 
-METHOD data (pIndex, nRole) CLASS HBrowseArrayModel
+METHOD data (pIndex, nRole) CLASS HWGGridModel
 
    LOCAL oVariant := QVariant():new()
    LOCAL oIndex := QModelIndex():newFrom(pIndex)
@@ -139,28 +145,26 @@ METHOD data (pIndex, nRole) CLASS HBrowseArrayModel
    IF oIndex:isValid()
 
       IF nRole == Qt_DisplayRole
-         oVariant := QVariant():new( ::oBrowse:aArray[ nRow+1 ][ nColumn+1 ] )
-      ELSEIF nRole == Qt_EditRole
-         oVariant := QVariant():new( ::oBrowse:aArray[ nRow+1 ][ nColumn+1 ] )
+         oVariant := QVariant():new( "" )
       ENDIF
 
    ENDIF
 
 RETURN oVariant
 
-METHOD headerData (nSection, nOrientation, nRole) CLASS HBrowseArrayModel
+METHOD headerData (nSection, nOrientation, nRole) CLASS HWGGridModel
 
    LOCAL oVariant := QVariant():new()
 
    IF nOrientation == Qt_Horizontal .AND. nRole == Qt_DisplayRole
-      oVariant := QVariant():new( "Coluna "+alltrim(str(nSection+1)) )
+      oVariant := QVariant():new( "Header #"+alltrim(str(nSection+1)) )
    ELSEIF nOrientation == Qt_Vertical .AND. nRole == Qt_DisplayRole
       oVariant := QVariant():new( "#"+alltrim(str(nSection+1)) )
    ENDIF
 
 RETURN oVariant
 
-METHOD flags (pIndex) CLASS HBrowseArrayModel
+METHOD flags (pIndex) CLASS HWGGridModel
 
    //LOCAL nFlags := Qt_ItemIsSelectable + Qt_ItemIsEditable + Qt_ItemIsEnabled
    LOCAL nFlags := Qt_ItemIsSelectable + Qt_ItemIsEnabled
@@ -170,7 +174,7 @@ METHOD flags (pIndex) CLASS HBrowseArrayModel
 
 RETURN nFlags
 
-METHOD setData (pIndex, pVariant, nRole) CLASS HBrowseArrayModel
+METHOD setData (pIndex, pVariant, nRole) CLASS HWGGridModel
 
    LOCAL lSuccess := .F.
    LOCAL oIndex := QModelIndex():newFrom(pIndex)
@@ -186,7 +190,7 @@ METHOD setData (pIndex, pVariant, nRole) CLASS HBrowseArrayModel
          cValue := oVariant:toString()
 
          IF !empty(cValue)
-            ::oBrowse:aArray[ nRow+1 ][ nColumn+1 ] := oVariant:toString()
+            // code to set data
             lSuccess := .T.
          ENDIF
 
