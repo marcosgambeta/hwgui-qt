@@ -22,6 +22,7 @@
             [ ON GETFOCUS <bGFocus> ] ;
             [ ON LOSTFOCUS <bLFocus> ] ;
             [ ITEMCOUNT <nItemCount> ] ;
+            [ ON DISPINFO <bDispInfo> ] ;
             [ <lDisabled:DISABLED> ] ;
             [ OBJECTNAME <cObjectName> ] ;
             [ <class:CLASS> <className> ] ;
@@ -44,4 +45,13 @@
                                            <bGFocus>, ;
                                            <bLFocus>, ;
                                            <nItemCount>, ;
+                                           <{bDispInfo}>, ;
                                            <.lDisabled.> )
+
+#xcommand ADD COLUMN TO GRID <oGrid> ;
+          [ HEADER <cTitle> ] ;
+          [ WIDTH <nWidth> ] ;
+          [ JUSTIFY HEAD <nAlignment> ] ;
+          [ BITMAP <n> ] ;
+          => ;
+          <oGrid>:addColumn( <cTitle>, <nWidth>, <nAlignment>, <n> )

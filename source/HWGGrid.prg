@@ -19,15 +19,18 @@ CLASS HWGGrid INHERIT HWGControl
    DATA oModel
    DATA nItemCount INIT 0
    DATA aColumns INIT {}
+   DATA bDispInfo
 
    METHOD new
    METHOD activate
+   METHOD addColumn
 
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus, nItemCount, lDisabled ) CLASS HWGGrid
+             bInit, bSize, bPaint, bGFocus, bLFocus, ;
+             nItemCount, bDispInfo, lDisabled ) CLASS HWGGrid
 
    IF valtype(oParent) == "O"
       ::oQt := QTableView():new(oParent:oQt)
@@ -73,6 +76,10 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::nItemCount := nItemCount
    ENDIF
 
+   IF valtype(bDispInfo) == "B"
+      ::bDispInfo := bDispInfo
+   ENDIF
+
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
@@ -82,8 +89,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    // cria o modelo
    ::oModel := HWGGridModel():new()
 
-   // armazena no modelo o objeto browse
-   ::oModel:oBrowse := self
+   // armazena no modelo o objeto grid
+   ::oModel:oGrid := self
 
    // associa modelo ao visualizador
    ::oQt:setModel(::oModel)
@@ -100,11 +107,19 @@ METHOD activate () CLASS HWGGrid
 
 RETURN NIL
 
+METHOD addColumn ( cTitle, nWidth, nAlignment, n ) CLASS HWGGrid
+
+   aadd( ::aColumns, { cTitle, nWidth, nAlignment, n } )
+
+   ::oQt:setColumnWidth( len(::aColumns)-1, ::aColumns[ len(::aColumns) ][2] )
+
+RETURN NIL
+
 //-----------------------------------------------------------------//
 
 CLASS HWGGridModel INHERIT HAbstractTableModelV2
 
-   DATA oBrowse
+   DATA oGrid
 
    METHOD new
    METHOD rowCount
@@ -130,10 +145,10 @@ METHOD new (...) CLASS HWGGridModel
 RETURN self
 
 METHOD rowCount () CLASS HWGGridModel
-RETURN ::oBrowse:nItemCount
+RETURN ::oGrid:nItemCount
 
 METHOD columnCount () CLASS HWGGridModel
-RETURN len( ::oBrowse:aColumns )
+RETURN len( ::oGrid:aColumns )
 
 METHOD data (pIndex, nRole) CLASS HWGGridModel
 
@@ -145,7 +160,13 @@ METHOD data (pIndex, nRole) CLASS HWGGridModel
    IF oIndex:isValid()
 
       IF nRole == Qt_DisplayRole
-         oVariant := QVariant():new( "" )
+         IF valtype(::oGrid:bDispInfo) == "B"
+            oVariant := QVariant():new( eval(::oGrid:bDispInfo, ::oGrid, nRow+1, nColumn+1) )
+         ENDIF
+      ELSEIF nRole == Qt_TextAlignmentRole
+         // TODO: alinhamento das celulas
+         //oVariant := QVariant():new( ::oGrid:aColumns[ nColumn+1 ][3] )
+         oVariant := QVariant():new( Qt_AlignLeft )
       ENDIF
 
    ENDIF
@@ -157,9 +178,10 @@ METHOD headerData (nSection, nOrientation, nRole) CLASS HWGGridModel
    LOCAL oVariant := QVariant():new()
 
    IF nOrientation == Qt_Horizontal .AND. nRole == Qt_DisplayRole
-      oVariant := QVariant():new( "Header #"+alltrim(str(nSection+1)) )
-   ELSEIF nOrientation == Qt_Vertical .AND. nRole == Qt_DisplayRole
-      oVariant := QVariant():new( "#"+alltrim(str(nSection+1)) )
+      oVariant := QVariant():new( ::oGrid:aColumns[ nSection+1 ][1] )
+// TODO: vertical header
+//    ELSEIF nOrientation == Qt_Vertical .AND. nRole == Qt_DisplayRole
+//       oVariant := QVariant():new()
    ENDIF
 
 RETURN oVariant
