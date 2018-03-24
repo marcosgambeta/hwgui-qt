@@ -11,10 +11,14 @@
                    [ <lMinimized : MINIMIZED> ] ;
                    [ <lFullScreen : FULLSCREEN> ] ;
                    [ <lNoShow : NOSHOW> ] ;
+                   [ <lCentered:CENTERED> ] ;
+                   [ <lModal:MODAL> ] ;
                    => ;
                    <oObj>:activate( <.lMaximized.>, ;
                                     <.lMinimized.>, ;
                                     <.lFullScreen.>, ;
+                                    <.lCentered.>, ;
+                                    <.lModal.>, ;
                                     <.lNoShow.> )
 
 #xcommand CENTER WINDOW <oObj> => <oObj>:center()

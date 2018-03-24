@@ -55,7 +55,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
 RETURN self
 
-METHOD activate ( lMaximized, lMinimized, lFullScreen, lNoShow ) CLASS HWGChildWindow
+METHOD activate ( lMaximized, lMinimized, lFullScreen, lCentered, lModal, lNoShow ) CLASS HWGChildWindow
 
    IF valtype(::bInit) == "B"
       eval(::bInit, self)
@@ -76,6 +76,19 @@ METHOD activate ( lMaximized, lMinimized, lFullScreen, lNoShow ) CLASS HWGChildW
    IF valtype(lFullScreen) == "L"
       IF lFullScreen
          ::oQt:showFullScreen()
+      ENDIF
+   ENDIF
+
+   IF valtype(lCentered) == "L"
+      IF lCentered
+         ::center()
+      ENDIF
+   ENDIF
+
+   IF valtype(lModal) == "L"
+      IF lmodal
+         ::oQt:setWindowModality(Qt_ApplicationModal)
+         ::lModal := .T.
       ENDIF
    ENDIF
 

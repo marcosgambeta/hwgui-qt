@@ -19,7 +19,7 @@ CLASS HWGWindow INHERIT HWGCustomWindow
    DATA lMain INIT .F.
    DATA lChild INIT .F.
    DATA lMdi INIT .F.
-
+   DATA lModal INIT .F.
    DATA lClose INIT .F.
 
    DATA oEventLoop
@@ -82,7 +82,7 @@ RETURN NIL
 
 METHOD center () CLASS HWGWindow
 
-   // TODO: rotina de centralizacao da janela
+   ::oQt:setGeometry( QStyle():alignedRect( Qt_LeftToRight, Qt_AlignCenter, ::oQt:size(), QApplication():instance():desktop():availableGeometry() ) )
 
 RETURN NIL
 
