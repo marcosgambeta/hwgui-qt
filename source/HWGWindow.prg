@@ -40,6 +40,7 @@ CLASS HWGWindow INHERIT HWGCustomWindow
    METHOD onSize
    METHOD onGetFocus
    METHOD onLostFocus
+   METHOD onClose
 
    METHOD close
 
@@ -108,13 +109,14 @@ METHOD connectEvents () CLASS HWGWindow
    ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
    ::oQt:onWindowActivateEvent( {|oSender,oEvent| ::onGetFocus(oSender,oEvent) } )
    ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLostFocus(oSender,oEvent) } )
+   ::oQt:onCloseEvent( {|oSender,oEvent| ::onClose(oSender,oEvent) } )
 
 RETURN NIL
 
 METHOD onPaint (oSender,oEvent) CLASS HWGWindow
 
    IF valtype(::bPaint) == "B"
-      eval(::bPaint)
+      eval(::bPaint, self)
    ENDIF
 
 RETURN NIL
@@ -122,7 +124,7 @@ RETURN NIL
 METHOD onSize (oSender,oEvent) CLASS HWGWindow
 
    IF valtype(::bSize) == "B"
-      eval(::bSize)
+      eval(::bSize, self)
    ENDIF
 
 RETURN NIL
@@ -130,7 +132,7 @@ RETURN NIL
 METHOD onGetFocus (oSender,oEvent) CLASS HWGWindow
 
    IF valtype(::bGFocus) == "B"
-      eval(::bGFocus)
+      eval(::bGFocus, self)
    ENDIF
 
 RETURN NIL
@@ -138,17 +140,42 @@ RETURN NIL
 METHOD onLostFocus (oSender,oEvent) CLASS HWGWindow
 
    IF valtype(::bLFocus) == "B"
-      eval(::bLFocus)
+      eval(::bLFocus, self)
    ENDIF
 
 RETURN NIL
+
+METHOD OnClose (oSender,oEvent) CLASS HWGWindow
+
+   LOCAL lRet
+
+   IF valtype(::bExit) == "B"
+      lRet := eval(::bExit, self)
+   ENDIF
+
+   IF valtype(lRet) <> "L"
+      lRet := .T.
+   ENDIF
+
+   IF lRet
+      oEvent:accept()
+      ::lClose := .T.
+   ELSE
+      oEvent:ignore()
+      ::lClose := .F.
+   ENDIF
+
+RETURN .T.
 
 METHOD close () CLASS HWGWindow
 
    ::oQt:close()
 
-   IF valtype(::oEventLoop) == "O"
-      ::oEventLoop:quit()
+   IF ::lClose .AND. valtype(::oEventLoop) == "O"
+      //::oEventLoop:quit()
+      IF ::oEventLoop:isRunning()
+         ::oEventLoop:exit()
+      ENDIF
    ENDIF
 
 RETURN NIL
