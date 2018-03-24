@@ -29,8 +29,6 @@ PROCEDURE Main ()
    oGrid:addColumn( "Coluna 1", int(620/3), 0, 0 )
    oGrid:addColumn( "Coluna 2", int(620/3), 0, 0 )
    oGrid:addColumn( "Coluna 3", int(620/3), 0, 0 )
-   
-   oGrid:oQt:show()
 
    ACTIVATE DIALOG oDialog
 
