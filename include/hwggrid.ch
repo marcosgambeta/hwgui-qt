@@ -23,6 +23,10 @@
             [ ON LOSTFOCUS <bLFocus> ] ;
             [ ITEMCOUNT <nItemCount> ] ;
             [ ON DISPINFO <bDispInfo> ] ;
+            [ <lNoHeader:NO HEADER> ] ;
+            [ <lNoGridLines:NOGRIDLINES> ] ;
+            [ <lNoScroll:NOSCROLL> ] ;
+            [ <lNoBorder:NOBORDER> ] ;
             [ <lDisabled:DISABLED> ] ;
             [ OBJECTNAME <cObjectName> ] ;
             [ <class:CLASS> <className> ] ;
@@ -46,6 +50,8 @@
                                            <bLFocus>, ;
                                            <nItemCount>, ;
                                            <{bDispInfo}>, ;
+                                           <.lNoHeader.>, ;
+                                           <.lNoGridLines.>, ;
                                            <.lDisabled.> )
 
 #xcommand ADD COLUMN TO GRID <oGrid> ;

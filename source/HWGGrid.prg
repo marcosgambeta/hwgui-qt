@@ -30,7 +30,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              bInit, bSize, bPaint, bGFocus, bLFocus, ;
-             nItemCount, bDispInfo, lDisabled ) CLASS HWGGrid
+             nItemCount, bDispInfo, lNoHeader, lNoGridLines, lDisabled ) CLASS HWGGrid
 
    IF valtype(oParent) == "O"
       ::oQt := QTableView():new(oParent:oQt)
@@ -80,6 +80,18 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bDispInfo := bDispInfo
    ENDIF
 
+   IF valtype(lNoHeader) == "L"
+      IF lNoHeader
+         ::oQt:horizontalHeader():setVisible(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lNoGridLines) == "L"
+      IF lNoGridLines
+         ::oQt:setShowGrid(.F.)
+      ENDIF
+   ENDIF
+
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
@@ -112,6 +124,8 @@ METHOD addColumn ( cTitle, nWidth, nAlignment, n ) CLASS HWGGrid
    aadd( ::aColumns, { cTitle, nWidth, nAlignment, n } )
 
    ::oQt:setColumnWidth( len(::aColumns)-1, ::aColumns[ len(::aColumns) ][2] )
+   
+   ::oQt:update()
 
 RETURN NIL
 
