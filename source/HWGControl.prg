@@ -21,10 +21,13 @@ CLASS HWGControl INHERIT HWGCustomWindow
    METHOD getText
    METHOD setText
 
+   METHOD configureEvents
+   METHOD connectEvents
+   
    METHOD onSize
    METHOD onPaint
-   METHOD onGFocus
-   METHOD onLFocus
+   METHOD onGetFocus
+   METHOD onLostFocus
 
 ENDCLASS
 
@@ -37,10 +40,50 @@ METHOD setText (cText) CLASS HWGControl
    ::oQt:setText(cText)
 RETURN NIL
 
+METHOD configureEvents ( bSize, bPaint, bGFocus, bLFocus ) CLASS HWGControl
+
+   IF valtype(bSize) == "B"
+      ::bSize := bSize
+   ENDIF
+
+   IF valtype(bPaint) == "B"
+      ::bPaint := bPaint
+   ENDIF
+
+   IF valtype(bGFocus) == "B"
+      ::bGFocus := bGFocus
+   ENDIF
+
+   IF valtype(bLFocus) == "B"
+      ::bLFocus := bLFocus
+   ENDIF
+
+RETURN NIL
+
+METHOD connectEvents () CLASS HWGControl
+
+   IF valtype(::bSize) == "B"
+      ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(::bPaint) == "B"
+      ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(::bGFocus) == "B"
+      ::oQt:onFocusInEvent( {|oSender,oEvent| ::onGetFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(::bLFocus) == "B"
+      ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLostFocus(oSender,oEvent) } )
+   ENDIF
+
+RETURN NIL
+
 METHOD onSize (oSender,oEvent) CLASS HWGControl
 
    IF valtype(::bSize) == "B"
-      eval(::bSize)
+      eval(::bSize, self)
    ENDIF
 
 RETURN NIL
@@ -48,23 +91,23 @@ RETURN NIL
 METHOD onPaint (oSender,oEvent) CLASS HWGControl
 
    IF valtype(::bPaint) == "B"
-      eval(::bPaint)
+      eval(::bPaint, self)
    ENDIF
 
 RETURN NIL
 
-METHOD onGFocus (oSender,oEvent) CLASS HWGControl
+METHOD onGetFocus (oSender,oEvent) CLASS HWGControl
 
    IF valtype(::bGFocus) == "B"
-      eval(::bGFocus)
+      eval(::bGFocus, self)
    ENDIF
 
 RETURN NIL
 
-METHOD onLFocus (oSender,oEvent) CLASS HWGControl
+METHOD onLostFocus (oSender,oEvent) CLASS HWGControl
 
    IF valtype(::bLFocus) == "B"
-      eval(::bLFocus)
+      eval(::bLFocus, self)
    ENDIF
 
 RETURN NIL

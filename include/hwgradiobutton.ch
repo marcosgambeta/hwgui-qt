@@ -33,5 +33,5 @@
                                                 <xForeColor>, ;
                                                 <xBackColor>, ;
                                                 <cText>, ;
-                                                <bOnInit>, ;
+                                                <{bOnInit}>, ;
                                                 <.lDisabled.> )

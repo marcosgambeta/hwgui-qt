@@ -34,5 +34,5 @@
                                                   <xForeColor>, ;
                                                   <xBackColor>, ;
                                                   <dDate>, ;
-                                                  <bOnInit>, ;
+                                                  <{bOnInit}>, ;
                                                   <.lDisabled.> )

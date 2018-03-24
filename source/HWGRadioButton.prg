@@ -37,13 +37,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
-
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
-
    ::configureStyleSheet( cStyleSheet )
-
    ::configureFont( oFont )
-
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(cText) == "C"
@@ -54,13 +50,14 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bOnInit
    ENDIF
 
+//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
+//    ::connectEvents()
+
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
       ENDIF
    ENDIF
-
-   ::configureGeometry( nX, nY, nWidth, nHeight )
 
    ::activate()
 
@@ -69,7 +66,7 @@ RETURN self
 METHOD activate () CLASS HWGRadioButton
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
 RETURN NIL

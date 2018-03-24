@@ -36,11 +36,11 @@
                                      <xForeColor>, ;
                                      <xBackColor>, ;
                                      <cTitle>, ;
-                                     <bInit>, ;
-                                     <bSize>, ;
-                                     <bPaint>, ;
-                                     <bGFocus>, ;
-                                     <bLFocus>, ;
-                                     <bExit> )
+                                     <{bInit}>, ;
+                                     <{bSize}>, ;
+                                     <{bPaint}>, ;
+                                     <{bGFocus}>, ;
+                                     <{bLFocus}>, ;
+                                     <{bExit}> )
 
 #xcommand ACTIVATE DIALOG <oObj> => HWGFILO():remove() ;; <oObj>:activate()

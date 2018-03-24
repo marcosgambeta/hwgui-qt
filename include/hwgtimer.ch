@@ -14,4 +14,4 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGTimer)():new( <oParent>, ;
                                     <nValue>, ;
-                                    <bAction> )
+                                    <{bAction}> )

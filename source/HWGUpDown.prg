@@ -40,13 +40,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
-
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
-
    ::configureStyleSheet( cStyleSheet )
-
    ::configureFont( oFont )
-
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(nValue) == "N"
@@ -73,6 +69,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bOnInit
    ENDIF
 
+//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
+//    ::connectEvents()
+
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
@@ -86,7 +85,7 @@ RETURN self
 METHOD activate () CLASS HWGUpDown
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
 RETURN NIL

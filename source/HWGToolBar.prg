@@ -65,7 +65,7 @@ RETURN self
 METHOD activate () CLASS HWGToolBar
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
 RETURN NIL

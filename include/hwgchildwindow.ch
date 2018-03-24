@@ -36,9 +36,9 @@
                                           <xForeColor>, ;
                                           <xBackColor>, ;
                                           <cTitle>, ;
-                                          <bInit>, ;
-                                          <bSize>, ;
-                                          <bPaint>, ;
-                                          <bGFocus>, ;
-                                          <bLFocus>, ;
-                                          <bExit> )
+                                          <{bInit}>, ;
+                                          <{bSize}>, ;
+                                          <{bPaint}>, ;
+                                          <{bGFocus}>, ;
+                                          <{bLFocus}>, ;
+                                          <{bExit}> )

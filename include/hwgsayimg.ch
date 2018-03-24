@@ -27,5 +27,5 @@
                                            <cWhatsThis>, ;
                                            <cStyleSheet>, ;
                                            <cImage>, ;
-                                           <bOnInit>, ;
+                                           <{bOnInit}>, ;
                                            <.lScaled.> )

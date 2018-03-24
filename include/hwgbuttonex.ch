@@ -34,6 +34,6 @@
                                              <xForeColor>, ;
                                              <xBackColor>, ;
                                              <cText>, ;
-                                             <bInit>, ;
-                                             <bClick>, ;
+                                             <{bInit}>, ;
+                                             <{bClick}>, ;
                                              <.lDisabled.> )

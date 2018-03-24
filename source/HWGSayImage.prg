@@ -40,9 +40,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
-
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
-
    ::configureStyleSheet( cStyleSheet )
 
    IF valtype(cImage) == "C"
@@ -53,6 +51,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
    ENDIF
+
+//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
+//    ::connectEvents()
 
    IF valtype(lScaled) == "L"
       IF lScaled
@@ -67,7 +68,7 @@ RETURN self
 METHOD activate () CLASS HWGSayImage
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
 RETURN NIL

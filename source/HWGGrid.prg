@@ -52,25 +52,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   IF valtype(bSize) == "B"
-      ::bSize := bSize
-      ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
-   ENDIF
-
-   IF valtype(bPaint) == "B"
-      ::bPaint := bPaint
-      ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
-   ENDIF
-
-   IF valtype(bGFocus) == "B"
-      ::bGFocus := bGFocus
-      ::oQt:onFocusInEvent( {|oSender,oEvent| ::onGFocus(oSender,oEvent) } )
-   ENDIF
-
-   IF valtype(bLFocus) == "B"
-      ::bLFocus := bLFocus
-      ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
-   ENDIF
+   ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
+   ::connectEvents()
 
    IF valtype(nItemCount) == "N"
       ::nItemCount := nItemCount
@@ -99,7 +82,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ENDIF
 
    // cria o modelo
-   ::oModel := HWGGridModel():new()
+   ::oModel := HWGGridModel():new(::oQt)
 
    // armazena no modelo o objeto grid
    ::oModel:oGrid := self
@@ -114,7 +97,7 @@ RETURN self
 METHOD activate () CLASS HWGGrid
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
 RETURN NIL
@@ -123,9 +106,12 @@ METHOD addColumn ( cTitle, nWidth, nAlignment, n ) CLASS HWGGrid
 
    aadd( ::aColumns, { cTitle, nWidth, nAlignment, n } )
 
-   ::oQt:setColumnWidth( len(::aColumns)-1, ::aColumns[ len(::aColumns) ][2] )
-   
-   ::oQt:update()
+//   ::oQt:setColumnWidth( len(::aColumns)-1, ::aColumns[ len(::aColumns) ][2] )
+
+   FOR nColumn := len(::aColumns) - 1 TO 0
+      ::oQt:setColumnWidth( nColumn, ::aColumns[ nColumn + 1 ][2] )
+      ::oQt:update()
+   NEXT nColumn
 
 RETURN NIL
 

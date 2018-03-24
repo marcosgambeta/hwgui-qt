@@ -43,13 +43,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
-
    ::configureTips( cToolTip )
-
    ::configureStyleSheet( cStyleSheet )
-
    ::configureFont( oFont )
-
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(cTitle) == "C"
@@ -91,7 +87,7 @@ RETURN self
 METHOD activate (lNoModal,bOnActivate,nShow) CLASS HWGDialog
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
    ::oQt:exec()

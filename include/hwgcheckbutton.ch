@@ -81,9 +81,9 @@
                                               <cText>, ;
                                               .F., ;
                                               <xVar>, ;
-                                              <bInit>,;
-                                              <bSize>, ;
-                                              <bPaint>, ;
-                                              <bGFocus>, ;
-                                              <bLFocus>, ;
+                                              <{bInit}>,;
+                                              <{bSize}>, ;
+                                              <{bPaint}>, ;
+                                              <{bGFocus}>, ;
+                                              <{bLFocus}>, ;
                                               <.lDisabled.> )

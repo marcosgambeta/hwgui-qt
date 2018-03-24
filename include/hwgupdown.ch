@@ -42,7 +42,7 @@
                                            <nStep>, ;
                                            <cPrefix>, ;
                                            <cSuffix>, ;
-                                           <bOnInit>, ;
+                                           <{bOnInit}>, ;
                                            <.lDisabled.> )
 
 #xcommand @ <nX>,<nY> UPDOWN [ <oObj> VAR ] <xVar> ;
@@ -81,5 +81,5 @@
                                          <nStep>, ;
                                          <cPrefix>, ;
                                          <cSuffix>, ;
-                                         <bOnInit>, ;
+                                         <{bOnInit}>, ;
                                          <.lDisabled.> )

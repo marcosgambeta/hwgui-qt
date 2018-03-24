@@ -43,11 +43,11 @@
                                            <oFont>, ;
                                            <xForeColor>, ;
                                            <xBackColor>, ;
-                                           <bInit>, ;
-                                           <bSize>, ;
-                                           <bPaint>, ;
-                                           <bGFocus>, ;
-                                           <bLFocus>, ;
+                                           <{bInit}>, ;
+                                           <{bSize}>, ;
+                                           <{bPaint}>, ;
+                                           <{bGFocus}>, ;
+                                           <{bLFocus}>, ;
                                            <nItemCount>, ;
                                            <{bDispInfo}>, ;
                                            <.lNoHeader.>, ;

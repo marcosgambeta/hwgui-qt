@@ -54,7 +54,6 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
    ENDIF
 
    ::configureEvents( bSize, bPaint, bGFocus, bLFocus, bExit )
-
    ::connectEvents()
 
    HWGFILO():add(self)

@@ -26,4 +26,4 @@
                                            <cWhatsThis>, ;
                                            <cStyleSheet>, ;
                                            <cBitmap>, ;
-                                           <bOnInit> )
+                                           <{bOnInit}> )

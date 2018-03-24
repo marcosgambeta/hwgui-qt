@@ -34,7 +34,7 @@
                                                <xForeColor>, ;
                                                <xBackColor>, ;
                                                <dDate>, ;
-                                               <bOnInit>, ;
+                                               <{bOnInit}>, ;
                                                <.lDisabled.> )
 
 #xcommand @ <nX>,<nY> GET DATEPICKER [ <oObj> VAR ] <xVar> ;
@@ -65,5 +65,5 @@
                                                <xForeColor>, ;
                                                <xBackColor>, ;
                                                <dDate>, ;
-                                               <bOnInit>, ;
+                                               <{bOnInit}>, ;
                                                <.lDisabled.> )

@@ -34,5 +34,5 @@
                                                 <xForeColor>, ;
                                                 <xBackColor>, ;
                                                 <.lVertical.>, ;
-                                                <bOnInit>, ;
+                                                <{bOnInit}>, ;
                                                 <.lDisabled.> )

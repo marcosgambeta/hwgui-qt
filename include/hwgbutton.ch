@@ -40,11 +40,11 @@
                                            <xForeColor>, ;
                                            <xBackColor>, ;
                                            <cText>, ;
-                                           <bInit>, ;
-                                           <bClick>, ;
-                                           <bSize>, ;
-                                           <bPaint>, ;
-                                           <bGFocus>, ;
-                                           <bLFocus>, ;
+                                           <{bInit}>, ;
+                                           <{bClick}>, ;
+                                           <{bSize}>, ;
+                                           <{bPaint}>, ;
+                                           <{bGFocus}>, ;
+                                           <{bLFocus}>, ;
                                            <.lDisabled.>, ;
                                            <cIcon> )

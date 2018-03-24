@@ -38,7 +38,7 @@
                                          <nMinimum>, ;
                                          <nMaximum>, ;
                                          <.lNotchesVisible.>, ;
-                                         <bOnInit>, ;
+                                         <{bOnInit}>, ;
                                          <.lDisabled.> )
 
 #xcommand @ <nX>,<nY> DIAL [ <oObj> VAR ] <xVar> ;
@@ -73,5 +73,5 @@
                                          <nMinimum>, ;
                                          <nMaximum>, ;
                                          <.lNotchesVisible.>, ;
-                                         <bOnInit>, ;
+                                         <{bOnInit}>, ;
                                          <.lDisabled.> )

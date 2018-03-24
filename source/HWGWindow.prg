@@ -32,6 +32,7 @@ CLASS HWGWindow INHERIT HWGCustomWindow
    METHOD minimize
    METHOD restore
    METHOD fullScreen
+   METHOD center
 
    METHOD configureEvents
    METHOD connectEvents
@@ -76,6 +77,12 @@ RETURN NIL
 METHOD fullScreen () CLASS HWGWindow
 
    ::oQt:showFullScreen()
+
+RETURN NIL
+
+METHOD center () CLASS HWGWindow
+
+   // TODO: rotina de centralizacao da janela
 
 RETURN NIL
 

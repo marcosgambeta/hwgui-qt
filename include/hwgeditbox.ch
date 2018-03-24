@@ -37,9 +37,9 @@
                                          <xForeColor>, ;
                                          <xBackColor>, ;
                                          <cText>, ;
-                                         <bInit>, ;
-                                         <bSize>, ;
-                                         <bPaint>, ;
-                                         <bGFocus>, ;
-                                         <bLFocus>, ;
+                                         <{bInit}>, ;
+                                         <{bSize}>, ;
+                                         <{bPaint}>, ;
+                                         <{bGFocus}>, ;
+                                         <{bLFocus}>, ;
                                          <.lDisabled.> )

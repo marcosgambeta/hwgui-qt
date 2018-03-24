@@ -26,4 +26,4 @@
                                             <cWhatsThis>, ;
                                             <cStyleSheet>, ;
                                             <cIcon>, ;
-                                            <bOnInit> )
+                                            <{bOnInit}> )

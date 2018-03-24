@@ -44,11 +44,11 @@
                                          <xVar>, ;
                                          {|x|iif(x==nil,<xVar>,<xVar>:=x)}, ;
                                          <cPicture>, ;
-                                         <bInit>, ;
-                                         <bSize>, ;
-                                         <bPaint>, ;
-                                         <bGFocus>, ;
-                                         <bLFocus>, ;
+                                         <{bInit}>, ;
+                                         <{bSize}>, ;
+                                         <{bPaint}>, ;
+                                         <{bGFocus}>, ;
+                                         <{bLFocus}>, ;
                                          <.lPassword.>, ;
                                          <nMaxLength>, ;
                                          <.lNoBorder.>, ;

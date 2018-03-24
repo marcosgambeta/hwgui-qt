@@ -17,29 +17,47 @@
 CLASS HWGPanel INHERIT HWGControl
 
    METHOD new
+   METHOD activate
 
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, xForeColor, xBackColor, ;
-             bOnInit ) CLASS HWGPanel
+             bOnInit, lDisabled ) CLASS HWGPanel
 
    IF valtype(oParent) == "O"
       ::oQt := QFrame():new(oParent:oQt)
    ELSE
-      ::oQt := QFrame():new()
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QFrame():new(HWGFILO():last():oQt)
+      ELSE
+         ::oQt := QFrame():new()
+      ENDIF
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
-
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
-
    ::configureStyleSheet( cStyleSheet )
-
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
    ENDIF
 
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   ::activate()
+
 RETURN self
+
+METHOD activate () CLASS HWGPanel
+
+   IF valtype(::bInit) == "B"
+      eval(::bInit, self)
+   ENDIF
+
+RETURN NIL

@@ -42,13 +42,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
-
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
-
    ::configureStyleSheet( cStyleSheet )
-
    ::configureFont( oFont )
-
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(cText) == "C"
@@ -58,6 +54,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(bInit) == "B"
       ::bInit := bInit
    ENDIF
+
+//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
+//    ::connectEvents()
 
    IF valtype(bClick) == "B"
       ::bClick := bClick
@@ -77,7 +76,7 @@ RETURN self
 METHOD activate () CLASS HWGStatic
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
 RETURN NIL

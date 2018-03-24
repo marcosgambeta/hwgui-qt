@@ -33,7 +33,7 @@
                                         <xForeColor>, ;
                                         <xBackColor>, ;
                                         <aItems>, ;
-                                        <bOnInit>, ;
+                                        <{bOnInit}>, ;
                                         <.lDisabled.> )
 
 #xcommand BEGIN PAGE <cTitle> OF <oTab> ;

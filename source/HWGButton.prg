@@ -39,13 +39,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
-
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
-
    ::configureStyleSheet( cStyleSheet )
-
    ::configureFont( oFont )
-
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(cText) == "C"
@@ -56,25 +52,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   IF valtype(bSize) == "B"
-      ::bSize := bSize
-      ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
-   ENDIF
-
-   IF valtype(bPaint) == "B"
-      ::bPaint := bPaint
-      ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
-   ENDIF
-
-   IF valtype(bGFocus) == "B"
-      ::bGFocus := bGFocus
-      ::oQt:onFocusInEvent( {|oSender,oEvent| ::onGFocus(oSender,oEvent) } )
-   ENDIF
-
-   IF valtype(bLFocus) == "B"
-      ::bLFocus := bLFocus
-      ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
-   ENDIF
+   ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
+   ::connectEvents()
 
    IF valtype(bClick) == "B"
       ::bClick := bClick
@@ -98,7 +77,7 @@ RETURN self
 METHOD activate () CLASS HWGButton
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
 RETURN NIL

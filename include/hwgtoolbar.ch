@@ -30,7 +30,7 @@
                                             <cWhatsThis>, ;
                                             <cStyleSheet>, ;
                                             <oFont>, ;
-                                            <bOnInit>, ;
+                                            <{bOnInit}>, ;
                                             <.lDisabled.> )
 
 #xcommand BEGIN TOOLBAR [ <oObj> ] ;
@@ -42,7 +42,7 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBar)():new( <oParent>, ;
                                           <cStyleSheet>, ;
-                                          <bOnInit>, ;
+                                          <{bOnInit}>, ;
                                           <.lDisabled.> )
 
 #xcommand END TOOLBAR => HWGFILO():remove()

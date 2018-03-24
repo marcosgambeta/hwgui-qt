@@ -42,13 +42,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )
-
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
-
    ::configureStyleSheet( cStyleSheet )
-
    ::configureFont( oFont )
-
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    ::oActionButton := QPushButton():new("...",::oQt:parent()):move(::oQt:x()+::oQt:width(),::oQt:y()):resize(30,::oQt:height())
@@ -62,6 +58,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(bOnInit) == "B"
       ::bInit := bOnInit
    ENDIF
+
+//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
+//    ::connectEvents()
 
    // TODO: enabled/disable deve agir nos dois objetos (::oQt e ::oActionButton)
 
@@ -79,7 +78,7 @@ RETURN self
 METHOD activate () CLASS HWGDatePicker
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
 RETURN NIL

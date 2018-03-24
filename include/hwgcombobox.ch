@@ -34,7 +34,7 @@
                                              <xBackColor>, ;
                                              <aItems>, ;
                                              , ;
-                                             <bOnInit>, ;
+                                             <{bOnInit}>, ;
                                              <.lDisabled.> )
 
 #xcommand @ <nX>,<nY> GET COMBOBOX [ <oObj> VAR ] <xVar> ITEMS <aItems> ;
@@ -65,5 +65,5 @@
                                              <xBackColor>, ;
                                              <aItems>, ;
                                              <xVar>, ;
-                                             <bOnInit>, ;
+                                             <{bOnInit}>, ;
                                              <.lDisabled.> )

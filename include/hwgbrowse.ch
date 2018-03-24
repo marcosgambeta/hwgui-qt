@@ -39,11 +39,11 @@
                                            <oFont>, ;
                                            <xForeColor>, ;
                                            <xBackColor>, ;
-                                           <bInit>, ;
-                                           <bSize>, ;
-                                           <bPaint>, ;
-                                           <bGFocus>, ;
-                                           <bLFocus>, ;
+                                           <{bInit}>, ;
+                                           <{bSize}>, ;
+                                           <{bPaint}>, ;
+                                           <{bGFocus}>, ;
+                                           <{bLFocus}>, ;
                                            <.lArray.>, ;
                                            <.lDatabase.>, ;
                                            <.lDisabled.> )

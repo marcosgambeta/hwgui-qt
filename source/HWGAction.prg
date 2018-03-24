@@ -74,7 +74,7 @@ RETURN self
 METHOD activate () CLASS HWGAction
 
    IF valtype(::bInit) == "B"
-      eval(::bInit)
+      eval(::bInit, self)
    ENDIF
 
 RETURN NIL
