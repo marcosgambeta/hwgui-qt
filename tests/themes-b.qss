@@ -1,0 +1,29 @@
+QMainWindow {
+    background-color: green;
+}
+
+QMenuBar {
+    background-color: green;
+}
+
+QMenuBar::item::selected {
+    background-color: lightgreen;
+}
+
+QMenu {
+    background-color: green;
+}
+
+QMenu::item:selected {
+    background-color: lightgreen;
+	color: black;
+}
+
+QMessageBox {
+    background-color: green;
+}
+
+QPushButton {
+    background-color: olive;
+	color: white;
+}

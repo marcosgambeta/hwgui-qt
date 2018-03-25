@@ -1,0 +1,34 @@
+QMainWindow {
+    background-color: darkBlue;
+	color: white;
+}
+
+QMenuBar {
+    background-color: darkBlue;
+	color: white;
+}
+
+QMenuBar::item::selected {
+    background-color: lightblue;
+	color: white;
+}
+
+QMenu {
+    background-color: darkBlue;
+	color: white;
+}
+
+QMenu::item:selected {
+    background-color: lightblue;
+	color: white;
+}
+
+QMessageBox {
+    background-color: darkBlue;
+	color: white;
+}
+
+QPushButton {
+    background-color: darkCyan;
+	color: white;
+}
