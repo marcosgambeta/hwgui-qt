@@ -70,6 +70,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::oQt:setIcon( QIcon():new(cIcon) )
    ENDIF
 
+   ::oQt:setAutoDefault(.F.)
+
    ::activate()
 
 RETURN self
