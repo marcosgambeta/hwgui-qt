@@ -18,6 +18,8 @@ CLASS HWGDialog INHERIT HWGCustomWindow
 
    DATA lOnActivated INIT .F.
    DATA bOnActivate
+   DATA lModal INIT .T.
+   DATA oEventLoop
 
    METHOD new
    METHOD activate
@@ -84,13 +86,26 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
 RETURN self
 
-METHOD activate (lNoModal,bOnActivate,nShow) CLASS HWGDialog
+METHOD activate ( lNoModal, bOnActivate, nShow ) CLASS HWGDialog
 
    IF valtype(::bInit) == "B"
       eval(::bInit, self)
    ENDIF
 
-   ::oQt:exec()
+   IF valtype(lNoModal) == "L"
+      IF lNoModal
+         ::lModal := .F.
+      ENDIF
+   ENDIF
+
+   IF ::lModal
+      ::oQt:exec()
+   ELSE
+      ::oQt:show()
+      ::oEventLoop := QEventLoop():new()
+      ::oEventLoop:exec()
+      ::oEventLoop:delete()
+   ENDIF
 
 RETURN NIL
 
