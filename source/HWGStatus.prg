@@ -16,4 +16,57 @@
 
 CLASS HWGStatus INHERIT HWGControl
 
+   METHOD new
+   METHOD activate
+
 ENDCLASS
+
+METHOD new ( oParent, cStyleSheet, bOnInit, lDisabled ) CLASS HWGStatus
+
+   IF valtype(oParent) == "O"
+      IF oParent:oQt:metaObject():className() == "QMainWindow"
+         ::oQt := oParent:oQt:statusBar()
+      ELSE
+         ::oQt := QStatusBar():new(oParent:oQt)
+         oParent:oQt:setStatusBar(::oQt)
+      ENDIF
+      ::oParent := oParent
+   ELSE
+      IF valtype(HWGFILO():last()) == "O"
+         IF HWGFILO():last():oQt:metaObject():className() == "QMainWindow"
+            ::oQt := HWGFILO():last():oQt:statusBar()
+         ELSE
+            ::oQt := QStatusBar():new(HWGFILO():last():oQt)
+            HWGFILO():last():oQt:setStatusBar(::oQt)
+         ENDIF
+         ::oParent := HWGFILO():last()
+      ELSE
+         ::oQt := QStatusBar():new()
+      ENDIF
+   ENDIF
+
+   ::configureStyleSheet( cStyleSheet )
+
+   IF valtype(bOnInit) == "B"
+      ::bInit := bOnInit
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   ::activate()
+
+   //HWGFILO():add(self)
+
+RETURN self
+
+METHOD activate () CLASS HWGStatus
+
+   IF valtype(::bInit) == "B"
+      eval(::bInit, self)
+   ENDIF
+
+RETURN NIL

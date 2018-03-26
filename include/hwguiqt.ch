@@ -48,6 +48,7 @@
 #include "hwgsayicon.ch"
 #include "hwgsayimg.ch"
 #include "hwgstatic.ch"
+#include "hwgstatus.ch"
 #include "hwgtab.ch"
 #include "hwgtimer.ch"
 #include "hwgtoolbar.ch"
