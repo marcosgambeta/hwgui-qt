@@ -28,9 +28,11 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    IF valtype(oParent) == "O"
       ::oQt := QPlainTextEdit():new(oParent:oQt)
+      ::oParent := oParent
    ELSE
       IF valtype(HWGFILO():last()) == "O"
          ::oQt := QPlainTextEdit():new(HWGFILO():last():oQt)
+         ::oParent := HWGFILO():last()
       ELSE
          ::oQt := QPlainTextEdit():new()
       ENDIF

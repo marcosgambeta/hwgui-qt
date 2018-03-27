@@ -18,31 +18,41 @@
           [ <lDisabled:DISABLED> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBarItem)():new( <oParent>, ;
-                                              <cOption>, ;
-                                              <{bAction}>, ;
-                                              <cToolTip>, ;
-                                              <cStatusTip>, ;
-                                              <cWhatsThis>, ;
-                                              <cStyleSheet>, ;
-                                              .F., ;
-                                              <nId>, ;
-                                              <cBitmap>, ;
-                                              <.lDisabled.> )
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBarItem)():new( ;
+             <oParent>, ;
+             <cOption>, ;
+             <{bAction}>, ;
+             <cToolTip>, ;
+             <cStatusTip>, ;
+             <cWhatsThis>, ;
+             <cStyleSheet>, ;
+             .F., ;
+             <nId>, ;
+             <cBitmap>, ;
+             <.lDisabled.> ) ;;
+          [ <oObj>:cName := <(oObj)> ]
 
 #xcommand TOOLBARSEPARATOR [ <oObj> ] ;
           [ OF <oParent> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBarItem)():new( <oParent>, ;
-                                              NIL, ;
-                                              NIL, ;
-                                              NIL, ;
-                                              NIL, ;
-                                              NIL, ;
-                                              NIL, ;
-                                              .T. )
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBarItem)():new( ;
+             <oParent>, ;
+             NIL, ;
+             NIL, ;
+             NIL, ;
+             NIL, ;
+             NIL, ;
+             NIL, ;
+             .T. ) ;;
+          [ <oObj>:cName := <(oObj)> ]
 
-#xcommand TOOLBARITEM [ <oObj> ] USING ACTION <oAction> [ OF <oParent> ] [ <class:CLASS> <className> ] ;
+#xcommand TOOLBARITEM [ <oObj> ] ;
+          USING ACTION <oAction> ;
+          [ OF <oParent> ] ;
+          [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBarItem)():newWithAction( <oParent>, <oAction> )
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBarItem)():newWithAction( ;
+             <oParent>, ;
+             <oAction> ) ;;
+          [ <oObj>:cName := <(oObj)> ]

@@ -33,9 +33,11 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    IF valtype(oParent) == "O"
       ::oQt := QLineEdit():new(oParent:oQt)
+      ::oParent := oParent
    ELSE
       IF valtype(HWGFILO():last()) == "O"
          ::oQt := QLineEdit():new(HWGFILO():last():oQt)
+         ::oParent := HWGFILO():last()
       ELSE
          ::oQt := QLineEdit():new()
       ENDIF

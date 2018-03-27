@@ -28,9 +28,11 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    IF valtype(oParent) == "O"
       ::oQt := QCheckBox():new(oParent:oQt)
+      ::oParent := oParent
    ELSE
       IF valtype(HWGFILO():last()) == "O"
          ::oQt := QCheckBox():new(HWGFILO():last():oQt)
+         ::oParent := HWGFILO():last()
       ELSE
          ::oQt := QCheckBox():new()
       ENDIF

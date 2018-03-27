@@ -25,23 +25,25 @@
           [ ON EXIT <bExit> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] __IIF(<.class.>,<className>,HWGDialog)():new( <oParent>, ;
-                                     <nX>, ;
-                                     <nY>, ;
-                                     <nWidth>, ;
-                                     <nHeight>, ;
-                                     <cToolTip>, ;
-                                     <cStyleSheet>, ;
-                                     <oFont>, ;
-                                     <xForeColor>, ;
-                                     <xBackColor>, ;
-                                     <cTitle>, ;
-                                     <{bInit}>, ;
-                                     <{bSize}>, ;
-                                     <{bPaint}>, ;
-                                     <{bGFocus}>, ;
-                                     <{bLFocus}>, ;
-                                     <{bExit}> )
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGDialog)():new( ;
+             <oParent>, ;
+             <nX>, ;
+             <nY>, ;
+             <nWidth>, ;
+             <nHeight>, ;
+             <cToolTip>, ;
+             <cStyleSheet>, ;
+             <oFont>, ;
+             <xForeColor>, ;
+             <xBackColor>, ;
+             <cTitle>, ;
+             <{bInit}>, ;
+             <{bSize}>, ;
+             <{bPaint}>, ;
+             <{bGFocus}>, ;
+             <{bLFocus}>, ;
+             <{bExit}> ) ;;
+          [ <oObj>:cName := <(oObj)> ]
 
 #xcommand ACTIVATE DIALOG <oObj> ;
           [ <lNoModal:NOMODAL> ] ;

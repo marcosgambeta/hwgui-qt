@@ -17,11 +17,13 @@
           [ <lStrikeout : STRIKEOUT> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] __IIF(<.class.>,<className>,HWGFont)():add( <cName>, ;
-                                   <nWidth>, ;
-                                   <nHeight>, ;
-                                   <nWeight>, ;
-                                   <cCharset>, ;
-                                   iif(<.lItalic.>,1,0), ;
-                                   iif(<.lUnderline.>,1,0), ;
-                                   iif(<.lStrikeout.>,1,0) )
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGFont)():add( ;
+             <cName>, ;
+             <nWidth>, ;
+             <nHeight>, ;
+             <nWeight>, ;
+             <cCharset>, ;
+             iif(<.lItalic.>,1,0), ;
+             iif(<.lUnderline.>,1,0), ;
+             iif(<.lStrikeout.>,1,0) ) ;;
+          [ <oObj>:cName := <(oObj)> ]

@@ -6,13 +6,16 @@
 
 */
 
-#xcommand ADD STATUS [ <oObj> ] [ TO <oParent> ] ;
-             [ STYLESHEET <cStyleSheet> ] ;
-             [ ON INIT <bInit> ] ;
-             [ <lDisabled:DISABLED> ] ;
-             [ <class:CLASS> <className> ] ;
-             => ;
-             [ <oObj> := ] __IIF(<.class.>,<className>,HWGStatus)():new( <oParent>, ;
-                                                                         <cStyleSheet>, ;
-                                                                         <{bInit}>, ;
-                                                                         <.lDisabled.> )
+#xcommand ADD STATUS [ <oObj> ] ;
+          [ TO <oParent> ] ;
+          [ STYLESHEET <cStyleSheet> ] ;
+          [ ON INIT <bInit> ] ;
+          [ <lDisabled:DISABLED> ] ;
+          [ <class:CLASS> <className> ] ;
+          => ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGStatus)():new( ;
+             <oParent>, ;
+             <cStyleSheet>, ;
+             <{bInit}>, ;
+             <.lDisabled.> ) ;;
+          [ <oObj>:cName := <(oObj)> ]

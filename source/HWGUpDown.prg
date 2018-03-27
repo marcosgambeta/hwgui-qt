@@ -31,9 +31,11 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    IF valtype(oParent) == "O"
       ::oQt := QSpinBox():new(oParent:oQt)
+      ::oParent := oParent
    ELSE
       IF valtype(HWGFILO():last()) == "O"
          ::oQt := QSpinBox():new(HWGFILO():last():oQt)
+         ::oParent := HWGFILO():last()
       ELSE
          ::oQt := QSpinBox():new()
       ENDIF

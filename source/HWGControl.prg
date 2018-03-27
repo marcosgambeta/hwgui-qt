@@ -23,7 +23,7 @@ CLASS HWGControl INHERIT HWGCustomWindow
 
    METHOD configureEvents
    METHOD connectEvents
-   
+
    METHOD onSize
    METHOD onPaint
    METHOD onGetFocus

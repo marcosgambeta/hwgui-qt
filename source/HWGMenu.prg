@@ -34,9 +34,11 @@ METHOD new ( oParent, cTitle, cStyleSheet, lDisabled ) CLASS HWGMenu
       ELSE
          ::oQt := QMenu():new(cTitle, oParent:oQt)
       ENDIF
+      ::oParent := oParent
    ELSE
       //::oQt := QMenu():new(cTitle, HWGFILO():last():oQt)
       ::oQt := HWGFILO():last():oQt:addMenu(cTitle)
+      ::oParent := HWGFILO():last()
    ENDIF
 
    ::configureStyleSheet( cStyleSheet )

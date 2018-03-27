@@ -28,9 +28,11 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    IF valtype(oParent) == "O"
       ::oQt := QRadioButton():new(oParent:oQt)
+      ::oParent := oParent
    ELSE
       IF valtype(HWGFILO():last()) == "O"
          ::oQt := QRadioButton():new(HWGFILO():last():oQt)
+         ::oParent := HWGFILO():last()
       ELSE
          ::oQt := QRadioButton():new()
       ENDIF

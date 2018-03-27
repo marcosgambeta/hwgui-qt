@@ -7,23 +7,25 @@
 */
 
 #xcommand @ <nX>,<nY> BITMAP [ <oObj> SHOW ] <cBitmap> ;
-            [ OF <oParent> ] ;
-            [ SIZE <nWidth>,<nHeight> ] ;
-            [ TOOLTIP <cToolTip> ] ;
-            [ STATUSTIP <cStatusTip> ] ;
-            [ WHATSTHIS <cWhatsThis> ] ;
-            [ STYLESHEET <cStyleSheet> ] ;
-            [ ON INIT <bOnInit> ] ;
-            [ <class:CLASS> <className> ] ;
-            => ;
-            [ <oObj> := ] __IIF(<.class.>,<className>,HWGSayBmp)():new( <oParent>, ;
-                                           <nX>, ;
-                                           <nY>, ;
-                                           <nWidth>, ;
-                                           <nHeight>, ;
-                                           <cToolTip>, ;
-                                           <cStatusTip>, ;
-                                           <cWhatsThis>, ;
-                                           <cStyleSheet>, ;
-                                           <cBitmap>, ;
-                                           <{bOnInit}> )
+          [ OF <oParent> ] ;
+          [ SIZE <nWidth>,<nHeight> ] ;
+          [ TOOLTIP <cToolTip> ] ;
+          [ STATUSTIP <cStatusTip> ] ;
+          [ WHATSTHIS <cWhatsThis> ] ;
+          [ STYLESHEET <cStyleSheet> ] ;
+          [ ON INIT <bOnInit> ] ;
+          [ <class:CLASS> <className> ] ;
+          => ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGSayBmp)():new( ;
+             <oParent>, ;
+             <nX>, ;
+             <nY>, ;
+             <nWidth>, ;
+             <nHeight>, ;
+             <cToolTip>, ;
+             <cStatusTip>, ;
+             <cWhatsThis>, ;
+             <cStyleSheet>, ;
+             <cBitmap>, ;
+             <{bOnInit}> ) ;;
+          [ <oObj>:cName := <(oObj)> ]

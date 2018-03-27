@@ -28,9 +28,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
    IF valtype(oParent) == "O"
       ::oQt := QMdiSubWindow():new()
       oParent:oMdiArea:addSubWindow(::oQt)
+      // NOTE: mdi child window (parent = mainwindow)
+      ::oParent := oParent
    ELSE
       ::oQt := QMdiSubWindow():new()
       HWGFILO():last():oQt:oMdiArea:addSubWindow(::oQt)
+      ::oParent := HWGFILO():last()
    ENDIF
 
    ::configureGeometry( nX, nY, nWidth, nHeight )

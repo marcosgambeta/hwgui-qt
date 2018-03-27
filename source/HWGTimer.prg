@@ -28,6 +28,7 @@ METHOD new (oParent,nInterval,bAction) CLASS HWGTimer
 
    IF valtype(oParent) == "O"
       ::oQt := QTimer():new(oParent:oQt)
+      ::oParent := oParent
    ELSE
       ::oQt := QTimer():new()
    ENDIF

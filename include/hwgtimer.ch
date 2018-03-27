@@ -12,6 +12,8 @@
           [ ACTION <bAction> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] __IIF(<.class.>,<className>,HWGTimer)():new( <oParent>, ;
-                                    <nValue>, ;
-                                    <{bAction}> )
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGTimer)():new( ;
+             <oParent>, ;
+             <nValue>, ;
+             <{bAction}> ) ;;
+          [ <oObj>:cName := <(oObj)> ]

@@ -7,34 +7,36 @@
 */
 
 #xcommand @ <nX>,<nY> TAB [ <oObj> ITEMS ] <aItems> ;
-            [ OF <oParent> ] ;
-            [ SIZE <nWidth>,<nHeight> ] ;
-            [ TOOLTIP <cToolTip> ] ;
-            [ STATUSTIP <cStatusTip> ] ;
-            [ WHATSTHIS <cWhatsThis> ] ;
-            [ STYLESHEET <cStyleSheet> ] ;
-            [ FONT <oFont> ] ;
-            [ COLOR <xForeColor> ] ;
-            [ BACKCOLOR <xBackColor> ] ;
-            [ ON INIT <bOnInit> ] ;
-            [ <lDisabled:DISABLED> ] ;
-            [ <class:CLASS> <className> ] ;
-            => ;
-            [ <oObj> := ] __IIF(<.class.>,<className>,HWGTab)():new( <oParent>, ;
-                                        <nX>, ;
-                                        <nY>, ;
-                                        <nWidth>, ;
-                                        <nHeight>, ;
-                                        <cToolTip>, ;
-                                        <cStatusTip>, ;
-                                        <cWhatsThis>, ;
-                                        <cStyleSheet>, ;
-                                        <oFont>, ;
-                                        <xForeColor>, ;
-                                        <xBackColor>, ;
-                                        <aItems>, ;
-                                        <{bOnInit}>, ;
-                                        <.lDisabled.> )
+          [ OF <oParent> ] ;
+          [ SIZE <nWidth>,<nHeight> ] ;
+          [ TOOLTIP <cToolTip> ] ;
+          [ STATUSTIP <cStatusTip> ] ;
+          [ WHATSTHIS <cWhatsThis> ] ;
+          [ STYLESHEET <cStyleSheet> ] ;
+          [ FONT <oFont> ] ;
+          [ COLOR <xForeColor> ] ;
+          [ BACKCOLOR <xBackColor> ] ;
+          [ ON INIT <bOnInit> ] ;
+          [ <lDisabled:DISABLED> ] ;
+          [ <class:CLASS> <className> ] ;
+          => ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGTab)():new( ;
+             <oParent>, ;
+             <nX>, ;
+             <nY>, ;
+             <nWidth>, ;
+             <nHeight>, ;
+             <cToolTip>, ;
+             <cStatusTip>, ;
+             <cWhatsThis>, ;
+             <cStyleSheet>, ;
+             <oFont>, ;
+             <xForeColor>, ;
+             <xBackColor>, ;
+             <aItems>, ;
+             <{bOnInit}>, ;
+             <.lDisabled.> ) ;;
+          [ <oObj>:cName := <(oObj)> ]
 
 #xcommand BEGIN PAGE <cTitle> OF <oTab> ;
           [ TOOLTIP <cToolTip> ] ;
@@ -45,14 +47,15 @@
           [ COLOR <xForeColor> ] ;
           [ BACKCOLOR <xBackColor> ] ;
           => ;
-          <oTab>:startPage( <cTitle>, ;
-                            <cToolTip>, ;
-                            <cStatusTip>, ;
-                            <cWhatsThis>, ;
-                            <cStyleSheet>, ;
-                            <oFont>, ;
-                            <xForeColor>, ;
-                            <xBackColor> )
+          <oTab>:startPage( ;
+             <cTitle>, ;
+             <cToolTip>, ;
+             <cStatusTip>, ;
+             <cWhatsThis>, ;
+             <cStyleSheet>, ;
+             <oFont>, ;
+             <xForeColor>, ;
+             <xBackColor> )
 
 #xcommand END PAGE OF <oTab> ;
           => ;

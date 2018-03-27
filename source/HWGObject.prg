@@ -17,7 +17,9 @@
 CLASS HWGObject
 
    DATA oQt              // armazena o objeto Qt
+   DATA oParent          // armazena o parent do objeto
    DATA aObjects INIT {} // armazena objetos
+   DATA cName
 
    METHOD addObject      // adiciona um objeto na array
    METHOD delObject      // remove um objeto da array

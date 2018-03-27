@@ -33,9 +33,11 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
 
       IF valtype(oParent) == "O"
          ::oQt := oParent:oQt:addAction(cOption)
+         ::oParent := oParent
       ELSE
          IF valtype(HWGFILO():last()) == "O"
             ::oQt := HWGFILO():last():oQt:addAction(cOption)
+            ::oParent := HWGFILO():last()
          ELSE
             ::oQt := QAction():new(cOption)
          ENDIF
@@ -65,6 +67,7 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
 
       IF valtype(oParent) == "O"
          ::oQt := oParent:oQt:addSeparator()
+         ::oParent := oParent
       ELSE
          ::oQt := QAction():new():setSeparator(.T.)
       ENDIF
@@ -77,9 +80,11 @@ METHOD newWithAction ( oParent, oAction ) CLASS HWGToolBarItem
 
    IF valtype(oParent) == "O"
       ::oQt := oParent:oQt:addAction(oAction:oQt)
+      ::oParent := oParent
    ELSE
       IF HWGFILO():last():oQt:metaObject():className() == "QToolBar"
          ::oQt := HWGFILO():last():oQt:addAction(oAction:oQt)
+         ::oParent := HWGFILO():last()
       ELSE
          ::oQt := oAction:oQt
       ENDIF

@@ -40,6 +40,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
    IF valtype(oParent) == "O"
       ::oQt := QDialog():new(oParent:oQt)
+      ::oParent := oParent
    ELSE
       ::oQt := QDialog():new(QApplication():activeWindow())
    ENDIF

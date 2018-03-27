@@ -10,4 +10,6 @@
           [ VALUE <xValue> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
-          <oObj> := __IIF(<.class.>,<className>,HWGColor)():new(<xValue>)
+          <oObj> := __IIF(<.class.>,<className>,HWGColor)():new( ;
+             <xValue> ) ;;
+          [ <oObj>:cName := <(oObj)> ]

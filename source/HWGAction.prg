@@ -30,6 +30,7 @@ METHOD new (oParent,cIcon,cText,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,;
 
    IF valtype(oParent) == "O"
       ::oQt := QAction():new(oParent:oQt)
+      ::oParent := oParent
    ELSE
       ::oQt := QAction():new()
    ENDIF

@@ -7,19 +7,21 @@
 */
 
 #xcommand ACTIVATE WINDOW <oObj> ;
-                   [ <lMaximized : MAXIMIZED> ] ;
-                   [ <lMinimized : MINIMIZED> ] ;
-                   [ <lFullScreen : FULLSCREEN> ] ;
-                   [ <lNoShow : NOSHOW> ] ;
-                   [ <lCentered:CENTERED> ] ;
-                   [ <lModal:MODAL> ] ;
-                   => ;
-                   <oObj>:activate( <.lMaximized.>, ;
-                                    <.lMinimized.>, ;
-                                    <.lFullScreen.>, ;
-                                    <.lCentered.>, ;
-                                    <.lModal.>, ;
-                                    <.lNoShow.> )
+          [ <lMaximized : MAXIMIZED> ] ;
+          [ <lMinimized : MINIMIZED> ] ;
+          [ <lFullScreen : FULLSCREEN> ] ;
+          [ <lNoShow : NOSHOW> ] ;
+          [ <lCentered:CENTERED> ] ;
+          [ <lModal:MODAL> ] ;
+          => ;
+          <oObj>:activate( ;
+             <.lMaximized.>, ;
+             <.lMinimized.>, ;
+             <.lFullScreen.>, ;
+             <.lCentered.>, ;
+             <.lModal.>, ;
+             <.lNoShow.> ) ;;
+          [ <oObj>:cName := <(oObj)> ]
 
 #xcommand CENTER WINDOW <oObj> => <oObj>:center()
 

@@ -24,6 +24,7 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
 
    IF valtype(oParent) == "O"
       ::oQt := QWidget():new(oParent:oQt)
+      ::oParent := oParent
    ELSE
       ::oQt := QWidget():new()
    ENDIF

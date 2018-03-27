@@ -7,23 +7,25 @@
 */
 
 #xcommand @ <nX>,<nY> ICON [ <oObj> SHOW ] <cIcon> ;
-            [ OF <oParent> ] ;
-            [ SIZE <nWidth>,<nHeight> ] ;
-            [ TOOLTIP <cToolTip> ] ;
-            [ STATUSTIP <cStatusTip> ] ;
-            [ WHATSTHIS <cWhatsThis> ] ;
-            [ STYLESHEET <cStyleSheet> ] ;
-            [ ON INIT <bOnInit> ] ;
-            [ <class:CLASS> <className> ] ;
-            => ;
-            [ <oObj> := ] __IIF(<.class.>,<className>,HWGSayIcon)():new( <oParent>, ;
-                                            <nX>, ;
-                                            <nY>, ;
-                                            <nWidth>, ;
-                                            <nHeight>, ;
-                                            <cToolTip>, ;
-                                            <cStatusTip>, ;
-                                            <cWhatsThis>, ;
-                                            <cStyleSheet>, ;
-                                            <cIcon>, ;
-                                            <{bOnInit}> )
+          [ OF <oParent> ] ;
+          [ SIZE <nWidth>,<nHeight> ] ;
+          [ TOOLTIP <cToolTip> ] ;
+          [ STATUSTIP <cStatusTip> ] ;
+          [ WHATSTHIS <cWhatsThis> ] ;
+          [ STYLESHEET <cStyleSheet> ] ;
+          [ ON INIT <bOnInit> ] ;
+          [ <class:CLASS> <className> ] ;
+          => ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGSayIcon)():new( ;
+             <oParent>, ;
+             <nX>, ;
+             <nY>, ;
+             <nWidth>, ;
+             <nHeight>, ;
+             <cToolTip>, ;
+             <cStatusTip>, ;
+             <cWhatsThis>, ;
+             <cStyleSheet>, ;
+             <cIcon>, ;
+             <{bOnInit}> ) ;;
+          [ <oObj>:cName := <(oObj)> ]

@@ -18,13 +18,14 @@
           [ ON TRIGGERED <bOnTriggered> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] __IIF(<.class.>,<className>,HWGAction)():new(;
-                        <oParent>,;
-                        <cIcon>,;
-                        <cText>,;
-                        <cToolTip>,;
-                        <cStatusTip>,;
-                        <cWhatsThis>,;
-                        <cStyleSheet>,;
-                        <{bOnInit}>,;
-                        <{bOnTriggered}>)
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGAction)():new( ;
+             <oParent>, ;
+             <cIcon>, ;
+             <cText>, ;
+             <cToolTip>, ;
+             <cStatusTip>, ;
+             <cWhatsThis>, ;
+             <cStyleSheet>, ;
+             <{bOnInit}>, ;
+             <{bOnTriggered}> ) ;;
+          [ <oObj>:cName := <(oObj)> ]

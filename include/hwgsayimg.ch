@@ -7,25 +7,27 @@
 */
 
 #xcommand @ <nX>,<nY> IMAGE [ <oObj> SHOW ] <cImage> ;
-            [ OF <oParent> ] ;
-            [ SIZE <nWidth>,<nHeight> ] ;
-            [ TOOLTIP <cToolTip> ] ;
-            [ STATUSTIP <cStatusTip> ] ;
-            [ WHATSTHIS <cWhatsThis> ] ;
-            [ STYLESHEET <cStyleSheet> ] ;
-            [ ON INIT <bOnInit> ] ;
-            [ <lScaled:SCALED> ] ;
-            [ <class:CLASS> <className> ] ;
-            => ;
-            [ <oObj> := ] __IIF(<.class.>,<className>,HWGSayImage)():new( <oParent>, ;
-                                           <nX>, ;
-                                           <nY>, ;
-                                           <nWidth>, ;
-                                           <nHeight>, ;
-                                           <cToolTip>, ;
-                                           <cStatusTip>, ;
-                                           <cWhatsThis>, ;
-                                           <cStyleSheet>, ;
-                                           <cImage>, ;
-                                           <{bOnInit}>, ;
-                                           <.lScaled.> )
+          [ OF <oParent> ] ;
+          [ SIZE <nWidth>,<nHeight> ] ;
+          [ TOOLTIP <cToolTip> ] ;
+          [ STATUSTIP <cStatusTip> ] ;
+          [ WHATSTHIS <cWhatsThis> ] ;
+          [ STYLESHEET <cStyleSheet> ] ;
+          [ ON INIT <bOnInit> ] ;
+          [ <lScaled:SCALED> ] ;
+          [ <class:CLASS> <className> ] ;
+          => ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGSayImage)():new( ;
+             <oParent>, ;
+             <nX>, ;
+             <nY>, ;
+             <nWidth>, ;
+             <nHeight>, ;
+             <cToolTip>, ;
+             <cStatusTip>, ;
+             <cWhatsThis>, ;
+             <cStyleSheet>, ;
+             <cImage>, ;
+             <{bOnInit}>, ;
+             <.lScaled.> ) ;;
+          [ <oObj>:cName := <(oObj)> ]

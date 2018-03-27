@@ -18,6 +18,8 @@ CLASS HWGEdit INHERIT HWGControl
 
    DATA bSetGet
    DATA cType INIT "C"
+   DATA cPicture INIT ""
+   DATA bChange
 
    METHOD New
    METHOD activate
@@ -31,15 +33,17 @@ ENDCLASS
 
 METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
-             xVar, bSetGet, par13, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus, ;
-             lPassword, nMaxLength, lNoBorder, lReadOnly, lDisabled ) CLASS HWGEdit
+             xVar, bSetGet, cPicture, ;
+             bInit, bSize, bPaint, bGFocus, bLFocus, bChange, ;
+             lPassword, nMaxLength, lNoBorder, lReadOnly, cInputMask, lDisabled ) CLASS HWGEdit
 
    IF valtype(oParent) == "O"
       ::oQt := QLineEdit():new(oParent:oQt)
+      ::oParent := oParent
    ELSE
       IF valtype(HWGFILO():last()) == "O"
          ::oQt := QLineEdit():new(HWGFILO():last():oQt)
+         ::oParent := HWGFILO():last()
       ELSE
          ::oQt := QLineEdit():new()
       ENDIF
@@ -62,12 +66,20 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    ::bSetGet := bSetGet
 
+   IF valtype(cPicture) == "C"
+      ::cPicture := cPicture
+   ENDIF
+
    IF valtype(bInit) == "B"
       ::bInit := bInit
    ENDIF
 
    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
    ::connectEvents()
+
+   IF valtype(bChange) == "B"
+      ::bChange := bChange
+   ENDIF
 
    IF valtype(lPassword) == "L"
       IF lPassword
@@ -89,6 +101,10 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       IF lReadOnly
          ::oQt:setReadOnly(.T.)
       ENDIF
+   ENDIF
+
+   IF valtype(cInputMask) == "C"
+      ::oQt:setInputMask(cInputMask)
    ENDIF
 
    IF valtype(lDisabled) == "L"
