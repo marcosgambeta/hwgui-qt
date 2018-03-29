@@ -9,6 +9,7 @@
 #xcommand INIT WINDOW <oObj> MDICHILD ;
           [ OF <oParent> ] ;
           [ TITLE <cTitle> ] ;
+          [ ICON <cIcon> ] ;
           [ AT <nX>,<nY> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
@@ -37,6 +38,7 @@
              <xForeColor>, ;
              <xBackColor>, ;
              <cTitle>, ;
+             <cIcon>, ;
              <{bInit}>, ;
              <{bSize}>, ;
              <{bPaint}>, ;

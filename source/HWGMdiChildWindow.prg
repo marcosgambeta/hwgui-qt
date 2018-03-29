@@ -22,7 +22,7 @@ CLASS HWGMdiChildWindow INHERIT HWGWindow
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
-             xForeColor, xBackColor, cTitle, ;
+             xForeColor, xBackColor, cTitle, cIcon, ;
              bInit, bSize, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGMdiChildWindow
 
    IF valtype(oParent) == "O"
@@ -44,6 +44,10 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
    IF valtype(cTitle) == "C"
       ::oQt:setWindowTitle(cTitle)
+   ENDIF
+
+   IF valtype(cIcon) == "C"
+      ::oQt:setWindowIcon( QIcon():new(cIcon) )
    ENDIF
 
    ::lChild := .T.
