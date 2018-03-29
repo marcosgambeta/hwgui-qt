@@ -26,7 +26,8 @@ CLASS HWGMenuItem INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, lSeparator, nId, cBitmap, lDisabled ) CLASS HWGMenuItem
+METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             lSeparator, nId, cBitmap, lDisabled, lInvisible ) CLASS HWGMenuItem
 
    IF lSeparator == NIL
       lSeparator := .F.
@@ -62,6 +63,12 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
       IF valtype(lDisabled) == "L"
          IF lDisabled
             ::oQt:setEnabled(.F.)
+         ENDIF
+      ENDIF
+
+      IF valtype(lInvisible) == "L"
+         IF lInvisible
+            ::oQt:setVisible(.F.)
          ENDIF
       ENDIF
 

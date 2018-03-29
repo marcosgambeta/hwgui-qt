@@ -17,6 +17,7 @@
           [ ID <nId> ] ;
           [ BITMAP <cBitmap> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenuItem)():new( ;
@@ -31,7 +32,8 @@
              .F., ;
              <nId>, ;
              <cBitmap>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
 
 
