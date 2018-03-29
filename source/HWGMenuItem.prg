@@ -26,7 +26,7 @@ CLASS HWGMenuItem INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, lSeparator, nId, cBitmap, lDisabled ) CLASS HWGMenuItem
+METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, lSeparator, nId, cBitmap, lDisabled ) CLASS HWGMenuItem
 
    IF lSeparator == NIL
       lSeparator := .F.
@@ -42,6 +42,10 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
         ::oQt := HWGFILO():last():oQt:addAction(cOption)
         ::oParent := HWGFILO():last()
       ENDIF
+
+      ::configureTips( cToolTip, cStatusTip, cWhatsThis )
+      ::configureStyleSheet( cStyleSheet )
+      ::configureFont( oFont )
 
       IF valtype(nId) == "N"
          ::oQt:setProperty("nId", QVariant():new(nId))
