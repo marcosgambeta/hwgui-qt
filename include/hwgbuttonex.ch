@@ -19,6 +19,7 @@
           [ ON INIT <bInit> ] ;
           [ ON CLICK <bClick> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGButtonEx)():new( ;
@@ -37,5 +38,6 @@
              <cText>, ;
              <{bInit}>, ;
              <{bClick}>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

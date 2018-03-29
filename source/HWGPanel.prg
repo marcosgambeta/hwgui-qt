@@ -23,7 +23,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, xForeColor, xBackColor, ;
-             bOnInit, lDisabled ) CLASS HWGPanel
+             bOnInit, lDisabled, lInvisible ) CLASS HWGPanel
 
    IF valtype(oParent) == "O"
       ::oQt := QFrame():new(oParent:oQt)
@@ -49,6 +49,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
 

@@ -19,6 +19,7 @@
           [ INIT <dDate> ] ;
           [ ON INIT <bOnInit> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGDatePicker)():new( ;
@@ -36,7 +37,8 @@
              <xBackColor>, ;
              <dDate>, ;
              <{bOnInit}>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
 
 #xcommand @ <nX>,<nY> GET DATEPICKER [ <oObj> VAR ] <xVar> ;
@@ -52,6 +54,7 @@
           [ INIT <dDate> ] ;
           [ ON INIT <bOnInit> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGDatePicker)():new( ;
@@ -69,5 +72,6 @@
              <xBackColor>, ;
              <dDate>, ;
              <{bOnInit}>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

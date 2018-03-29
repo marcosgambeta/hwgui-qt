@@ -14,6 +14,7 @@
           [ WHATSTHIS <cWhatsThis> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ ON INIT <bOnInit> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGSayBmp)():new( ;
@@ -27,5 +28,6 @@
              <cWhatsThis>, ;
              <cStyleSheet>, ;
              <cBitmap>, ;
-             <{bOnInit}> ) ;;
+             <{bOnInit}>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

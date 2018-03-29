@@ -24,7 +24,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              acItems, par12, ;
-             bOnInit, lDisabled ) CLASS HWGComboBox
+             bOnInit, lDisabled, lInvisible ) CLASS HWGComboBox
 
    IF valtype(oParent) == "O"
       ::oQt := QComboBox():new(oParent:oQt)
@@ -58,6 +58,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
 

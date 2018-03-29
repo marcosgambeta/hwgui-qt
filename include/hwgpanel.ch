@@ -17,6 +17,7 @@
           [ BACKCOLOR <xBackColor> ] ;
           [ ON INIT <bOnInit> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGPanel)():new( ;
@@ -32,5 +33,6 @@
              <xForeColor>, ;
              <xBackColor>, ;
              <{bOnInit}>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

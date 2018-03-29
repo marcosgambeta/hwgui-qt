@@ -35,7 +35,7 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              xVar, bSetGet, cPicture, ;
              bInit, bSize, bPaint, bGFocus, bLFocus, bChange, ;
-             lPassword, nMaxLength, lNoBorder, lReadOnly, cInputMask, lDisabled ) CLASS HWGEdit
+             lPassword, nMaxLength, lNoBorder, lReadOnly, cInputMask, lDisabled, lInvisible ) CLASS HWGEdit
 
    IF valtype(oParent) == "O"
       ::oQt := QLineEdit():new(oParent:oQt)
@@ -110,6 +110,12 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
 

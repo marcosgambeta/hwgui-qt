@@ -29,7 +29,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
-             cText, bInit, bClick, bDblClick ) CLASS HWGStatic
+             cText, bInit, bClick, bDblClick, lInvisible ) CLASS HWGStatic
 
    IF valtype(oParent) == "O"
       ::oQt := QLabel():new(oParent:oQt)
@@ -66,6 +66,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    IF valtype(bDblClick) == "B"
       ::bDblClick := bDblClick
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
+      ENDIF
    ENDIF
 
    ::oQt:onMouseButtonPressEvent({||::onClick()})

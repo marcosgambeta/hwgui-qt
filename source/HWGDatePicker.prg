@@ -27,7 +27,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              dDate, ;
-             bOnInit, lDisabled ) CLASS HWGDatePicker
+             bOnInit, lDisabled, lInvisible ) CLASS HWGDatePicker
 
    LOCAL oDate
 
@@ -70,6 +70,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       IF lDisabled
          ::oQt:setEnabled(.F.)
          ::oActionButton:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
 

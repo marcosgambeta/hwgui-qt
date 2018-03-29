@@ -23,7 +23,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
              xForeColor, xBackColor, dDate, ;
-             bOnInit, lDisabled ) CLASS HWGMonthCalendar
+             bOnInit, lDisabled, lInvisible ) CLASS HWGMonthCalendar
 
    LOCAL oDate
 
@@ -61,6 +61,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
 

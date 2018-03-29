@@ -19,6 +19,7 @@
           [ ON INIT <bInit> ] ;
           [ ON CLICK <bClick> ] ;
           [ ON DBLCLICK <bDblClick> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGStatic)():new( ;
@@ -37,5 +38,6 @@
              <cText>, ;
              <{bInit}>, ;
              <{bClick}>, ;
-             <{bDblClick}> ) ;;
+             <{bDblClick}>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

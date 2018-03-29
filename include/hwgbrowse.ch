@@ -24,6 +24,7 @@
           [ <lArray:ARRAY> ] ;
           [ <lDatabase:DATABASE> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ OBJECTNAME <cObjectName> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
@@ -47,5 +48,6 @@
              <{bLFocus}>, ;
              <.lArray.>, ;
              <.lDatabase.>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

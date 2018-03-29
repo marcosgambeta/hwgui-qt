@@ -24,7 +24,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              cText, ;
-             bOnInit, bClick, lDisabled ) CLASS HWGButtonEx
+             bOnInit, bClick, lDisabled, lInvisible ) CLASS HWGButtonEx
 
    IF valtype(oParent) == "O"
       ::oQt := QPushButton():new(oParent:oQt)
@@ -63,6 +63,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
 

@@ -18,6 +18,7 @@
           [ BACKCOLOR <xBackColor> ] ;
           [ ON INIT <bOnInit> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGComboBox)():new( ;
@@ -36,7 +37,8 @@
              <aItems>, ;
              , ;
              <{bOnInit}>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
 
 #xcommand @ <nX>,<nY> GET COMBOBOX [ <oObj> VAR ] <xVar> ITEMS <aItems> ;
@@ -51,6 +53,7 @@
           [ BACKCOLOR <xBackColor> ] ;
           [ ON INIT <bOnInit> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGComboBox)():new( ;
@@ -69,5 +72,6 @@
              <aItems>, ;
              <xVar>, ;
              <{bOnInit}>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

@@ -30,7 +30,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              bInit, bSize, bPaint, bGFocus, bLFocus, ;
-             nItemCount, bDispInfo, lNoHeader, lNoGridLines, lDisabled ) CLASS HWGGrid
+             nItemCount, bDispInfo, lNoHeader, lNoGridLines, lDisabled, lInvisible ) CLASS HWGGrid
 
    IF valtype(oParent) == "O"
       ::oQt := QTableView():new(oParent:oQt)
@@ -80,6 +80,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
 

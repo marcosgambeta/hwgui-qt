@@ -27,7 +27,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              nValue, nMinimum, nMaximum, nStep, cPrefix, cSuffix, ;
-             bOnInit, lDisabled ) CLASS HWGUpDown
+             bOnInit, lDisabled, lInvisible ) CLASS HWGUpDown
 
    IF valtype(oParent) == "O"
       ::oQt := QSpinBox():new(oParent:oQt)
@@ -77,6 +77,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
 

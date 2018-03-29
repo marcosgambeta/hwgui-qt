@@ -13,6 +13,7 @@
           [ STATUSTIP <cStatusTip> ] ;
           [ WHATSTHIS <cWhatsThis> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
+          [ FONT <oFont> ] ;
           [ ID <nId> ] ;
           [ BITMAP <cBitmap> ] ;
           [ <lDisabled:DISABLED> ] ;
@@ -26,6 +27,7 @@
              <cStatusTip>, ;
              <cWhatsThis>, ;
              <cStyleSheet>, ;
+             <oFont>, ;
              .F., ;
              <nId>, ;
              <cBitmap>, ;
@@ -45,6 +47,7 @@
              NIL, ;
              NIL, ;
              NIL, ;
+             NIL, ;
              .T. ) ;;
           [ <oObj>:cName := <(oObj)> ]
 
@@ -54,6 +57,7 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGMenuItem)():new( ;
              <oParent>, ;
+             NIL, ;
              NIL, ;
              NIL, ;
              NIL, ;

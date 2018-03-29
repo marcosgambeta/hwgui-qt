@@ -29,7 +29,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              nValue, nMinimum, nMaximum, lNotchesVisible, ;
-             bOnInit, lDisabled ) CLASS HWGDial
+             bOnInit, lDisabled, lInvisible ) CLASS HWGDial
 
    IF valtype(oParent) == "O"
       ::oQt := QDial():new(oParent:oQt)
@@ -71,6 +71,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
 

@@ -28,6 +28,7 @@
           [ <lNoScroll:NOSCROLL> ] ;
           [ <lNoBorder:NOBORDER> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ OBJECTNAME <cObjectName> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
@@ -53,7 +54,8 @@
              <{bDispInfo}>, ;
              <.lNoHeader.>, ;
              <.lNoGridLines.>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
 
 #xcommand ADD COLUMN TO GRID <oGrid> ;

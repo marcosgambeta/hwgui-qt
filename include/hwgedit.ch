@@ -36,6 +36,7 @@
           [ <lReadOnly:READONLY> ] ;
           [ INPUTMASK <cInputMask> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGEdit)():new( ;
@@ -65,5 +66,6 @@
              <.lNoBorder.>, ;
              <.lReadOnly.>, ;
              <cInputMask>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

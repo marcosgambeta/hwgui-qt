@@ -23,6 +23,7 @@
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ ICON <cIcon> ] ;
           [ OBJECTNAME <cObjectName> ] ;
           [ <class:CLASS> <className> ] ;
@@ -48,5 +49,6 @@
              <{bGFocus}>, ;
              <{bLFocus}>, ;
              <.lDisabled.>, ;
+             <.lInvisible.>, ;
              <cIcon> ) ;;
           [ <oObj>:cName := <(oObj)> ]
