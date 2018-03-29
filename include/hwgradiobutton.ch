@@ -8,6 +8,8 @@
 
 #xcommand @ <nX>,<nY> RADIOBUTTON [ <oObj> CAPTION ] <cText> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -16,7 +18,14 @@
           [ FONT <oFont> ] ;
           [ COLOR <xForeColor> ] ;
           [ BACKCOLOR <xBackColor> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON PAINT <bPaint> ] ;
+          [ ON GETFOCUS <bGFocus> ] ;
+          [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON CLICK <bClick> ] ;
+          [ <lChecked:CHECKED> ] ;
+          [ <lTransparent:TRANSPARENT> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -35,7 +44,13 @@
              <xForeColor>, ;
              <xBackColor>, ;
              <cText>, ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
+             <{bSize}>, ;
+             <{bPaint}>, ;
+             <{bGFocus}>, ;
+             <{bLFocus}>, ;
+             <{bClick}>, ;
+             <.lChecked.>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
