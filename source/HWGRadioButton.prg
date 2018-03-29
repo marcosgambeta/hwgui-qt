@@ -16,8 +16,11 @@
 
 CLASS HWGRadioButton INHERIT HWGControl
 
+   DATA bClick
+
    METHOD new
    METHOD activate
+   METHOD onClick
 
 ENDCLASS
 
@@ -49,7 +52,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ENDIF
 
    IF valtype(bInit) == "B"
-      ::bInit := bOnInit
+      ::bInit := bInit
    ENDIF
 
    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
@@ -86,6 +89,14 @@ METHOD activate () CLASS HWGRadioButton
 
    IF valtype(::bInit) == "B"
       eval(::bInit, self)
+   ENDIF
+
+RETURN NIL
+
+METHOD onClick () CLASS HWGRadioButton
+
+   IF ::bClick != NIL
+      eval(::bClick)
    ENDIF
 
 RETURN NIL
