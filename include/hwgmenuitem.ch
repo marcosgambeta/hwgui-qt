@@ -16,6 +16,9 @@
           [ FONT <oFont> ] ;
           [ ID <nId> ] ;
           [ BITMAP <cBitmap> ] ;
+          [ ICON <cBitmap> ] ;
+          [ <lCheckable:CHECKABLE> ] ;
+          [ <lChecked:CHECKED> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -32,10 +35,11 @@
              .F., ;
              <nId>, ;
              <cBitmap>, ;
+             <.lCheckable.>, ;
+             <.lChecked.>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
-
 
 #xcommand SEPARATOR [ <oObj> ] ;
           [ OF <oParent> ] ;
