@@ -43,6 +43,9 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
          ENDIF
       ENDIF
 
+      ::configureTips( cToolTip, cStatusTip, cWhatsThis )
+      ::configureStyleSheet( cStyleSheet )
+
       IF valtype(nId) == "N"
          ::oQt:setProperty("nId", QVariant():new(nId))
       ENDIF
