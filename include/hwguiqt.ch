@@ -54,6 +54,7 @@
 #include "hwgtimer.ch"
 #include "hwgtoolbar.ch"
 #include "hwgtoolbaritem.ch"
+#include "hwgtrackbar.ch"
 #include "hwgupdown.ch"
 #include "hwgwindow.ch"
 
