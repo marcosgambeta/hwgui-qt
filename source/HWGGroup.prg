@@ -16,6 +16,15 @@
 
 CLASS HWGGroup INHERIT HWGControl
 
+   ACCESS cTitle INLINE ::oQt:title()
+   ASSIGN cTitle(cValue) INLINE ::oQt:setTitle(cValue)
+
+   ACCESS lCheckable INLINE ::oQt:isCheckable()
+   ASSIGN lCheckable(lValue) INLINE ::oQt:setCheckable(lValue)
+
+   ACCESS lChecked INLINE ::oQt:isChecked()
+   ASSIGN lChecked(lValue) INLINE ::oQt:setChecked(lValue)
+
    METHOD new
    METHOD activate
 
