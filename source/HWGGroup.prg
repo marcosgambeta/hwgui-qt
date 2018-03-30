@@ -23,7 +23,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, cTitle, ;
-             bInit, bSize, bPaint, lDisabled, lInvisible ) CLASS HWGGroup
+             bInit, bSize, bPaint, lCheckable, lNoChecked, lDisabled, lInvisible ) CLASS HWGGroup
 
    IF valtype(oParent) == "O"
       ::oQt := QGroupBox():new(oParent:oQt)
@@ -57,6 +57,18 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
 
    IF valtype(bPaint) == "B"
       ::bPaint := bPaint
+   ENDIF
+
+   IF valtype(lCheckable) == "L"
+      IF lCheckable
+         ::oQt:setCheckable(.T.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lNoChecked) == "L"
+      IF lNoChecked
+         ::oQt:setChecked(.F.)
+      ENDIF
    ENDIF
 
    IF valtype(lDisabled) == "L"

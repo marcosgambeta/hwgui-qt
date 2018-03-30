@@ -21,6 +21,8 @@
           [ ON INIT <bInit> ] ;
           [ ON SIZE <bSize> ] ;
           [ ON PAINT <bPaint> ] ;
+          [ <lCheckable:CHECKABLE> ] ;
+          [ <lNoChecked:NOCHECKED> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -42,6 +44,8 @@
              <{bInit}>, ;
              <{bSize}>, ;
              <{bPaint}>, ;
+             <.lCheckable.>, ;
+             <.lNoChecked.>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
