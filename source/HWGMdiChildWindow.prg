@@ -23,7 +23,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
              xForeColor, xBackColor, cTitle, cIcon, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGMdiChildWindow
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGMdiChildWindow
 
    IF valtype(oParent) == "O"
       ::oQt := QMdiSubWindow():new()
@@ -57,8 +57,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bPaint, bGFocus, bLFocus, bExit )
-
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bExit )
    ::connectEvents()
 
    HWGFILO():add(self)

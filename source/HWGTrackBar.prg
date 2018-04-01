@@ -34,7 +34,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              nValue, nMinimum, nMaximum, lVertical, ;
-             bInit, lDisabled, lInvisible ) CLASS HWGTrackBar
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, lDisabled, lInvisible ) CLASS HWGTrackBar
 
    IF valtype(oParent) == "O"
       ::oQt := QSlider():new(oParent:oQt)
@@ -76,8 +76,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
-//    ::connectEvents()
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus )
+   ::connectEvents()
 
    IF valtype(lDisabled) == "L"
       IF lDisabled

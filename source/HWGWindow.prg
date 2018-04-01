@@ -37,8 +37,9 @@ CLASS HWGWindow INHERIT HWGCustomWindow
    METHOD configureEvents
    METHOD connectEvents
 
-   METHOD onPaint
    METHOD onSize
+   METHOD onMove
+   METHOD onPaint
    METHOD onGetFocus
    METHOD onLostFocus
    METHOD onClose
@@ -53,7 +54,7 @@ RETURN ::oQt:windowTitle()
 
 // define o título da janela
 METHOD setText (cText) CLASS HWGWindow
-   ::oQt:setWindowTitle(cTitle)
+   ::oQt:setWindowTitle(cText)
 RETURN NIL
 
 METHOD maximize () CLASS HWGWindow
@@ -86,10 +87,14 @@ METHOD center () CLASS HWGWindow
 
 RETURN NIL
 
-METHOD configureEvents ( bSize, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGWindow
+METHOD configureEvents ( bSize, bMove, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGWindow
 
    IF valtype(bSize) == "B"
       ::bSize := bSize
+   ENDIF
+
+   IF valtype(bMove) == "B"
+      ::bMove := bMove
    ENDIF
 
    IF valtype(bPaint) == "B"
@@ -113,6 +118,7 @@ RETURN NIL
 METHOD connectEvents () CLASS HWGWindow
 
    ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
+   ::oQt:onMoveEvent( {|oSender,oEvent| ::onMove(oSender,oEvent) } )
    ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
    ::oQt:onWindowActivateEvent( {|oSender,oEvent| ::onGetFocus(oSender,oEvent) } )
    ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLostFocus(oSender,oEvent) } )
@@ -120,18 +126,26 @@ METHOD connectEvents () CLASS HWGWindow
 
 RETURN NIL
 
-METHOD onPaint (oSender,oEvent) CLASS HWGWindow
-
-   IF valtype(::bPaint) == "B"
-      eval(::bPaint, self)
-   ENDIF
-
-RETURN NIL
-
 METHOD onSize (oSender,oEvent) CLASS HWGWindow
 
    IF valtype(::bSize) == "B"
       eval(::bSize, self)
+   ENDIF
+
+RETURN NIL
+
+METHOD onMove (oSender,oEvent) CLASS HWGWindow
+
+   IF valtype(::bMove) == "B"
+      eval(::bMove, self)
+   ENDIF
+
+RETURN NIL
+
+METHOD onPaint (oSender,oEvent) CLASS HWGWindow
+
+   IF valtype(::bPaint) == "B"
+      eval(::bPaint, self)
    ENDIF
 
 RETURN NIL

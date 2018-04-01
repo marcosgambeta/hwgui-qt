@@ -25,6 +25,7 @@ CLASS HWGControl INHERIT HWGCustomWindow
    METHOD connectEvents
 
    METHOD onSize
+   METHOD onMove
    METHOD onPaint
    METHOD onGetFocus
    METHOD onLostFocus
@@ -40,10 +41,14 @@ METHOD setText (cText) CLASS HWGControl
    ::oQt:setText(cText)
 RETURN NIL
 
-METHOD configureEvents ( bSize, bPaint, bGFocus, bLFocus ) CLASS HWGControl
+METHOD configureEvents ( bSize, bMove, bPaint, bGFocus, bLFocus ) CLASS HWGControl
 
    IF valtype(bSize) == "B"
       ::bSize := bSize
+   ENDIF
+
+   IF valtype(bMove) == "B"
+      ::bMove := bMove
    ENDIF
 
    IF valtype(bPaint) == "B"
@@ -66,6 +71,10 @@ METHOD connectEvents () CLASS HWGControl
       ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
    ENDIF
 
+   IF valtype(::bMove) == "B"
+      ::oQt:onMoveEvent( {|oSender,oEvent| ::onMove(oSender,oEvent) } )
+   ENDIF
+
    IF valtype(::bPaint) == "B"
       ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
    ENDIF
@@ -84,6 +93,14 @@ METHOD onSize (oSender,oEvent) CLASS HWGControl
 
    IF valtype(::bSize) == "B"
       eval(::bSize, self)
+   ENDIF
+
+RETURN NIL
+
+METHOD onMove (oSender,oEvent) CLASS HWGControl
+
+   IF valtype(::bMove) == "B"
+      eval(::bMove, self)
    ENDIF
 
 RETURN NIL

@@ -20,7 +20,12 @@
           [ INCREMENT <nStep> ] ;
           [ PREFIX <cPrefix> ] ;
           [ SUFFIX <cSuffix> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
+          [ ON GETFOCUS <bGFocus> ] ;
+          [ ON LOSTFOCUS <bLFocus> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -44,7 +49,12 @@
              <nStep>, ;
              <cPrefix>, ;
              <cSuffix>, ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
+             <{bGFocus}>, ;
+             <{bLFocus}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
@@ -63,7 +73,12 @@
           [ INCREMENT <nStep> ] ;
           [ PREFIX <cPrefix> ] ;
           [ SUFFIX <cSuffix> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
+          [ ON GETFOCUS <bGFocus> ] ;
+          [ ON LOSTFOCUS <bLFocus> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -87,7 +102,12 @@
              <nStep>, ;
              <cPrefix>, ;
              <cSuffix>, ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
+             <{bGFocus}>, ;
+             <{bLFocus}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

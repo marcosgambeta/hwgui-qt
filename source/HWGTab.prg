@@ -29,7 +29,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              aItems, ;
-             bOnInit, lDisabled, lInvisible ) CLASS HWGTab
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, lDisabled, lInvisible ) CLASS HWGTab
 
    IF valtype(oParent) == "O"
       ::oQt := QTabWidget():new(oParent:oQt)
@@ -49,12 +49,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ::configureFont( oFont )
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
-   IF valtype(bOnInit) == "B"
-      ::bInit := bOnInit
+   IF valtype(bInit) == "B"
+      ::bInit := bInit
    ENDIF
 
-//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
-//    ::connectEvents()
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus )
+   ::connectEvents()
 
    IF valtype(lDisabled) == "L"
       IF lDisabled

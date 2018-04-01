@@ -18,7 +18,12 @@
           [ BACKCOLOR <xBackColor> ] ;
           [ RANGE <nMinimum>,<nMaximum> ] ;
           [ <lNotchesVisible : NOTCHESVISIBLE> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
+          [ ON GETFOCUS <bGFocus> ] ;
+          [ ON LOSTFOCUS <bLFocus> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -40,7 +45,12 @@
              <nMinimum>, ;
              <nMaximum>, ;
              <.lNotchesVisible.>, ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
+             <{bGFocus}>, ;
+             <{bLFocus}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
@@ -57,7 +67,12 @@
           [ BACKCOLOR <xBackColor> ] ;
           [ RANGE <nMinimum>,<nMaximum> ] ;
           [ <lNotchesVisible : NOTCHESVISIBLE> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
+          [ ON GETFOCUS <bGFocus> ] ;
+          [ ON LOSTFOCUS <bLFocus> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -79,7 +94,12 @@
              <nMinimum>, ;
              <nMaximum>, ;
              <.lNotchesVisible.>, ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
+             <{bGFocus}>, ;
+             <{bLFocus}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

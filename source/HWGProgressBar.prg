@@ -24,7 +24,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              lVertical, ;
-             bOnInit, lDisabled, lInvisible ) CLASS HWGProgressBar
+             bInit, bSize, bMove, bPaint, lDisabled, lInvisible ) CLASS HWGProgressBar
 
    IF valtype(oParent) == "O"
       ::oQt := QProgressBar():new(oParent:oQt)
@@ -50,12 +50,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ENDIF
    ENDIF
 
-   IF valtype(bOnInit) == "B"
-      ::bInit := bOnInit
+   IF valtype(bInit) == "B"
+      ::bInit := bInit
    ENDIF
 
-//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
-//    ::connectEvents()
+   ::configureEvents( bSize, bMove, bPaint, NIL, NIL )
+   ::connectEvents()
 
    IF valtype(lDisabled) == "L"
       IF lDisabled

@@ -22,7 +22,10 @@
           [ INIT <nValue> ] ;
           [ ON INIT <bInit> ] ;
           [ ON SIZE <bSize> ] ;
-          [ ON PAINT <bDraw> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
+          [ ON GETFOCUS <bGFocus> ] ;
+          [ ON LOSTFOCUS <bLFocus> ] ;
           [ ON CHANGE <bChange> ] ;
           [ ON DRAG <bDrag> ] ;
           [ <lVertical:VERTICAL> ] ;
@@ -53,6 +56,11 @@
              <nMaximum>, ;
              <.lVertical.>, ;
              <{bInit}>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
+             <{bGFocus}>, ;
+             <{bLFocus}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

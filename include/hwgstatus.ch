@@ -10,6 +10,9 @@
           [ TO <oParent> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
@@ -17,5 +20,8 @@
              <oParent>, ;
              <cStyleSheet>, ;
              <{bInit}>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
              <.lDisabled.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

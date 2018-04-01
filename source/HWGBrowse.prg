@@ -27,7 +27,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus, ;
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, ;
              lArray, lDatabase, lDisabled, lInvisible ) CLASS HWGBrowse
 
    IF valtype(oParent) == "O"
@@ -52,7 +52,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus )
    ::connectEvents()
 
    IF valtype(lDisabled) == "L"

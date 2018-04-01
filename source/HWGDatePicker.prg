@@ -27,9 +27,7 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              dDate, ;
-             bOnInit, lDisabled, lInvisible ) CLASS HWGDatePicker
-
-   LOCAL oDate
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, lDisabled, lInvisible ) CLASS HWGDatePicker
 
    IF valtype(oParent) == "O"
       ::oQt := QLineEdit():new(oParent:oQt)
@@ -57,12 +55,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::oQt:setText(transform(dDate,"99/99/9999"))
    ENDIF
 
-   IF valtype(bOnInit) == "B"
-      ::bInit := bOnInit
+   IF valtype(bInit) == "B"
+      ::bInit := bInit
    ENDIF
 
-//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
-//    ::connectEvents()
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus )
+   ::connectEvents()
 
    // TODO: enabled/disable deve agir nos dois objetos (::oQt e ::oActionButton)
 
@@ -112,7 +110,7 @@ METHOD showCalendar () CLASS HWGDatePicker
       oCalendar:setSelectedDate(QDate():new(year(dDate),month(dDate),day(dDate)))
    ENDIF
 
-   oCalendar:onActivated({|pObject,pDate|oDate:=QDate():newFrom(pDate),::oQt:setText(strzero(oDate:day(),2)+"/"+strzero(oDate:month(),2)+"/"+strzero(oDate:year(),4)),oDialog:done(0)})
+   oCalendar:onActivated({|oSender,oDate|::oQt:setText(strzero(oDate:day(),2)+"/"+strzero(oDate:month(),2)+"/"+strzero(oDate:year(),4)),oDialog:done(0)})
 
    oCalendar:setFocus()
 

@@ -28,15 +28,16 @@ CLASS HWGDialog INHERIT HWGCustomWindow
    METHOD reject
 
    METHOD onSize
+   METHOD onMove
    METHOD onPaint
-   METHOD onGFocus
-   METHOD onLFocus
+   METHOD onGetFocus
+   METHOD onLostFocus
 
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
              xForeColor, xBackColor, cTitle, cIcon, ;
-             bInit, bSize, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGDialog
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGDialog
 
    IF valtype(oParent) == "O"
       ::oQt := QDialog():new(oParent:oQt)
@@ -68,6 +69,11 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
       ::oQt:onResizeEvent( {|oSender,oEvent| ::onSize(oSender,oEvent) } )
    ENDIF
 
+   IF valtype(bMove) == "B"
+      ::bMove := bMove
+      ::oQt:onMoveEvent( {|oSender,oEvent| ::onMove(oSender,oEvent) } )
+   ENDIF
+
    IF valtype(bPaint) == "B"
       ::bPaint := bPaint
       ::oQt:onPaintEvent( {|oSender,oEvent| ::onPaint(oSender,oEvent) } )
@@ -75,12 +81,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
    IF valtype(bGFocus) == "B"
       ::bGFocus := bGFocus
-      ::oQt:onWindowActivateEvent( {|oSender,oEvent| ::onGFocus(oSender,oEvent) } )
+      ::oQt:onWindowActivateEvent( {|oSender,oEvent| ::onGetFocus(oSender,oEvent) } )
    ENDIF
 
    IF valtype(bLFocus) == "B"
       ::bLFocus := bLFocus
-      ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLFocus(oSender,oEvent) } )
+      ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLostFocus(oSender,oEvent) } )
    ENDIF
 
    IF valtype(bExit) == "B"
@@ -140,6 +146,14 @@ METHOD onSize (oSender,oEvent) CLASS HWGDialog
 
 RETURN NIL
 
+METHOD onMove (oSender,oEvent) CLASS HWGDialog
+
+   IF valtype(::bMove) == "B"
+      eval(::bMove)
+   ENDIF
+
+RETURN NIL
+
 METHOD onPaint (oSender,oEvent) CLASS HWGDialog
 
    IF valtype(::bPaint) == "B"
@@ -148,7 +162,7 @@ METHOD onPaint (oSender,oEvent) CLASS HWGDialog
 
 RETURN NIL
 
-METHOD onGFocus (oSender,oEvent) CLASS HWGDialog
+METHOD onGetFocus (oSender,oEvent) CLASS HWGDialog
 
    IF valtype(::bGFocus) == "B"
       eval(::bGFocus)
@@ -156,7 +170,7 @@ METHOD onGFocus (oSender,oEvent) CLASS HWGDialog
 
 RETURN NIL
 
-METHOD onLFocus (oSender,oEvent) CLASS HWGDialog
+METHOD onLostFocus (oSender,oEvent) CLASS HWGDialog
 
    IF valtype(::bLFocus) == "B"
       eval(::bLFocus)

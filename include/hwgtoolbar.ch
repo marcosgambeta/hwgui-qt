@@ -16,7 +16,7 @@
           [ WHATSTHIS <cWhatsThis> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ FONT <oFont> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
@@ -31,21 +31,21 @@
              <cWhatsThis>, ;
              <cStyleSheet>, ;
              <oFont>, ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
              <.lDisabled.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
 
 #xcommand BEGIN TOOLBAR [ <oObj> ] ;
           [ OF <oParent> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBar)():new( ;
              <oParent>, ;
              <cStyleSheet>, ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
              <.lDisabled.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
 

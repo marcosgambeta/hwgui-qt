@@ -16,7 +16,12 @@
           [ FONT <oFont> ] ;
           [ COLOR <xForeColor> ] ;
           [ BACKCOLOR <xBackColor> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
+          [ ON GETFOCUS <bGFocus> ] ;
+          [ ON LOSTFOCUS <bLFocus> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -36,7 +41,12 @@
              <xBackColor>, ;
              <aItems>, ;
              , ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
+             <bSize>, ;
+             <bMove>, ;
+             <bPaint>, ;
+             <bGFocus>, ;
+             <bLFocus>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
@@ -51,7 +61,12 @@
           [ FONT <oFont> ] ;
           [ COLOR <xForeColor> ] ;
           [ BACKCOLOR <xBackColor> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
+          [ ON GETFOCUS <bGFocus> ] ;
+          [ ON LOSTFOCUS <bLFocus> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -71,7 +86,12 @@
              <xBackColor>, ;
              <aItems>, ;
              <xVar>, ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
+             <bSize>, ;
+             <bMove>, ;
+             <bPaint>, ;
+             <bGFocus>, ;
+             <bLFocus>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

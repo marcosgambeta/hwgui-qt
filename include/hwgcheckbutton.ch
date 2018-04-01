@@ -19,6 +19,7 @@
           [ INIT <lValue> ] ;
           [ ON INIT <bInit> ] ;
           [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
@@ -44,6 +45,7 @@
              NIL, ;
              <bInit>,;
              <bSize>, ;
+             <bMove>, ;
              <bPaint>, ;
              <bGFocus>, ;
              <bLFocus>, ;
@@ -64,6 +66,7 @@
           [ BACKCOLOR <xBackColor> ] ;
           [ ON INIT <bInit> ] ;
           [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
@@ -89,6 +92,7 @@
              <xVar>, ;
              <{bInit}>,;
              <{bSize}>, ;
+             <{bMove}>, ;
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;

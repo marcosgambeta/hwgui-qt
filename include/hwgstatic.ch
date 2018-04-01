@@ -17,6 +17,9 @@
           [ COLOR <xForeColor> ] ;
           [ BACKCOLOR <xBackColor> ] ;
           [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
           [ ON CLICK <bClick> ] ;
           [ ON DBLCLICK <bDblClick> ] ;
           [ <lInvisible:INVISIBLE> ] ;
@@ -37,6 +40,9 @@
              <xBackColor>, ;
              <cText>, ;
              <{bInit}>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
              <{bClick}>, ;
              <{bDblClick}>, ;
              <.lInvisible.> ) ;;

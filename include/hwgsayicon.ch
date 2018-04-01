@@ -13,7 +13,10 @@
           [ STATUSTIP <cStatusTip> ] ;
           [ WHATSTHIS <cWhatsThis> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
@@ -28,6 +31,9 @@
              <cWhatsThis>, ;
              <cStyleSheet>, ;
              <cIcon>, ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

@@ -52,6 +52,7 @@ CLASS HWGCustomWindow INHERIT HWGObject
 
    DATA bInit
    DATA bSize
+   DATA bMove
    DATA bPaint
    DATA bGFocus
    DATA bLFocus

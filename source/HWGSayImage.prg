@@ -27,7 +27,8 @@ CLASS HWGSayImage INHERIT HWGControl
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, ;
-             cImage, bOnInit, lScaled, lInvisible ) CLASS HWGSayImage
+             cImage, ;
+             bInit, bSize, bMove, bPaint, lScaled, lInvisible ) CLASS HWGSayImage
 
    IF valtype(oParent) == "O"
       ::oQt := QLabel():new(oParent:oQt)
@@ -50,12 +51,12 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::oQt:setPixmap(::oImage)
    ENDIF
 
-   IF valtype(bOnInit) == "B"
-      ::bInit := bOnInit
+   IF valtype(bInit) == "B"
+      ::bInit := bInit
    ENDIF
 
-//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
-//    ::connectEvents()
+   ::configureEvents( bSize, bMove, bPaint, NIL, NIL )
+   ::connectEvents()
 
    IF valtype(lScaled) == "L"
       IF lScaled

@@ -17,11 +17,12 @@
           [ COLOR <xForeColor> ] ;
           [ BACKCOLOR <xBackColor> ] ;
           [ ON INIT <bInit> ] ;
-          [ ON CLICK <bClick> ] ;
           [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON CLICK <bClick> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ ICON <cIcon> ] ;
@@ -43,11 +44,12 @@
              <xBackColor>, ;
              <cText>, ;
              <{bInit}>, ;
-             <{bClick}>, ;
              <{bSize}>, ;
+             <{bMove}>, ;
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;
+             <{bClick}>, ;
              <.lDisabled.>, ;
              <.lInvisible.>, ;
              <cIcon> ) ;;

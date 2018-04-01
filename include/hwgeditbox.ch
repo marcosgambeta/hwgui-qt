@@ -18,6 +18,7 @@
           [ BACKCOLOR <xBackColor> ] ;
           [ ON INIT <bInit> ] ;
           [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
@@ -41,6 +42,7 @@
              <cText>, ;
              <{bInit}>, ;
              <{bSize}>, ;
+             <{bMove}>, ;
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;

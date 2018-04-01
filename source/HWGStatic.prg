@@ -28,8 +28,8 @@ CLASS HWGStatic INHERIT HWGControl
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
-             cStyleSheet, oFont, xForeColor, xBackColor, ;
-             cText, bInit, bClick, bDblClick, lInvisible ) CLASS HWGStatic
+             cStyleSheet, oFont, xForeColor, xBackColor, cText, ;
+             bInit, bSize, bMove, bPaint, bClick, bDblClick, lInvisible ) CLASS HWGStatic
 
    IF valtype(oParent) == "O"
       ::oQt := QLabel():new(oParent:oQt)
@@ -57,8 +57,8 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-//    ::configureEvents( bSize, bPaint, bGFocus, bLFocus )
-//    ::connectEvents()
+   ::configureEvents( bSize, bMove, bPaint, NIL, NIL )
+   ::connectEvents()
 
    IF valtype(bClick) == "B"
       ::bClick := bClick

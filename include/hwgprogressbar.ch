@@ -17,7 +17,10 @@
           [ COLOR <xForeColor> ] ;
           [ BACKCOLOR <xBackColor> ] ;
           [ <lVertical : VERTICAL> ] ;
-          [ ON INIT <bOnInit> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON SIZE <bSize> ] ;
+          [ ON MOVE <bMove> ] ;
+          [ ON PAINT <bPaint> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -36,7 +39,10 @@
              <xForeColor>, ;
              <xBackColor>, ;
              <.lVertical.>, ;
-             <{bOnInit}>, ;
+             <{bInit}>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
