@@ -43,12 +43,12 @@
              <cText>, ;
              <lValue>, ;
              NIL, ;
-             <bInit>,;
-             <bSize>, ;
-             <bMove>, ;
-             <bPaint>, ;
-             <bGFocus>, ;
-             <bLFocus>, ;
+             <{bInit}>,;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
+             <{bGFocus}>, ;
+             <{bLFocus}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

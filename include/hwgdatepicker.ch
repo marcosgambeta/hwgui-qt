@@ -42,11 +42,11 @@
              <xBackColor>, ;
              <dDate>, ;
              <{bInit}>, ;
-             <bSize>, ;
-             <bMove>, ;
-             <bPaint>, ;
-             <bGFocus>, ;
-             <bLFocus>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
+             <{bGFocus}>, ;
+             <{bLFocus}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
@@ -87,11 +87,11 @@
              <xBackColor>, ;
              <dDate>, ;
              <{bInit}>, ;
-             <bSize>, ;
-             <bMove>, ;
-             <bPaint>, ;
-             <bGFocus>, ;
-             <bLFocus>, ;
+             <{bSize}>, ;
+             <{bMove}>, ;
+             <{bPaint}>, ;
+             <{bGFocus}>, ;
+             <{bLFocus}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
