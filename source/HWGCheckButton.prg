@@ -24,7 +24,8 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              cText, lValue, par13, ;
-             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, lDisabled, lInvisible ) CLASS HWGCheckButton
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable, ;
+             lDisabled, lInvisible ) CLASS HWGCheckButton
 
    IF valtype(oParent) == "O"
       ::oQt := QCheckBox():new(oParent:oQt)
@@ -60,7 +61,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide )
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable )
    ::connectEvents()
 
    IF valtype(lDisabled) == "L"

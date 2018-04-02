@@ -31,6 +31,8 @@ CLASS HWGControl INHERIT HWGCustomWindow
    METHOD onLostFocus
    METHOD onShow
    METHOD onHide
+   METHOD onEnable
+   METHOD onDisable
 
 ENDCLASS
 
@@ -43,7 +45,7 @@ METHOD setText (cText) CLASS HWGControl
    ::oQt:setText(cText)
 RETURN NIL
 
-METHOD configureEvents ( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide ) CLASS HWGControl
+METHOD configureEvents ( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable ) CLASS HWGControl
 
    IF valtype(bSize) == "B"
       ::bSize := bSize
@@ -71,6 +73,14 @@ METHOD configureEvents ( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide ) 
 
    IF valtype(bHide) == "B"
       ::bHide := bHide
+   ENDIF
+
+   IF valtype(bEnable) == "B"
+      ::bEnable := bEnable
+   ENDIF
+
+   IF valtype(bDisable) == "B"
+      ::bDisable := bDisable
    ENDIF
 
 RETURN NIL
@@ -103,6 +113,10 @@ METHOD connectEvents () CLASS HWGControl
 
    IF valtype(::bHide) == "B"
       ::oQt:onHideEvent( {|oSender,oEvent| ::onHide(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(::bEnable) == "B" .OR. valtype(::bDisable) == "B"
+      ::oQt:onEnabledChangeEvent( {|oSender,oEvent| iif(oSender:isEnabled(),::onEnable(oSender,oEvent),::onDisable(oSender,oEvent)) } )
    ENDIF
 
 RETURN NIL
@@ -159,6 +173,22 @@ METHOD onHide (oSender,oEvent) CLASS HWGControl
 
    IF valtype(::bHide) == "B"
       eval(::bHide, self)
+   ENDIF
+
+RETURN NIL
+
+METHOD onEnable (oSender,oEvent) CLASS HWGControl
+
+   IF valtype(::bEnable) == "B"
+      eval(::bEnable, self)
+   ENDIF
+
+RETURN NIL
+
+METHOD onDisable (oSender,oEvent) CLASS HWGControl
+
+   IF valtype(::bDisable) == "B"
+      eval(::bDisable, self)
    ENDIF
 
 RETURN NIL

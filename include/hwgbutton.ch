@@ -25,6 +25,8 @@
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
           [ ON CLICK <bClick> ] ;
+          [ ON ENABLE <bEnable> ] ;
+          [ ON DISABLE <bDisable> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ ICON <cIcon> ] ;
@@ -53,6 +55,8 @@
              <{bLFocus}>, ;
              <{bShow}>, ;
              <{bHide}>, ;
+             <{bEnable}>, ;
+             <{bDisable}>, ;
              <{bClick}>, ;
              <.lDisabled.>, ;
              <.lInvisible.>, ;

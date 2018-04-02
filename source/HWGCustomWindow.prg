@@ -58,6 +58,8 @@ CLASS HWGCustomWindow INHERIT HWGObject
    DATA bLFocus
    DATA bShow
    DATA bHide
+   DATA bEnable
+   DATA bDisable
    DATA bExit
 
    METHOD configureGeometry

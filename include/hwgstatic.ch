@@ -22,6 +22,8 @@
           [ ON PAINT <bPaint> ] ;
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
+          [ ON ENABLE <bEnable> ] ;
+          [ ON DISABLE <bDisable> ] ;
           [ ON CLICK <bClick> ] ;
           [ ON DBLCLICK <bDblClick> ] ;
           [ <lInvisible:INVISIBLE> ] ;
@@ -47,6 +49,8 @@
              <{bPaint}>, ;
              <{bShow}>, ;
              <{bHide}>, ;
+             <{bEnable}>, ;
+             <{bDisable}>, ;
              <{bClick}>, ;
              <{bDblClick}>, ;
              <.lInvisible.> ) ;;

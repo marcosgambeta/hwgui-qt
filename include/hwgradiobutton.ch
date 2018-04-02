@@ -27,6 +27,8 @@
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
           [ ON CLICK <bClick> ] ;
+          [ ON ENABLE <bEnable> ] ;
+          [ ON DISABLE <bDisable> ] ;
           [ <lChecked:CHECKED> ] ;
           [ <lTransparent:TRANSPARENT> ] ;
           [ <lDisabled:DISABLED> ] ;
@@ -55,6 +57,8 @@
              <{bLFocus}>, ;
              <{bShow}>, ;
              <{bHide}>, ;
+             <{bEnable}>, ;
+             <{bDisable}>, ;
              <{bClick}>, ;
              <.lChecked.>, ;
              <.lDisabled.>, ;

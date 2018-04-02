@@ -24,6 +24,8 @@
           [ ON LOSTFOCUS <bLFocus> ] ;
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
+          [ ON ENABLE <bEnable> ] ;
+          [ ON DISABLE <bDisable> ] ;
           [ ITEMCOUNT <nItemCount> ] ;
           [ ON DISPINFO <bDispInfo> ] ;
           [ <lNoHeader:NO HEADER> ] ;
@@ -56,6 +58,8 @@
              <{bLFocus}>, ;
              <{bShow}>, ;
              <{bHide}>, ;
+             <{bEnable}>, ;
+             <{bDisable}>, ;
              <nItemCount>, ;
              <{bDispInfo}>, ;
              <.lNoHeader.>, ;

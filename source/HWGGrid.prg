@@ -29,7 +29,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
-             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, ;
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable, ;
              nItemCount, bDispInfo, lNoHeader, lNoGridLines, lDisabled, lInvisible ) CLASS HWGGrid
 
    IF valtype(oParent) == "O"
@@ -54,7 +54,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide )
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable )
    ::connectEvents()
 
    IF valtype(nItemCount) == "N"

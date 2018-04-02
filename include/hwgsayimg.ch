@@ -19,6 +19,8 @@
           [ ON PAINT <bPaint> ] ;
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
+          [ ON ENABLE <bEnable> ] ;
+          [ ON DISABLE <bDisable> ] ;
           [ <lScaled:SCALED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -40,6 +42,8 @@
              <{bPaint}>, ;
              <{bShow}>, ;
              <{bHide}>, ;
+             <{bEnable}>, ;
+             <{bDisable}>, ;
              <.lScaled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

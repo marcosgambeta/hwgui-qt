@@ -27,6 +27,8 @@
           [ ON LOSTFOCUS <bLFocus> ] ;
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
+          [ ON ENABLE <bEnable> ] ;
+          [ ON DISABLE <bDisable> ] ;
           [ ON KEYDOWN <bKeyDown> ] ;
           [ ON CHANGE <bChange> ] ;
           [ ON OTHER MESSAGES <bOther> ] ;
@@ -66,6 +68,8 @@
              <{bLFocus}>, ;
              <{bShow}>, ;
              <{bHide}>, ;
+             <{bEnable}>, ;
+             <{bDisable}>, ;
              <{bChange}>, ;
              <.lPassword.>, ;
              <nMaxLength>, ;

@@ -28,6 +28,8 @@
           [ ON LOSTFOCUS <bLFocus> ] ;
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
+          [ ON ENABLED <bEnable> ] ;
+          [ ON DISABLED <bDisable> ] ;
           [ ON CHANGE <bChange> ] ;
           [ ON DRAG <bDrag> ] ;
           [ <lVertical:VERTICAL> ] ;
@@ -65,6 +67,8 @@
              <{bLFocus}>, ;
              <{bShow}>, ;
              <{bHide}>, ;
+             <{bEnable}>, ;
+             <{bDisable}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

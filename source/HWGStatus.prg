@@ -22,7 +22,8 @@ CLASS HWGStatus INHERIT HWGControl
 ENDCLASS
 
 METHOD new ( oParent, cStyleSheet, ;
-             bInit, bSize, bMove, bPaint, bShow, bHide, lDisabled ) CLASS HWGStatus
+             bInit, bSize, bMove, bPaint, bShow, bHide, bEnable, bDisable, ;
+             lDisabled ) CLASS HWGStatus
 
    IF valtype(oParent) == "O"
       IF oParent:oQt:metaObject():className() == "QMainWindow"
@@ -52,7 +53,7 @@ METHOD new ( oParent, cStyleSheet, ;
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, NIL, NIL, bShow, bHide )
+   ::configureEvents( bSize, bMove, bPaint, NIL, NIL, bShow, bHide, bEnable, bDisable )
    ::connectEvents()
 
    IF valtype(lDisabled) == "L"

@@ -25,6 +25,8 @@
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
           [ ON CLICK <bClick> ] ;
+          [ ON ENABLED <bEnable> ] ;
+          [ ON DISABLED <bDisable> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -51,6 +53,8 @@
              <{bLFocus}>, ;
              <{bShow}>, ;
              <{bHide}>, ;
+             <{bEnable}>, ;
+             <{bDisable}>, ;
              <{bClick}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;

@@ -27,7 +27,8 @@ ENDCLASS
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              cText, ;
-             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bClick, lChecked, lDisabled, lInvisible ) CLASS HWGRadioButton
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable, ;
+             bClick, lChecked, lDisabled, lInvisible ) CLASS HWGRadioButton
 
    IF valtype(oParent) == "O"
       ::oQt := QRadioButton():new(oParent:oQt)
@@ -55,7 +56,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide )
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable )
    ::connectEvents()
 
    IF valtype(bClick) == "B"

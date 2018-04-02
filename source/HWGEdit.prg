@@ -34,8 +34,8 @@ ENDCLASS
 METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              xVar, bSetGet, cPicture, ;
-             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bChange, ;
-             lPassword, nMaxLength, lNoBorder, lReadOnly, cInputMask, lDisabled, lInvisible ) CLASS HWGEdit
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable, ;
+             bChange, lPassword, nMaxLength, lNoBorder, lReadOnly, cInputMask, lDisabled, lInvisible ) CLASS HWGEdit
 
    IF valtype(oParent) == "O"
       ::oQt := QLineEdit():new(oParent:oQt)
@@ -74,7 +74,7 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide )
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable )
    ::connectEvents()
 
    IF valtype(bChange) == "B"

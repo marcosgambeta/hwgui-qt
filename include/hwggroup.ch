@@ -26,6 +26,8 @@
           [ ON LOSTFOCUS <bLFocus> ] ;
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
+          [ ON ENABLE <bEnable> ] ;
+          [ ON DISABLE <bDisable> ] ;
           [ <lCheckable:CHECKABLE> ] ;
           [ <lNoChecked:NOCHECKED> ] ;
           [ <lDisabled:DISABLED> ] ;
@@ -54,6 +56,8 @@
              <{bLFocus}>, ;
              <{bShow}>, ;
              <{bHide}>, ;
+             <{bEnable}>, ;
+             <{bDisable}>, ;
              <.lCheckable.>, ;
              <.lNoChecked.>, ;
              <.lDisabled.>, ;

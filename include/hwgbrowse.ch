@@ -24,6 +24,8 @@
           [ ON LOSTFOCUS <bLFocus> ] ;
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
+          [ ON ENABLE <bEnable> ] ;
+          [ ON DISABLE <bDisable> ] ;
           [ <lArray:ARRAY> ] ;
           [ <lDatabase:DATABASE> ] ;
           [ <lDisabled:DISABLED> ] ;
@@ -52,6 +54,8 @@
              <{bLFocus}>, ;
              <{bShow}>, ;
              <{bHide}>, ;
+             <{bEnable}>, ;
+             <{bDisable}>, ;
              <.lArray.>, ;
              <.lDatabase.>, ;
              <.lDisabled.>, ;
