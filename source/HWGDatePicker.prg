@@ -48,7 +48,10 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
    ::configureFont( oFont )
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
-   ::oActionButton := QPushButton():new("...",::oQt:parent()):move(::oQt:x()+::oQt:width(),::oQt:y()):resize(30,::oQt:height())
+   ::oActionButton := QPushButton():new("...",::oQt:parent())
+   ::oActionButton:move(::oQt:x()+::oQt:width(),::oQt:y())
+   ::oActionButton:resize(30,::oQt:height())
+   ::oActionButton:setAutoDefault(.F.)
    ::oActionButton:onClicked({||::showcalendar()})
    ::oQt:setInputMask("00/00/0000")
 
