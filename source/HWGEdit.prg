@@ -34,7 +34,7 @@ ENDCLASS
 METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              xVar, bSetGet, cPicture, ;
-             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bChange, ;
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bChange, ;
              lPassword, nMaxLength, lNoBorder, lReadOnly, cInputMask, lDisabled, lInvisible ) CLASS HWGEdit
 
    IF valtype(oParent) == "O"
@@ -74,7 +74,7 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus )
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide )
    ::connectEvents()
 
    IF valtype(bChange) == "B"

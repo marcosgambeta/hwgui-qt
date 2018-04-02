@@ -22,6 +22,8 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON SHOW <bShow> ] ;
+          [ ON HIDE <bHide> ] ;
           [ <lArray:ARRAY> ] ;
           [ <lDatabase:DATABASE> ] ;
           [ <lDisabled:DISABLED> ] ;
@@ -48,6 +50,8 @@
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;
+             <{bShow}>, ;
+             <{bHide}>, ;
              <.lArray.>, ;
              <.lDatabase.>, ;
              <.lDisabled.>, ;

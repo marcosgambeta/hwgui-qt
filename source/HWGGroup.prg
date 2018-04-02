@@ -32,7 +32,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, cTitle, ;
-             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, lCheckable, lNoChecked, lDisabled, lInvisible ) CLASS HWGGroup
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, lCheckable, lNoChecked, lDisabled, lInvisible ) CLASS HWGGroup
 
    IF valtype(oParent) == "O"
       ::oQt := QGroupBox():new(oParent:oQt)
@@ -60,7 +60,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus )
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide )
    ::connectEvents()
 
    IF valtype(lCheckable) == "L"

@@ -29,6 +29,8 @@ CLASS HWGControl INHERIT HWGCustomWindow
    METHOD onPaint
    METHOD onGetFocus
    METHOD onLostFocus
+   METHOD onShow
+   METHOD onHide
 
 ENDCLASS
 
@@ -41,7 +43,7 @@ METHOD setText (cText) CLASS HWGControl
    ::oQt:setText(cText)
 RETURN NIL
 
-METHOD configureEvents ( bSize, bMove, bPaint, bGFocus, bLFocus ) CLASS HWGControl
+METHOD configureEvents ( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide ) CLASS HWGControl
 
    IF valtype(bSize) == "B"
       ::bSize := bSize
@@ -61,6 +63,14 @@ METHOD configureEvents ( bSize, bMove, bPaint, bGFocus, bLFocus ) CLASS HWGContr
 
    IF valtype(bLFocus) == "B"
       ::bLFocus := bLFocus
+   ENDIF
+
+   IF valtype(bShow) == "B"
+      ::bShow := bShow
+   ENDIF
+
+   IF valtype(bHide) == "B"
+      ::bHide := bHide
    ENDIF
 
 RETURN NIL
@@ -85,6 +95,14 @@ METHOD connectEvents () CLASS HWGControl
 
    IF valtype(::bLFocus) == "B"
       ::oQt:onFocusOutEvent( {|oSender,oEvent| ::onLostFocus(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(::bShow) == "B"
+      ::oQt:onShowEvent( {|oSender,oEvent| ::onShow(oSender,oEvent) } )
+   ENDIF
+
+   IF valtype(::bHide) == "B"
+      ::oQt:onHideEvent( {|oSender,oEvent| ::onHide(oSender,oEvent) } )
    ENDIF
 
 RETURN NIL
@@ -125,6 +143,22 @@ METHOD onLostFocus (oSender,oEvent) CLASS HWGControl
 
    IF valtype(::bLFocus) == "B"
       eval(::bLFocus, self)
+   ENDIF
+
+RETURN NIL
+
+METHOD onShow (oSender,oEvent) CLASS HWGControl
+
+   IF valtype(::bShow) == "B"
+      eval(::bShow, self)
+   ENDIF
+
+RETURN NIL
+
+METHOD onHide (oSender,oEvent) CLASS HWGControl
+
+   IF valtype(::bHide) == "B"
+      eval(::bHide, self)
    ENDIF
 
 RETURN NIL

@@ -25,6 +25,8 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON SHOW <bShow> ] ;
+          [ ON HIDE <bHide> ] ;
           [ ON KEYDOWN <bKeyDown> ] ;
           [ ON CHANGE <bChange> ] ;
           [ ON OTHER MESSAGES <bOther> ] ;
@@ -62,6 +64,8 @@
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;
+             <{bShow}>, ;
+             <{bHide}>, ;
              <{bChange}>, ;
              <.lPassword.>, ;
              <nMaxLength>, ;

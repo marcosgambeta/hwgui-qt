@@ -22,6 +22,8 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON SHOW <bShow> ] ;
+          [ ON HIDE <bHide> ] ;
           [ ITEMCOUNT <nItemCount> ] ;
           [ ON DISPINFO <bDispInfo> ] ;
           [ <lNoHeader:NO HEADER> ] ;
@@ -52,6 +54,8 @@
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;
+             <{bShow}>, ;
+             <{bHide}>, ;
              <nItemCount>, ;
              <{bDispInfo}>, ;
              <.lNoHeader.>, ;

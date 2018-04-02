@@ -22,6 +22,8 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON SHOW <bShow> ] ;
+          [ ON HIDE <bHide> ] ;
           [ ON CLICK <bClick> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
@@ -47,6 +49,8 @@
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;
+             <{bShow}>, ;
+             <{bHide}>, ;
              <{bClick}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;

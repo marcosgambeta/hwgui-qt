@@ -20,6 +20,8 @@
           [ ON SIZE <bSize> ] ;
           [ ON MOVE <bMove> ] ;
           [ ON PAINT <bPaint> ] ;
+          [ ON SHOW <bShow> ] ;
+          [ ON HIDE <bHide> ] ;
           [ ON CLICK <bClick> ] ;
           [ ON DBLCLICK <bDblClick> ] ;
           [ <lInvisible:INVISIBLE> ] ;
@@ -43,6 +45,8 @@
              <{bSize}>, ;
              <{bMove}>, ;
              <{bPaint}>, ;
+             <{bShow}>, ;
+             <{bHide}>, ;
              <{bClick}>, ;
              <{bDblClick}>, ;
              <.lInvisible.> ) ;;

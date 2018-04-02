@@ -24,6 +24,8 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON SHOW <bShow> ] ;
+          [ ON HIDE <bHide> ] ;
           [ <lCheckable:CHECKABLE> ] ;
           [ <lNoChecked:NOCHECKED> ] ;
           [ <lDisabled:DISABLED> ] ;
@@ -50,6 +52,8 @@
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;
+             <{bShow}>, ;
+             <{bHide}>, ;
              <.lCheckable.>, ;
              <.lNoChecked.>, ;
              <.lDisabled.>, ;

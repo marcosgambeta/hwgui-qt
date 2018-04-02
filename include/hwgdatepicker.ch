@@ -23,6 +23,8 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON SHOW <bShow> ] ;
+          [ ON HIDE <bHide> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -47,6 +49,8 @@
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;
+             <{bShow}>, ;
+             <{bHide}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
@@ -68,6 +72,8 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON SHOW <bShow> ] ;
+          [ ON HIDE <bHide> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -92,6 +98,8 @@
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;
+             <{bShow}>, ;
+             <{bHide}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

@@ -17,6 +17,8 @@
           [ ON SIZE <bSize> ] ;
           [ ON MOVE <bMove> ] ;
           [ ON PAINT <bPaint> ] ;
+          [ ON SHOW <bShow> ] ;
+          [ ON HIDE <bHide> ] ;
           [ <lScaled:SCALED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -36,6 +38,8 @@
              <{bSize}>, ;
              <{bMove}>, ;
              <{bPaint}>, ;
+             <{bShow}>, ;
+             <{bHide}>, ;
              <.lScaled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

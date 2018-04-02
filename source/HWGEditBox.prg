@@ -24,7 +24,7 @@ ENDCLASS
 METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              cText, ;
-             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, lDisabled, lInvisible ) CLASS HWGEditBox
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, lDisabled, lInvisible ) CLASS HWGEditBox
 
    IF valtype(oParent) == "O"
       ::oQt := QPlainTextEdit():new(oParent:oQt)
@@ -52,7 +52,7 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus )
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide )
    ::connectEvents()
 
    IF valtype(lDisabled) == "L"

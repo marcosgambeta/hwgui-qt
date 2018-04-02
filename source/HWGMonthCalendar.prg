@@ -23,7 +23,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
              xForeColor, xBackColor, dDate, ;
-             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, lDisabled, lInvisible ) CLASS HWGMonthCalendar
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, lDisabled, lInvisible ) CLASS HWGMonthCalendar
 
    LOCAL oDate
 
@@ -55,7 +55,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus )
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide )
    ::connectEvents()
 
    IF valtype(lDisabled) == "L"

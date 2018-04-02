@@ -23,7 +23,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, xForeColor, xBackColor, ;
-             bInit, bSize, bMove, bPaint, lDisabled, lInvisible ) CLASS HWGPanel
+             bInit, bSize, bMove, bPaint, bShow, bHide, lDisabled, lInvisible ) CLASS HWGPanel
 
    IF valtype(oParent) == "O"
       ::oQt := QFrame():new(oParent:oQt)
@@ -46,7 +46,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, NIL, NIL )
+   ::configureEvents( bSize, bMove, bPaint, NIL, NIL, bShow, bHide )
    ::connectEvents()
 
    IF valtype(lDisabled) == "L"

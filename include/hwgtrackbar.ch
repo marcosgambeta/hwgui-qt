@@ -26,6 +26,8 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON SHOW <bShow> ] ;
+          [ ON HIDE <bHide> ] ;
           [ ON CHANGE <bChange> ] ;
           [ ON DRAG <bDrag> ] ;
           [ <lVertical:VERTICAL> ] ;
@@ -61,6 +63,8 @@
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;
+             <{bShow}>, ;
+             <{bHide}>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

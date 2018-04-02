@@ -28,7 +28,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, ;
              cImage, ;
-             bInit, bSize, bMove, bPaint, lScaled, lInvisible ) CLASS HWGSayImage
+             bInit, bSize, bMove, bPaint, bShow, bHide, lScaled, lInvisible ) CLASS HWGSayImage
 
    IF valtype(oParent) == "O"
       ::oQt := QLabel():new(oParent:oQt)
@@ -55,7 +55,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, NIL, NIL )
+   ::configureEvents( bSize, bMove, bPaint, NIL, NIL, bShow, bHide )
    ::connectEvents()
 
    IF valtype(lScaled) == "L"
