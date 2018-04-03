@@ -37,7 +37,7 @@ PROCEDURE Main ()
    PREPARE FONT oFont4 NAME "Times New Roman" WIDTH 14
    PREPARE FONT oFont5 NAME "Lucida Console" WIDTH 14
 
-   INIT DIALOG oDialog TITLE "Teste da classe HFont" SIZE 640,480
+   INIT DIALOG oDialog TITLE "Teste da classe HWGFont" SIZE 640,480
 
    @ 10,10 SAY oSay1 CAPTION "Fonte Arial" FONT oFont1 OF oDialog
 

@@ -23,7 +23,7 @@ PROCEDURE Main ()
 
    oApp := QApplication():new()
 
-   INIT DIALOG oDialog TITLE "Teste da classe HProgressBar" SIZE 320,320
+   INIT DIALOG oDialog TITLE "Teste da classe HWGProgressBar" SIZE 320,320
 
    @ 10,10 PROGRESSBAR oPB1 SIZE 200,40 ;
       TOOLTIP "tooltip do oProgressBar1" ;

@@ -23,7 +23,7 @@ PROCEDURE Main ()
 
    oApp := QApplication():new()
 
-   INIT DIALOG oDialog TITLE "Teste da classe HPanel" SIZE 320,240
+   INIT DIALOG oDialog TITLE "Teste da classe HWGPanel" SIZE 320,240
 
    @ 10,10 PANEL oPanel ;
       SIZE 320-20,240-20 ;

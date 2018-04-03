@@ -22,7 +22,7 @@ PROCEDURE Main ()
 
    oApp := QApplication():new()
 
-   INIT DIALOG oDialog TITLE "Teste da classe HTimer" SIZE 320,240
+   INIT DIALOG oDialog TITLE "Teste da classe HWGTimer" SIZE 320,240
 
    @ 20,20 SAY oSay CAPTION "" SIZE 130,30 OF oDialog
 

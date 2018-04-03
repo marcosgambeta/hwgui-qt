@@ -24,7 +24,7 @@ PROCEDURE Main ()
 
    oApp := QApplication():new()
 
-   INIT DIALOG oDialog TITLE "Teste da classe HStatic - ON DBLCLICK" SIZE 320,240
+   INIT DIALOG oDialog TITLE "Teste da classe HWGStatic - ON DBLCLICK" SIZE 320,240
 
    @ 10,10 SAY oSay1 CAPTION "Campo 1" ON DBLCLICK hwgqt_MsgInfo("oSay1","ON DBLCLICK")
 

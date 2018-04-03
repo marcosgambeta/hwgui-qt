@@ -22,7 +22,7 @@ PROCEDURE Main ()
 
    oApp := QApplication():new()
 
-   INIT DIALOG oDialog TITLE "Teste da classe HButton" SIZE 320,240
+   INIT DIALOG oDialog TITLE "Teste da classe HWGButton" SIZE 320,240
 
    @ 10,10 BUTTON oButton CAPTION "Botão" SIZE 120,40 ;
       ON INIT {||hwgqt_MsgInfo("Botão - ON INIT")} ;

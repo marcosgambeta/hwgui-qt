@@ -13,7 +13,7 @@
 */
 
 /*
-  Teste das classes HToolBar e HToolBarItem usando ações
+  Teste das classes HWGToolBar e HWGToolBarItem usando ações
 */
 
 #include "hwguiqt.ch"

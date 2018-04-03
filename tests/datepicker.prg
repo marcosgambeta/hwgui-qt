@@ -25,7 +25,7 @@ PROCEDURE Main ()
 
    oApp := QApplication():new()
 
-   INIT DIALOG oDialog TITLE "Teste da classe HDatePicker" SIZE 640,480
+   INIT DIALOG oDialog TITLE "Teste da classe HWGDatePicker" SIZE 640,480
 
    @ 10,10 DATEPICKER oDatePicker INIT date() SIZE 80,30 OF oDialog
 

@@ -64,7 +64,7 @@ PROCEDURE Main ()
 
    oApp := QApplication():new()
 
-   INIT DIALOG oDialog TITLE "Teste da classe HTab" SIZE 640,480+20
+   INIT DIALOG oDialog TITLE "Teste da classe HWGTab" SIZE 640,480+20
 
    @ 10,10 TAB oMainTab ITEMS {} SIZE 640-20,480-20 OF oDialog
 
