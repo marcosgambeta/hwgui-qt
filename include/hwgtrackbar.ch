@@ -44,6 +44,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGTrackBar)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

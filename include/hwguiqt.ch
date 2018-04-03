@@ -17,6 +17,8 @@
 #include "qt5xhb.ch"
 #endif
 
+#include "winapi.ch"
+
 #xtranslate __IIF(.T., [<true>], [<false>]) => <true>
 #xtranslate __IIF(.F., [<true>], [<false>]) => <false>
 

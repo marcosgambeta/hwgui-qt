@@ -37,6 +37,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGRadioButton)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

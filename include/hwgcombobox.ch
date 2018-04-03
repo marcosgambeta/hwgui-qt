@@ -8,6 +8,8 @@
 
 #xcommand @ <nX>,<nY> COMBOBOX [ <oObj> ITEMS ] <aItems> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -32,6 +34,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGComboBox)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;
@@ -61,6 +65,8 @@
 
 #xcommand @ <nX>,<nY> GET COMBOBOX [ <oObj> VAR ] <xVar> ITEMS <aItems> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -85,6 +91,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGComboBox)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

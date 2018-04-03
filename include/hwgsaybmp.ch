@@ -8,6 +8,8 @@
 
 #xcommand @ <nX>,<nY> BITMAP [ <oObj> SHOW ] <cBitmap> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -26,6 +28,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGSayBmp)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

@@ -36,6 +36,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGGroup)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

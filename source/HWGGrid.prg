@@ -27,7 +27,7 @@ CLASS HWGGrid INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable, ;
              nItemCount, bDispInfo, lNoHeader, lNoGridLines, lDisabled, lInvisible ) CLASS HWGGrid
@@ -44,6 +44,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ENDIF
    ENDIF
 
+   ::nId := nId
+
+   ::configureStyle( nStyle )
    ::configureGeometry( nX, nY, nWidth, nHeight )
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
    ::configureStyleSheet( cStyleSheet )

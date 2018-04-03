@@ -55,6 +55,8 @@ source\HWGWindow.prg
 source\miscfuncs.prg
 source\msgbox.prg
 
+-iinclude
+
 -hblib
 
 -olib\hwguiqt

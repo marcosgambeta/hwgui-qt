@@ -46,6 +46,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGEdit)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

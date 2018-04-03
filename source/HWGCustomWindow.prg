@@ -31,18 +31,27 @@ CLASS HWGCustomWindow INHERIT HWGObject
 
    DATA lHide INIT .F. // .T. = visivel .F. = invisivel
 
+   //DATA lEnabled       // habilitado ou nao
    ACCESS lEnabled INLINE ::oQt:isEnabled()
    ASSIGN lEnabled(lValue) INLINE ::oQt:setEnabled(lValue)
 
+   //DATA lVisible       // visivel ou nao
+   ACCESS lVisible INLINE ::oQt:isVisible()
+   ASSIGN lVisible(lValue) INLINE ::oQt:setVisible(lValue)
+
+   //DATA cToolTip
    ACCESS cToolTip INLINE ::oQt:toolTip()
    ASSIGN cToolTip(cToolTip) INLINE ::oQt:setToolTip(cToolTip)
 
+   //DATA cStatusTip
    ACCESS cStatusTip INLINE ::oQt:statusTip()
    ASSIGN cStatusTip(cStatusTip) INLINE ::oQt:setStatusTip(cStatusTip)
 
+   //DATA cWhatsThis
    ACCESS cWhatsThis INLINE ::oQt:whatsThis()
    ASSIGN cWhatsThis(cWhatsThis) INLINE ::oQt:setWhatsThis(cWhatsThis)
 
+   //DATA cStyleSheet
    ACCESS cStyleSheet INLINE ::oQt:styleSheet()
    ASSIGN cStyleSheet(cStyleSheet) INLINE ::oQt:setStyleSheet(cStyleSheet)
 

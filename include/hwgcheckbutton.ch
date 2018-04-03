@@ -8,6 +8,8 @@
 
 #xcommand @ <nX>,<nY> CHECKBOX [ <oObj> CAPTION ] <cText> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -33,6 +35,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGCheckButton)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;
@@ -64,6 +68,8 @@
 #xcommand @ <nX>,<nY> GET CHECKBOX [ <oObj> VAR ] <xVar> ;
           [ CAPTION <cText> ] ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -88,6 +94,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGCheckButton)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

@@ -8,6 +8,8 @@
 
 #xcommand @ <nX>,<nY> EDITBOX [ <oObj> CAPTION ] <cText> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -32,6 +34,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGEditBox)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

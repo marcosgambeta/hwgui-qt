@@ -31,7 +31,7 @@ CLASS HWGTrackBar INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              nValue, nMinimum, nMaximum, lVertical, ;
              bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable, ;
@@ -49,6 +49,9 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ENDIF
    ENDIF
 
+   ::nId := nId
+
+   ::configureStyle( nStyle )
    ::configureGeometry( nX, nY, nWidth, nHeight )
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
    ::configureStyleSheet( cStyleSheet )

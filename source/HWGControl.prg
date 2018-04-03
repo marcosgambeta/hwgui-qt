@@ -13,14 +13,16 @@
 #include "qt5xhb.ch"
 #endif
 #include "hbclass.ch"
+#include "winapi.ch"
 
 CLASS HWGControl INHERIT HWGCustomWindow
 
-   // DATA bInit (definido em HCustomWindow)
+   DATA nId
 
    METHOD getText
    METHOD setText
 
+   METHOD configureStyle
    METHOD configureEvents
    METHOD connectEvents
 
@@ -43,6 +45,16 @@ RETURN ::oQt:text()
 // define o texto do controle
 METHOD setText (cText) CLASS HWGControl
    ::oQt:setText(cText)
+RETURN NIL
+
+METHOD configureStyle ( nStyle ) CLASS HWGControl
+
+   // TODO: ajustar controle conforme flags da variavel nStyle
+
+   //DO CASE
+   //CASE hb_bitand( nStyle, WS_CHILD ) != 0
+   //ENDCASE
+
 RETURN NIL
 
 METHOD configureEvents ( bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable ) CLASS HWGControl
@@ -123,6 +135,9 @@ RETURN NIL
 
 METHOD onSize (oSender,oEvent) CLASS HWGControl
 
+   HB_SYMBOL_UNUSED(oSender)
+   HB_SYMBOL_UNUSED(oEvent)
+
    IF valtype(::bSize) == "B"
       eval(::bSize, self)
    ENDIF
@@ -130,6 +145,9 @@ METHOD onSize (oSender,oEvent) CLASS HWGControl
 RETURN NIL
 
 METHOD onMove (oSender,oEvent) CLASS HWGControl
+
+   HB_SYMBOL_UNUSED(oSender)
+   HB_SYMBOL_UNUSED(oEvent)
 
    IF valtype(::bMove) == "B"
       eval(::bMove, self)
@@ -139,6 +157,9 @@ RETURN NIL
 
 METHOD onPaint (oSender,oEvent) CLASS HWGControl
 
+   HB_SYMBOL_UNUSED(oSender)
+   HB_SYMBOL_UNUSED(oEvent)
+
    IF valtype(::bPaint) == "B"
       eval(::bPaint, self)
    ENDIF
@@ -146,6 +167,9 @@ METHOD onPaint (oSender,oEvent) CLASS HWGControl
 RETURN NIL
 
 METHOD onGetFocus (oSender,oEvent) CLASS HWGControl
+
+   HB_SYMBOL_UNUSED(oSender)
+   HB_SYMBOL_UNUSED(oEvent)
 
    IF valtype(::bGFocus) == "B"
       eval(::bGFocus, self)
@@ -155,6 +179,9 @@ RETURN NIL
 
 METHOD onLostFocus (oSender,oEvent) CLASS HWGControl
 
+   HB_SYMBOL_UNUSED(oSender)
+   HB_SYMBOL_UNUSED(oEvent)
+
    IF valtype(::bLFocus) == "B"
       eval(::bLFocus, self)
    ENDIF
@@ -162,6 +189,9 @@ METHOD onLostFocus (oSender,oEvent) CLASS HWGControl
 RETURN NIL
 
 METHOD onShow (oSender,oEvent) CLASS HWGControl
+
+   HB_SYMBOL_UNUSED(oSender)
+   HB_SYMBOL_UNUSED(oEvent)
 
    IF valtype(::bShow) == "B"
       eval(::bShow, self)
@@ -171,6 +201,9 @@ RETURN NIL
 
 METHOD onHide (oSender,oEvent) CLASS HWGControl
 
+   HB_SYMBOL_UNUSED(oSender)
+   HB_SYMBOL_UNUSED(oEvent)
+
    IF valtype(::bHide) == "B"
       eval(::bHide, self)
    ENDIF
@@ -179,6 +212,9 @@ RETURN NIL
 
 METHOD onEnable (oSender,oEvent) CLASS HWGControl
 
+   HB_SYMBOL_UNUSED(oSender)
+   HB_SYMBOL_UNUSED(oEvent)
+
    IF valtype(::bEnable) == "B"
       eval(::bEnable, self)
    ENDIF
@@ -186,6 +222,9 @@ METHOD onEnable (oSender,oEvent) CLASS HWGControl
 RETURN NIL
 
 METHOD onDisable (oSender,oEvent) CLASS HWGControl
+
+   HB_SYMBOL_UNUSED(oSender)
+   HB_SYMBOL_UNUSED(oEvent)
 
    IF valtype(::bDisable) == "B"
       eval(::bDisable, self)

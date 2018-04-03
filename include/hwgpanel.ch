@@ -8,6 +8,8 @@
 
 #xcommand @ <nX>,<nY> PANEL [ <oObj> ] ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -29,6 +31,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGPanel)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

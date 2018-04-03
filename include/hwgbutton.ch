@@ -8,6 +8,8 @@
 
 #xcommand @ <nX>,<nY> BUTTON [ <oObj> CAPTION ] <cText> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -35,6 +37,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGButton)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

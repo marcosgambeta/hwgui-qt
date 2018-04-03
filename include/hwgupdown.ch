@@ -8,6 +8,8 @@
 
 #xcommand @ <nX>,<nY> UPDOWN [ <oObj> INIT ] <nValue> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -36,6 +38,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGUpDown)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;
@@ -69,6 +73,8 @@
 
 #xcommand @ <nX>,<nY> UPDOWN [ <oObj> VAR ] <xVar> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -97,6 +103,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGUpDown)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

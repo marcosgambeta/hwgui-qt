@@ -21,7 +21,7 @@ CLASS HWGEditBox INHERIT HWGControl
 
 ENDCLASS
 
-METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
+METHOD New ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              cText, ;
              bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable, ;
@@ -39,6 +39,9 @@ METHOD New ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis,
       ENDIF
    ENDIF
 
+   ::nId := nId
+
+   ::configureStyle( nStyle )
    ::configureGeometry( nX, nY, nWidth, nHeight )
    ::configureTips( cToolTip, cStatusTip, cWhatsThis )
    ::configureStyleSheet( cStyleSheet )

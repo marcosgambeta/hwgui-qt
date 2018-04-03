@@ -8,6 +8,8 @@
 
 #xcommand @ <nX>,<nY> DIAL [ <oObj> INIT ] <nValue> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -34,6 +36,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGDial)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;
@@ -65,6 +69,8 @@
 
 #xcommand @ <nX>,<nY> DIAL [ <oObj> VAR ] <xVar> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -91,6 +97,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGDial)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;

@@ -8,6 +8,8 @@
 
 #xcommand @ <nX>,<nY> DATEPICKER [ <oObj> ] ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -33,6 +35,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGDatePicker)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;
@@ -61,6 +65,8 @@
 
 #xcommand @ <nX>,<nY> GET DATEPICKER [ <oObj> VAR ] <xVar> ;
           [ OF <oParent> ] ;
+          [ ID <nId> ] ;
+          [ STYLE <nStyle> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
@@ -86,6 +92,8 @@
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGDatePicker)():new( ;
              <oParent>, ;
+             <nId>, ;
+             <nStyle>, ;
              <nX>, ;
              <nY>, ;
              <nWidth>, ;
