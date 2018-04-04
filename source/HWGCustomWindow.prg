@@ -16,6 +16,9 @@
 
 CLASS HWGCustomWindow INHERIT HWGObject
 
+   DATA oParent
+   DATA nStyle
+
    //DATA nLeft          // coordenada x do widget
    ACCESS nLeft INLINE ::oQt:x()
    ASSIGN nLeft(nX) INLINE ::oQt:move(nX,::oQt:y())
@@ -77,6 +80,13 @@ CLASS HWGCustomWindow INHERIT HWGObject
    METHOD configureFont
    METHOD configureColors
 
+   DATA aControls INIT {}
+
+   METHOD addControl // adiciona um controle no vetor
+   METHOD delControl // remove um controle do vetor
+
+   METHOD release
+
    METHOD move
    METHOD show
    METHOD hide
@@ -89,6 +99,9 @@ CLASS HWGCustomWindow INHERIT HWGObject
 //    METHOD onPaint
 //    METHOD onGFocus
 //    METHOD onLFocus
+
+   METHOD listControls // debug
+   METHOD idControls
 
 ENDCLASS
 
@@ -178,6 +191,59 @@ METHOD configureColors ( nColorRole1, xColor, nColorRole2, xBackColor ) CLASS HW
 
 RETURN NIL
 
+METHOD addControl (oControl) CLASS HWGCustomWindow
+
+   IF valtype(oControl) == "O"
+      aadd(::aControls, oControl)
+   ELSE
+      alert("Erro no método addControl da classe HWGCustomWindow") // debug
+   ENDIF
+
+RETURN NIL
+
+METHOD delControl (oControl) CLASS HWGCustomWindow
+
+   LOCAL nIndex
+   LOCAL aId := {}
+   LOCAL n
+
+   IF valtype(oControl) == "O"
+
+      nIndex := ascan(::aControls, {|x|x:oQt:pointer == oControl:oQt:pointer})
+
+      IF oControl:oQt:close()
+
+         // fill array aId with nId
+         oControl:idControls(oControl, aId)
+
+         // free nId
+         FOR n := 1 TO len(aId)
+            hwgqt_markidasfree(aId[n])
+         NEXT n
+
+         ::delete()
+
+         IF nIndex > 0
+            adel(::aControls, nIndex)              // remove o objeto
+            asize(::aControls, len(::aControls)-1) // atualiza o tamanho da array
+         ENDIF
+
+      ENDIF
+
+   ELSE
+
+      alert("Erro no método delControl da classe HWGCustomWindow") // debug
+
+   ENDIF
+
+RETURN NIL
+
+METHOD release () CLASS HWGCustomWindow
+
+   ::delControl(self)
+
+RETURN NIL
+
 METHOD move ( nX, nY, nWidth, nHeight ) CLASS HWGCustomWindow
 
    // checa os parâmetros e atualiza as propriedades do objeto
@@ -241,5 +307,49 @@ RETURN ::oQt:isEnabled()
 METHOD SetFocus () CLASS HWGCustomWindow
 
    ::oQt:setFocus()
+
+RETURN NIL
+
+METHOD listControls (oParent) CLASS HWGCustomWindow // debug
+
+   LOCAL n
+   LOCAL o
+   
+   IF oParent == NIL
+      oParent := self
+   ENDIF
+
+   IF len(oParent:aControls) != 0
+
+      ? len(oParent:aControls)
+
+      FOR n := 1 TO len(oParent:aControls)
+         o := oParent:aControls[n]
+         ? "#",n,"nId=",o:nId,"cName",o:cName
+         ::listControls(o)
+      NEXT n
+
+   ENDIF
+
+RETURN NIL
+
+METHOD idControls (oParent, a) CLASS HWGCustomWindow
+
+   LOCAL n
+   LOCAL o
+
+   IF oParent == NIL
+      oParent := self
+   ENDIF
+
+   IF len(oParent:aControls) != 0
+
+      FOR n := 1 TO len(oParent:aControls)
+         o := oParent:aControls[n]
+         aadd(a,o:nId)
+         ::idControls(o, a)
+      NEXT n
+
+   ENDIF
 
 RETURN NIL

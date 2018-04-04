@@ -66,5 +66,6 @@ METHOD release () CLASS HWGObject
 RETURN NIL
 
 METHOD delete () CLASS HWGObject
+   ::oQt:disconnectAll(.T.)
    ::oQt:delete()
 RETURN NIL

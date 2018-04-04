@@ -44,7 +44,11 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
       ENDIF
    ENDIF
 
-   ::nId := nId
+   IF nId == NIL
+      ::nId := ::newId()
+   ELSE
+      ::nId := nId
+   ENDIF
 
    ::configureStyle( nStyle )
    ::configureGeometry( nX, nY, nWidth, nHeight )
@@ -80,6 +84,10 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
 
    ::oQt:onMouseButtonPressEvent({||::onClick()})
    ::oQt:onMouseButtonDblClickEvent({||::onDblClick()})
+
+   IF ::oParent != NIL
+      ::oParent:addControl(self)
+   ENDIF
 
    ::activate()
 

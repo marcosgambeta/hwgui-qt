@@ -15,9 +15,14 @@
 #include "hbclass.ch"
 #include "winapi.ch"
 
+STATIC oBitArray // TODO: destruicao do objeto
+
 CLASS HWGControl INHERIT HWGCustomWindow
 
    DATA nId
+
+   METHOD newId
+   METHOD freeId
 
    METHOD getText
    METHOD setText
@@ -37,6 +42,40 @@ CLASS HWGControl INHERIT HWGCustomWindow
    METHOD onDisable
 
 ENDCLASS
+
+// TODO: nao retornar ID utilizado pelo usuario
+
+METHOd newId () CLASS HWGControl
+
+   LOCAL n := 0
+   LOCAL nId := -1
+
+   IF oBitArray == NIL
+      oBitArray := QBitArray():new(8192*8) // 65536 items
+   ENDIF
+
+   DO WHILE n < oBitArray:size()
+      IF !oBitArray:at(n)
+         oBitArray:setBit(n)
+         nId := n
+         EXIT
+      ENDIF
+      ++n
+   ENDDO
+
+RETURN nId
+
+METHOd freeId ( nId ) CLASS HWGControl
+
+   IF oBitArray == NIL
+      oBitArray := QBitArray():new(8192*8) // 65536 items
+   ENDIF
+
+   IF nId >= 0 .AND. nId <= 8192*8-1
+      oBitArray:setBit(nId)
+   ENDIF
+
+RETURN NIL
 
 // retorna o texto do controle
 METHOD getText () CLASS HWGControl
@@ -228,6 +267,18 @@ METHOD onDisable (oSender,oEvent) CLASS HWGControl
 
    IF valtype(::bDisable) == "B"
       eval(::bDisable, self)
+   ENDIF
+
+RETURN NIL
+
+FUNCTION hwgqt_markidasfree ( nId )
+
+   IF oBitArray == NIL
+      oBitArray := QBitArray():new(8192*8) // 65536 items
+   ENDIF
+
+   IF nId >= 0 .AND. nId <= 8192*8-1
+      oBitArray:setBit(nId,.F.)
    ENDIF
 
 RETURN NIL

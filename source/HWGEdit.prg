@@ -49,7 +49,11 @@ METHOD New ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
       ENDIF
    ENDIF
 
-   ::nId := nId
+   IF nId == NIL
+      ::nId := ::newId()
+   ELSE
+      ::nId := nId
+   ENDIF
 
    ::configureStyle( nStyle )
    ::configureGeometry( nX, nY, nWidth, nHeight )
@@ -123,6 +127,10 @@ METHOD New ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
    ENDIF
 
    ::oQt:onTextEdited( {|oSender,cText|eval(::bSetGet,cText)} )
+
+   IF ::oParent != NIL
+      ::oParent:addControl(self)
+   ENDIF
 
    ::activate()
 
