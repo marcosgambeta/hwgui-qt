@@ -28,6 +28,7 @@ source\HWGGroup.prg
 source\HWGIcon.prg
 source\HWGLIFO.prg
 source\HWGLine.prg
+source\HWGListBox.prg
 source\HWGMainWindow.prg
 source\HWGMdiChildWindow.prg
 source\HWGMenu.prg
