@@ -19,6 +19,9 @@ CLASS HWGListBox INHERIT HWGControl
    ACCESS nValue INLINE ::oQt:currentRow()+1
    ASSIGN nValue(nValue) INLINE ::oQt:setCurrentRow(nValue-1)
 
+   DATA aItems INIT {}
+   DATA bSetGet
+
    METHOD new
    METHOD activate
 
@@ -27,7 +30,7 @@ ENDCLASS
 METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
              bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable, ;
-             acItems, nInit, ;
+             acItems, nInit, bSetget, ;
              lDisabled, lInvisible ) CLASS HWGListBox
 
    IF valtype(oParent) == "O"
@@ -56,6 +59,7 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(acItems) == "A"
+      ::aItems := acItems
       ::oQt:addItems(acItems)
    ENDIF
 
@@ -64,6 +68,8 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
    ELSE
       ::oQt:setCurrentRow(0)
    ENDIF
+
+   ::bSetGet := bSetGet
 
    IF valtype(bInit) == "B"
       ::bInit := bInit
@@ -83,6 +89,8 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
          ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
+
+   ::oQt:onCurrentRowChanged( {|oSender,nRow|eval(::bSetGet,nRow+1)} )
 
    IF ::oParent != NIL
       ::oParent:addControl(self)
