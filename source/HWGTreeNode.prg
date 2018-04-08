@@ -87,7 +87,7 @@ RETURN self
 //
 // RETURN NIL
 
-METHOD addNode ( cTitle, cIcon ) CLASS HWGTreeNode
+METHOD addNode ( cTitle, cIcon, lCheckable, lChecked ) CLASS HWGTreeNode
 
    LOCAL oTreeNode
 
@@ -99,6 +99,20 @@ METHOD addNode ( cTitle, cIcon ) CLASS HWGTreeNode
 
    IF valtype(cIcon) == "C"
       oTreeNode:oQt:setIcon(0,QIcon():new(cIcon))
+   ENDIF
+
+   IF valtype(lCheckable) == "L"
+      IF lCheckable
+         oTreeNode:oQt:setFlags( hb_bitor( oTreeNode:oQt:flags(), Qt_ItemIsUserCheckable ) )
+         // TODO: estado inicial: checado ou nao checado ?
+         oTreeNode:oQt:setCheckState(0,Qt_Unchecked)
+      ENDIF   
+   ENDIF
+
+   IF valtype(lChecked) == "L"
+      IF lChecked
+         oTreeNode:oQt:setCheckState(0,Qt_Checked)
+      ENDIF
    ENDIF
 
    // TODO: ajustar para funcionar com herança

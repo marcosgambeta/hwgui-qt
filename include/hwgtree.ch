@@ -76,5 +76,7 @@
 #xcommand INSERT NODE [ <oObj> CAPTION ] <cTitle> TO <oTree> ;
           [ BITMAP <cIcon> ] ;
           [ ICON <cIcon> ] ;
+          [ <lCheckable:CHECKABLE> ] ;
+          [ <lChecked:CHECKED> ] ;
           => ;
-          [ <oObj> := ] <oTree>:addNode( <cTitle>, <cIcon> )
+          [ <oObj> := ] <oTree>:addNode( <cTitle>, <cIcon>, <.lCheckable.>, <.lChecked.> )

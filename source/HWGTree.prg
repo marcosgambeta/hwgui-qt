@@ -89,7 +89,7 @@ METHOD activate () CLASS HWGTree
 
 RETURN NIL
 
-METHOD addNode ( cTitle, cIcon ) CLASS HWGTree
+METHOD addNode ( cTitle, cIcon, lCheckable, lChecked ) CLASS HWGTree
 
    LOCAL oTreeNode
 
@@ -101,6 +101,20 @@ METHOD addNode ( cTitle, cIcon ) CLASS HWGTree
 
    IF valtype(cIcon) == "C"
       oTreeNode:oQt:setIcon(0,QIcon():new(cIcon))
+   ENDIF
+
+   IF valtype(lCheckable) == "L"
+      IF lCheckable
+         oTreeNode:oQt:setFlags( hb_bitor( oTreeNode:oQt:flags(), Qt_ItemIsUserCheckable ) )
+         // TODO: estado inicial: checado ou nao checado ?
+         oTreeNode:oQt:setCheckState(0,Qt_Unchecked)
+      ENDIF
+   ENDIF
+
+   IF valtype(lChecked) == "L"
+      IF lChecked
+         oTreeNode:oQt:setCheckState(0,Qt_Checked)
+      ENDIF
    ENDIF
 
    ::oQt:addTopLevelItem( oTreeNode:oQt )
