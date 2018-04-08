@@ -87,7 +87,7 @@ RETURN self
 //
 // RETURN NIL
 
-METHOD addNode ( cTitle ) CLASS HWGTreeNode
+METHOD addNode ( cTitle, cIcon ) CLASS HWGTreeNode
 
    LOCAL oTreeNode
 
@@ -97,7 +97,12 @@ METHOD addNode ( cTitle ) CLASS HWGTreeNode
       oTreeNode:oQt:setText(0,cTitle)
    ENDIF
 
+   IF valtype(cIcon) == "C"
+      oTreeNode:oQt:setIcon(0,QIcon():new(cIcon))
+   ENDIF
+
    // TODO: ajustar para funcionar com herança
+
    IF upper(::className()) == "HWGTREE"
       ::oQt:addTopLevelItem( oTreeNode:oQt )
    ELSEIF upper(::className()) == "HWGTREENODE"

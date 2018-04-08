@@ -89,7 +89,7 @@ METHOD activate () CLASS HWGTree
 
 RETURN NIL
 
-METHOD addNode ( cTitle ) CLASS HWGTree
+METHOD addNode ( cTitle, cIcon ) CLASS HWGTree
 
    LOCAL oTreeNode
 
@@ -97,6 +97,10 @@ METHOD addNode ( cTitle ) CLASS HWGTree
 
    IF valtype(cTitle) == "C"
       oTreeNode:oQt:setText(0,cTitle)
+   ENDIF
+
+   IF valtype(cIcon) == "C"
+      oTreeNode:oQt:setIcon(0,QIcon():new(cIcon))
    ENDIF
 
    ::oQt:addTopLevelItem( oTreeNode:oQt )

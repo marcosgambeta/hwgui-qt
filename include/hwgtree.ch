@@ -74,5 +74,7 @@
           [ <oObj>:cName := <(oObj)> ]
 
 #xcommand INSERT NODE [ <oObj> CAPTION ] <cTitle> TO <oTree> ;
+          [ BITMAP <cIcon> ] ;
+          [ ICON <cIcon> ] ;
           => ;
-          [ <oObj> := ] <oTree>:addNode( <cTitle> )
+          [ <oObj> := ] <oTree>:addNode( <cTitle>, <cIcon> )
