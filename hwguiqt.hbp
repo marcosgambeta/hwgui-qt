@@ -51,6 +51,8 @@ source\HWGTimer.prg
 source\HWGToolBar.prg
 source\HWGToolBarItem.prg
 source\HWGTrackBar.prg
+source\HWGTree.prg
+source\HWGTreeNode.prg
 source\HWGUpDown.prg
 source\HWGWindow.prg
 source\miscfuncs.prg
