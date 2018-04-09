@@ -90,7 +90,9 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
       ENDIF
    ENDIF
 
-   ::oQt:onCurrentRowChanged( {|oSender,nRow|eval(::bSetGet,nRow+1)} )
+   IF valtype(::bSetGet) == "B"
+      ::oQt:onCurrentRowChanged( {|oSender,nRow|eval(::bSetGet,nRow+1)} )
+   ENDIF
 
    IF ::oParent != NIL
       ::oParent:addControl(self)
