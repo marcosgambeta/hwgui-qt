@@ -5,6 +5,7 @@
 #
 
 source\HWGAction.prg
+source\HWGApplication.prg
 source\HWGBitmap.prg
 source\HWGBrowse.prg
 source\HWGButton.prg
