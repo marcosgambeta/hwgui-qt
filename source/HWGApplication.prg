@@ -19,6 +19,8 @@ CLASS HWGApplication INHERIT HWGObject
    METHOD new
    METHOD execute
    METHOD release
+   METHOD quit
+   METHOD aboutQt
 
 ENDCLASS
 
@@ -37,5 +39,17 @@ RETURN NIL
 METHOD release () CLASS HWGApplication
 
    ::oQt:delete()
+
+RETURN NIL
+
+METHOD quit () CLASS HWGApplication
+
+   ::oQt:quit()
+
+RETURN NIL
+
+METHOD aboutQt () CLASS HWGApplication
+
+   ::oQt:aboutQt()
 
 RETURN NIL
