@@ -14,7 +14,7 @@
 #endif
 #include "hbclass.ch"
 
-CLASS HWGPage INHERIT HWGObject
+CLASS HWGPage INHERIT HWGControl // HWGObject
 
    METHOD new
 
@@ -26,7 +26,12 @@ METHOD new (oParent,nX,nY,nWidth,nHeight,cToolTip,cStatusTip,cWhatsThis,cStyleSh
       ::oQt := QWidget():new(oParent:oQt)
       ::oParent := oParent
    ELSE
-      ::oQt := QWidget():new()
+      IF valtype(HWGFILO():last()) == "O"
+         ::oQt := QWidget():new(HWGFILO():last():oQt)
+         ::oParent := HWGFILO():last()
+      ELSE
+         ::oQt := QWidget():new()
+      ENDIF
    ENDIF
 
    IF valtype(nX) == "N" .AND. valtype(nY) == "N"
