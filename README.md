@@ -17,7 +17,7 @@ https://groups.google.com/forum/?hl=pt-BR#!forum/qtxhb-br
 
 ## Importante
   
-Dúvidas serão exclarecidas somente por email.  
+Assuntos relacionados com este projeto serão esclarecidos somente por email.  
 HWGUIQt não é um projeto comercial, mas sim um FOSS (Free and Open Source Software).  
 
 ## Exemplo
