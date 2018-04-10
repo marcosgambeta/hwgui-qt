@@ -19,7 +19,7 @@ HWGUIQt é um FOSS (Free and Open Source Software).
 
 ## Exemplo
 
-```
+```xBase
 #include "hwguiqt.ch"
 
 PROCEDURE Main ()
