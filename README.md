@@ -5,17 +5,20 @@ Este projeto é um trabalho em progresso. Utiliza a API do Qt Framework e depend
 
 Desenvolvedores interessados podem acompanhar seu desenvolvimento aqui no GitHub.
 
-Para exclarecimento de dúvidas, envie sua mensagem para:
+## Contato
+
+Envie sua mensagem para:
 
 marcosgambeta AT outlook DOT com
 
-Ou utilize o grupo de discussão abaixo:
+## Grupo de discussão
 
 https://groups.google.com/forum/?hl=pt-BR#!forum/qtxhb-br
 
-IMPORTANTE:  
+## Importante
+  
 Dúvidas serão exclarecidas somente por email.  
-HWGUIQt é um FOSS (Free and Open Source Software).  
+HWGUIQt não é um projeto comercial, mas sim um FOSS (Free and Open Source Software).  
 
 ## Exemplo
 
