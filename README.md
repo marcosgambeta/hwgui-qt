@@ -1,7 +1,7 @@
 # HWGUIQt
-Biblioteca gráfica com sintaxe similar à sintaxe da HWGUI
+Biblioteca gráfica com sintaxe similar à sintaxe da [HWGUI](https://sourceforge.net/projects/hwgui/?source=directory)
 
-Este projeto é um trabalho em progresso. Utiliza a API do Qt Framework e depende dos projetos Qt4xHb ou Qt5xHb.
+Este projeto é um trabalho em progresso. Utiliza a API do [Qt Framework](http://www.qt.io) e depende dos projetos [Qt4xHb](https://github.com/marcosgambeta/Qt4xHb) ou [Qt5xHb](https://github.com/marcosgambeta/Qt5xHb).
 
 Desenvolvedores interessados podem acompanhar seu desenvolvimento aqui no GitHub.
 
