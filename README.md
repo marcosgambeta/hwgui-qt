@@ -116,3 +116,7 @@ PROCEDURE Main ()
 
 RETURN
 ```
+
+Exemplo em execução no Windows 10
+
+![Image of example](https://github.com/marcosgambeta/HWGUIQt/blob/master/doc/images/exemplo.png)
