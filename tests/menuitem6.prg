@@ -25,7 +25,7 @@ PROCEDURE Main ()
    LOCAL oFont4
    LOCAL oFont5
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    PREPARE FONT oFont1 NAME "Arial" WIDTH 14
    PREPARE FONT oFont2 NAME "Courier New" WIDTH 14
@@ -47,10 +47,10 @@ PROCEDURE Main ()
 
    ACTIVATE WINDOW oMainWindow
 
-   oApp:exec()
+   EXECUTE APPLICATION oApp
 
-   oMainWindow:delete()
+   RELEASE WINDOW oMainWindow
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

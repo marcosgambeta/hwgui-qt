@@ -23,16 +23,16 @@ PROCEDURE Main ()
    ?
    ? "restaure e feche a janela para encerrar a aplicacao"
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT WINDOW oMainWindow TITLE "Janela principal" SIZE 800,600 MAIN
 
    ACTIVATE WINDOW oMainWindow MINIMIZED
 
-   oApp:exec()
+   EXECUTE APPLICATION oApp
 
-   oMainWindow:delete()
+   RELEASE WINDOW oMainWindow
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

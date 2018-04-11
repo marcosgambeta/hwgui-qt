@@ -19,7 +19,7 @@ PROCEDURE Main ()
    LOCAL oApp
    LOCAL oMainWindow
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT WINDOW oMainWindow TITLE "Janela principal" SIZE 800,600 MAIN
 
@@ -53,11 +53,11 @@ PROCEDURE Main ()
 
    ACTIVATE WINDOW oMainWindow
 
-   oApp:exec()
+   EXECUTE APPLICATION oApp
 
-   oMainWindow:delete()
+   RELEASE WINDOW oMainWindow
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN
 
@@ -69,7 +69,7 @@ STATIC FUNCTION ChildWindow1 (oParent)
 
    ACTIVATE WINDOW oWindow
 
-   oWindow:delete()
+   RELEASE WINDOW oWindow
 
 RETURN NIL
 
@@ -81,7 +81,7 @@ STATIC FUNCTION ChildWindow2 (oParent)
 
    ACTIVATE WINDOW oWindow CENTERED
 
-   oWindow:delete()
+   RELEASE WINDOW oWindow
 
 RETURN NIL
 
@@ -93,6 +93,6 @@ STATIC FUNCTION ChildWindow3 (oParent)
 
    ACTIVATE WINDOW oWindow MODAL
 
-   oWindow:delete()
+   RELEASE WINDOW oWindow
 
 RETURN NIL
