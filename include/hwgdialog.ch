@@ -54,3 +54,5 @@
           => ;
           HWGFILO():remove() ;;
           <oObj>:activate( <.lNoModal.> )
+
+#xcommand RELEASE DIALOG <oObj> => <oObj>:release()
