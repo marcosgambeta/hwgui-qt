@@ -25,7 +25,7 @@ PROCEDURE Main ()
    LOCAL oUpDown2
    LOCAL oUpDown3
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGUpDown" SIZE 320,240
 
@@ -40,8 +40,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

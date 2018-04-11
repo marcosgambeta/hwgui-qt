@@ -31,7 +31,7 @@ PROCEDURE Main ()
    LOCAL oSay4
    LOCAL oSay5
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    PREPARE FONT oFontTab  NAME "Arial Bold" WIDTH 12
    PREPARE FONT oFontTab1 NAME "Arial" WIDTH 14
@@ -66,8 +66,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

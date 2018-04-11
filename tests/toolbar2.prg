@@ -20,7 +20,7 @@ PROCEDURE Main ()
    LOCAL oMainWindow
    LOCAL oToolBar
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT WINDOW oMainWindow TITLE "Janela principal" SIZE 800,600 MAIN
 
@@ -36,10 +36,10 @@ PROCEDURE Main ()
 
    ACTIVATE WINDOW oMainWindow
 
-   oApp:exec()
+   EXECUTE APPLICATION oApp
 
-   oMainWindow:delete()
-
-   oApp:delete()
+   RELEASE WINDOW oMainWindow
+   
+   RELEASE APPLICATION oApp
 
 RETURN

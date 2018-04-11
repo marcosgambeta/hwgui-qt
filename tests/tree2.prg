@@ -20,12 +20,12 @@ PROCEDURE Main ()
    LOCAL oDialog
    LOCAL oTree
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Janela de diálogo" AT 300,300 SIZE 320,240
 
    @ 20,20 TREE oTree SIZE 200,130
-   
+
    INSERT NODE oNode1 CAPTION "item1" TO oTree
    INSERT NODE oNode2 CAPTION "item2" TO oTree
       INSERT NODE oNode21 CAPTION "item21" TO oNode2
@@ -45,8 +45,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:release()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

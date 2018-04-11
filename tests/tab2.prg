@@ -20,7 +20,7 @@ PROCEDURE Main ()
    LOCAL oDialog
    LOCAL oTab
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGTab" SIZE 640,480
 
@@ -37,8 +37,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

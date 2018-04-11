@@ -33,11 +33,11 @@ PROCEDURE Main ( cTheme )
    LOCAL oActionB2
    LOCAL oActionB3
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    IF valtype(cTheme) == "C"
       IF file(cTheme)
-         oApp:setStyleSheet( memoread( cTheme ) )
+         oApp:oQt:setStyleSheet( memoread( cTheme ) )
       ENDIF
    ENDIF
 
@@ -82,10 +82,10 @@ PROCEDURE Main ( cTheme )
    // ativa a janela
    ACTIVATE WINDOW oMainWindow
 
-   oApp:exec()
+   EXECUTE APPLICATION oApp
 
-   oMainWindow:delete()
+   RELEASE WINDOW oMainWindow
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN
