@@ -25,8 +25,8 @@ PROCEDURE Main ()
    LOCAL oFont2
    LOCAL oFont3
 
-   oApp := QApplication():new()
-
+   INIT APPLICATION oApp
+   
    INIT DIALOG oDialog TITLE "Teste da classe HWGStatic - ON INIT" SIZE 320,240
 
    @ 10,10 SAY oSay1 CAPTION "Campo 1" ON INIT hwgqt_MsgInfo("oSay1","ON INIT")
@@ -37,8 +37,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

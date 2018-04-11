@@ -21,7 +21,7 @@ PROCEDURE Main ()
    LOCAL oPanel
    LOCAL oButton
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGPanel" SIZE 320,240
 
@@ -40,8 +40,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

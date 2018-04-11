@@ -26,7 +26,7 @@ PROCEDURE Main ()
    cSS += "QPushButton {color: blue; background-color: white;} "
    cSS += "QDialog {color: white; background-color: lightgreen;} "
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    ? "qtxhb_events_size=",qtxhb_events_size()
    ? "qtxhb_events_size_active=",qtxhb_events_size_active()
@@ -39,11 +39,11 @@ PROCEDURE Main ()
 
    ACTIVATE WINDOW oMainWindow
 
-   oApp:exec()
+   EXECUTE APPLICATION oApp
 
-   oMainWindow:delete()
+   RELEASE WINDOW oMainWindow
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
    ? "qtxhb_events_size=",qtxhb_events_size()
    ? "qtxhb_events_size_active=",qtxhb_events_size_active()
@@ -129,7 +129,7 @@ STATIC FUNCTION dialogo (oParent)
       hwgqt_MsgInfo("Cancel", "Resultado")
    ENDIF
 
-   oDialog:release() // oDialog:delete()
+   RELEASE DIALOG oDialog // oDialog:delete()
 
    ? "qtxhb_events_size=",qtxhb_events_size()
    ? "qtxhb_events_size_active=",qtxhb_events_size_active()

@@ -22,7 +22,7 @@ PROCEDURE Main ()
    LOCAL oButton2
    LOCAL oMonthCalendar
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Janela de diálogo" SIZE 640,480
 
@@ -42,8 +42,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

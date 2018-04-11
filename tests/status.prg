@@ -30,7 +30,7 @@ PROCEDURE Main ()
    LOCAL oActionB3
    LOCAL oStatus
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    // cria a janela principal
    INIT WINDOW oMainWindow TITLE "Janela principal" SIZE 800,600 MAIN
@@ -100,10 +100,10 @@ PROCEDURE Main ()
    // ativa a janela
    ACTIVATE WINDOW oMainWindow
 
-   oApp:exec()
+   EXECUTE APPLICATION oApp
 
-   oMainWindow:delete()
+   RELEASE WINDOW oMainWindow
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

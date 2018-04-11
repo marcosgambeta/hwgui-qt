@@ -21,7 +21,7 @@ PROCEDURE Main ()
    LOCAL oPB1
    LOCAL oPB2
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGProgressBar" SIZE 320,320
 
@@ -40,8 +40,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

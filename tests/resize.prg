@@ -20,7 +20,7 @@ PROCEDURE Main ()
    LOCAL oMainWindow
    LOCAL oButton
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT WINDOW oMainWindow TITLE "Janela principal" SIZE 800,600 MAIN
 
@@ -28,11 +28,11 @@ PROCEDURE Main ()
 
    ACTIVATE WINDOW oMainWindow MAXIMIZED
 
-   oApp:exec()
+   EXECUTE APPLICATION oApp
 
-   oMainWindow:delete()
+   RELEASE WINDOW oMainWindow
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN
 
@@ -61,6 +61,6 @@ STATIC FUNCTION dialog (oParent)
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
 RETURN NIL
