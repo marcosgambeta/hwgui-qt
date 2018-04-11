@@ -20,7 +20,7 @@ PROCEDURE Main ()
    LOCAL oDialog
    LOCAL oBrowse
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGBrowse" SIZE 320,240
 
@@ -28,8 +28,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

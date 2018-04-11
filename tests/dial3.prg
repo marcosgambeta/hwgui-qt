@@ -21,7 +21,7 @@ PROCEDURE Main ()
    LOCAL oDial1
    LOCAL oDial2
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGDial" SIZE 320,240
 
@@ -31,8 +31,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

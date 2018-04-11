@@ -78,7 +78,7 @@ PROCEDURE Main ()
 
    EXECUTE APPLICATION oApp
 
-   oMainWindow:release()
+   RELEASE WINDOW oMainWindow
 
    RELEASE APPLICATION oApp
 

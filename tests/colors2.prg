@@ -20,7 +20,7 @@ PROCEDURE Main ()
    LOCAL oFont
    LOCAL oDialog
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    PREPARE FONT oFont NAME "MS Sans Serif" HEIGHT 13
 
@@ -38,8 +38,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

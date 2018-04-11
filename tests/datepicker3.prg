@@ -25,7 +25,7 @@ PROCEDURE Main ()
    SET DATE TO BRITISH
    SET CENTURY ON
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGDatePicker" SIZE 640,480
 
@@ -37,8 +37,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

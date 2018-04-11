@@ -19,7 +19,7 @@ PROCEDURE Main ()
    LOCAL oApp
    LOCAL oMainWindow
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT WINDOW oMainWindow TITLE "Janela principal" AT 0,0 SIZE hwgqt_getdesktopwidth(),hwgqt_getdesktopheight()-30 MAIN
 
@@ -33,10 +33,10 @@ PROCEDURE Main ()
 
    ACTIVATE WINDOW oMainWindow
 
-   oApp:exec()
+   EXECUTE APPLICATION oApp
 
-   oMainWindow:delete()
+   RELEASE WINDOW oWindow
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

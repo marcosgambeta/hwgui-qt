@@ -22,7 +22,7 @@ PROCEDURE Main ()
    LOCAL oButton2
    LOCAL oButton3
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGButton" SIZE 320,240
 
@@ -40,8 +40,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN
