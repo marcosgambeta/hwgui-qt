@@ -25,7 +25,7 @@ PROCEDURE Main ()
    LOCAL cEdit2 := ""
    LOCAL cEdit3 := ""
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Janela de diálogo" AT 300,300 SIZE 320,240 ON INIT {||oEdit2:setFocus()} // o foco deve ir para o objeto oEdit2
 
@@ -43,8 +43,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

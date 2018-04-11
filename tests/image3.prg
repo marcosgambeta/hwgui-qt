@@ -23,7 +23,7 @@ PROCEDURE Main ()
    LOCAL oImage3
    LOCAL oImage4
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGSayImage" SIZE 360,360
 
@@ -49,8 +49,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

@@ -23,7 +23,7 @@ PROCEDURE Main ()
    LOCAL oLB2
    LOCAl nLB2 := 3
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Janela de diálogo" AT 300,300 SIZE 640,480
 
@@ -42,8 +42,8 @@ PROCEDURE Main ()
    hwgqt_msginfo(alltrim(str(nLB1)))
    hwgqt_msginfo(alltrim(str(nLB2)))
 
-   oDialog:release()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

@@ -25,8 +25,8 @@ PROCEDURE Main ()
    LOCAL cEdit2 := ""
    LOCAL cEdit3 := ""
 
-   oApp := QApplication():new()
-
+   INIT APPLICATION oApp
+   
    INIT DIALOG oDialog TITLE "Janela de diálogo" AT 300,300 SIZE 320,240
 
    // teste com mascaras no estilo Qt
@@ -45,8 +45,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN

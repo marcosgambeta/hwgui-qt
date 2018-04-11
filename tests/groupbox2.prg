@@ -23,7 +23,7 @@ PROCEDURE Main ()
    LOCAL oCB2
    LOCAL oCB3
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Janela de diálogo" AT 300,300 SIZE 320,240
 
@@ -41,8 +41,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
-
-   oApp:delete()
+   RELEASE DIALOG oDialog
+   
+   RELEASE APPLICATION oApp
 
 RETURN

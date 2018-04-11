@@ -20,7 +20,7 @@ PROCEDURE Main ()
    LOCAL oDialog
    LOCAL oGrid
 
-   oApp := QApplication():new()
+   INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGGrid" SIZE 640,480
 
@@ -33,8 +33,8 @@ PROCEDURE Main ()
 
    ACTIVATE DIALOG oDialog
 
-   oDialog:delete()
+   RELEASE DIALOG oDialog
 
-   oApp:delete()
+   RELEASE APPLICATION oApp
 
 RETURN
