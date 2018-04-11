@@ -34,3 +34,5 @@
 #xcommand SHOW WINDOW <oObj> => <oObj>:show()
 
 #xcommand HIDE WINDOW <oObj> => <oObj>:hide()
+
+#xcommand RELEASE WINDOW <oObj> => <oObj>:release()
