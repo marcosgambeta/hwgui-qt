@@ -14,8 +14,9 @@
           [ STATUSTIP <cStatusTip> ] ;
           [ WHATSTHIS <cWhatsThis> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
-          [ ON INIT <bOnInit> ] ;
-          [ ON TRIGGERED <bOnTriggered> ] ;
+          [ FONT <oFont> ] ;
+          [ ON INIT <bInit> ] ;
+          [ ON TRIGGERED <bTriggered> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGAction)():new( ;
@@ -26,6 +27,7 @@
              <cStatusTip>, ;
              <cWhatsThis>, ;
              <cStyleSheet>, ;
-             <{bOnInit}>, ;
-             <{bOnTriggered}> ) ;;
+             <oFont>, ;
+             <{bInit}>, ;
+             <{bTriggered}> ) ;;
           [ <oObj>:cName := <(oObj)> ]

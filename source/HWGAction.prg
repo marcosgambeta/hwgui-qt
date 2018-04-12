@@ -25,8 +25,8 @@ CLASS HWGAction INHERIT HWGObject
 
 ENDCLASS
 
-METHOD new (oParent,cIcon,cText,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,;
-            bOnInit,bOnTriggered) CLASS HWGAction
+METHOD new ( oParent, cIcon, cText, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             bInit, bTriggered ) CLASS HWGAction
 
    IF valtype(oParent) == "O"
       ::oQt := QAction():new(oParent:oQt)
@@ -59,13 +59,17 @@ METHOD new (oParent,cIcon,cText,cToolTip,cStatusTip,cWhatsThis,cStyleSheet,;
       ::oQt:setStyleSheet(cStyleSheet)
    ENDIF
 
-   IF valtype(bOnInit) == "B"
-      ::bInit := bOnInit
+   IF valtype(oFont) == "O"
+      ::oQt:setFont(oFont:oQt)
    ENDIF
 
-   IF valtype(bOnTriggered) == "B"
-      ::bTriggered := bOnTriggered
-      ::oQt:onTriggered({||::onTriggered()}) // TODO: desconexão
+   IF valtype(bInit) == "B"
+      ::bInit := bInit
+   ENDIF
+
+   IF valtype(bTriggered) == "B"
+      ::bTriggered := bTriggered
+      ::oQt:onTriggered( {||::onTriggered()} ) // TODO: desconexão
    ENDIF
 
    ::activate()
