@@ -17,6 +17,8 @@
           [ FONT <oFont> ] ;
           [ ON INIT <bInit> ] ;
           [ ON TRIGGERED <bTriggered> ] ;
+          [ <lCheckable:CHECKABLE> ] ;
+          [ <lChecked:CHECKED> ] ;
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -32,6 +34,8 @@
              <oFont>, ;
              <{bInit}>, ;
              <{bTriggered}>, ;
+             <.lCheckable.>, ;
+             <.lChecked.>, ;
              <.lDisabled.>, ;
              <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

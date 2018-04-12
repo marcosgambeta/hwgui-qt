@@ -52,7 +52,7 @@ CLASS HWGAction INHERIT HWGObject
 ENDCLASS
 
 METHOD new ( oParent, cIcon, cText, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
-             bInit, bTriggered, lDisabled, lInvisible ) CLASS HWGAction
+             bInit, bTriggered, lCheckable, lChecked, lDisabled, lInvisible ) CLASS HWGAction
 
    IF valtype(oParent) == "O"
       ::oQt := QAction():new(oParent:oQt)
@@ -96,6 +96,18 @@ METHOD new ( oParent, cIcon, cText, cToolTip, cStatusTip, cWhatsThis, cStyleShee
    IF valtype(bTriggered) == "B"
       ::bTriggered := bTriggered
       ::oQt:onTriggered( {||::onTriggered()} ) // TODO: desconnection
+   ENDIF
+
+   IF valtype(lCheckable) == "L"
+      IF lCheckable
+         ::oQt:setCheckable(.T.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lChecked) == "L"
+      IF lChecked
+         ::oQt:setChecked(.T.)
+      ENDIF
    ENDIF
 
    IF valtype(lDisabled) == "L"
