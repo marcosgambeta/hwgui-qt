@@ -17,6 +17,8 @@
           [ FONT <oFont> ] ;
           [ ON INIT <bInit> ] ;
           [ ON TRIGGERED <bTriggered> ] ;
+          [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGAction)():new( ;
@@ -29,5 +31,7 @@
              <cStyleSheet>, ;
              <oFont>, ;
              <{bInit}>, ;
-             <{bTriggered}> ) ;;
+             <{bTriggered}>, ;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]

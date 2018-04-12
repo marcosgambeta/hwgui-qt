@@ -14,7 +14,33 @@
 #endif
 #include "hbclass.ch"
 
+// TODO: add font
+
 CLASS HWGAction INHERIT HWGObject
+
+   //DATA lEnabled       // enabled or not
+   ACCESS lEnabled INLINE ::oQt:isEnabled()
+   ASSIGN lEnabled(lValue) INLINE ::oQt:setEnabled(lValue)
+
+   //DATA lVisible       // visible or not
+   ACCESS lVisible INLINE ::oQt:isVisible()
+   ASSIGN lVisible(lValue) INLINE ::oQt:setVisible(lValue)
+
+   //DATA cToolTip
+   ACCESS cToolTip INLINE ::oQt:toolTip()
+   ASSIGN cToolTip(cToolTip) INLINE ::oQt:setToolTip(cToolTip)
+
+   //DATA cStatusTip
+   ACCESS cStatusTip INLINE ::oQt:statusTip()
+   ASSIGN cStatusTip(cStatusTip) INLINE ::oQt:setStatusTip(cStatusTip)
+
+   //DATA cWhatsThis
+   ACCESS cWhatsThis INLINE ::oQt:whatsThis()
+   ASSIGN cWhatsThis(cWhatsThis) INLINE ::oQt:setWhatsThis(cWhatsThis)
+
+   //DATA cStyleSheet
+   ACCESS cStyleSheet INLINE ::oQt:styleSheet()
+   ASSIGN cStyleSheet(cStyleSheet) INLINE ::oQt:setStyleSheet(cStyleSheet)
 
    DATA bInit
    DATA bTriggered
@@ -26,7 +52,7 @@ CLASS HWGAction INHERIT HWGObject
 ENDCLASS
 
 METHOD new ( oParent, cIcon, cText, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
-             bInit, bTriggered ) CLASS HWGAction
+             bInit, bTriggered, lDisabled, lInvisible ) CLASS HWGAction
 
    IF valtype(oParent) == "O"
       ::oQt := QAction():new(oParent:oQt)
@@ -69,7 +95,19 @@ METHOD new ( oParent, cIcon, cText, cToolTip, cStatusTip, cWhatsThis, cStyleShee
 
    IF valtype(bTriggered) == "B"
       ::bTriggered := bTriggered
-      ::oQt:onTriggered( {||::onTriggered()} ) // TODO: desconexão
+      ::oQt:onTriggered( {||::onTriggered()} ) // TODO: desconnection
+   ENDIF
+
+   IF valtype(lDisabled) == "L"
+      IF lDisabled
+         ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:setVisible(.F.)
+      ENDIF
    ENDIF
 
    ::activate()
