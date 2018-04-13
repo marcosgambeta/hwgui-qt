@@ -51,8 +51,8 @@ CLASS HWGAction INHERIT HWGObject
 
 ENDCLASS
 
-METHOD new ( oParent, cIcon, cText, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
-             bInit, bTriggered, lCheckable, lChecked, lDisabled, lInvisible ) CLASS HWGAction
+METHOD new ( oParent, cIcon, cText, cIconText, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
+             bInit, bTriggered, xKeySequence, lCheckable, lChecked, lDisabled, lInvisible ) CLASS HWGAction
 
    IF valtype(oParent) == "O"
       ::oQt := QAction():new(oParent:oQt)
@@ -67,6 +67,10 @@ METHOD new ( oParent, cIcon, cText, cToolTip, cStatusTip, cWhatsThis, cStyleShee
 
    IF valtype(cText) == "C"
       ::oQt:setText(cText)
+   ENDIF
+
+   IF valtype(cIconText) == "C"
+      ::oQt:setIconText(cIconText)
    ENDIF
 
    IF valtype(cToolTip) == "C"
@@ -96,6 +100,10 @@ METHOD new ( oParent, cIcon, cText, cToolTip, cStatusTip, cWhatsThis, cStyleShee
    IF valtype(bTriggered) == "B"
       ::bTriggered := bTriggered
       ::oQt:onTriggered( {||::onTriggered()} ) // TODO: desconnection
+   ENDIF
+
+   IF valtype(xKeySequence) != "U"
+      ::oQt:setShortcut( QKeySequence():new(xKeySequence) )
    ENDIF
 
    IF valtype(lCheckable) == "L"

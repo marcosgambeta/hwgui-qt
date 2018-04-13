@@ -10,6 +10,7 @@
           [ OF <oParent> ] ;
           [ ICON <cIcon> ] ;
           [ TEXT <cText> ] ;
+          [ ICONTEXT <cIconText> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STATUSTIP <cStatusTip> ] ;
           [ WHATSTHIS <cWhatsThis> ] ;
@@ -17,6 +18,7 @@
           [ FONT <oFont> ] ;
           [ ON INIT <bInit> ] ;
           [ ON TRIGGERED <bTriggered> ] ;
+          [ SHORTCUT <xKeySequence> ] ;
           [ <lCheckable:CHECKABLE> ] ;
           [ <lChecked:CHECKED> ] ;
           [ <lDisabled:DISABLED> ] ;
@@ -27,6 +29,7 @@
              <oParent>, ;
              <cIcon>, ;
              <cText>, ;
+             <cIconText>, ;
              <cToolTip>, ;
              <cStatusTip>, ;
              <cWhatsThis>, ;
@@ -34,6 +37,7 @@
              <oFont>, ;
              <{bInit}>, ;
              <{bTriggered}>, ;
+             <xKeySequence>, ;
              <.lCheckable.>, ;
              <.lChecked.>, ;
              <.lDisabled.>, ;
