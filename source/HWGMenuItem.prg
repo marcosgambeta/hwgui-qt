@@ -24,7 +24,7 @@ CLASS HWGMenuItem INHERIT HWGControl
 ENDCLASS
 
 METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, oFont, ;
-             lSeparator, nId, cBitmap, lCheckable, lChecked, lDisabled, lInvisible ) CLASS HWGMenuItem
+             lSeparator, nId, cBitmap, xKeySequence, lCheckable, lChecked, lDisabled, lInvisible ) CLASS HWGMenuItem
 
    IF lSeparator == NIL
       lSeparator := .F.
@@ -51,6 +51,10 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
 
       IF valtype(cBitmap) == "C"
          ::oQt:setIcon( QIcon():new(cBitmap) )
+      ENDIF
+
+      IF valtype(xKeySequence) != "U"
+         ::oQt:setShortcut( QKeySequence():new(xKeySequence) )
       ENDIF
 
       IF valtype(bAction) == "B"

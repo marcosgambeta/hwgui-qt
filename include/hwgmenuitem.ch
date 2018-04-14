@@ -17,6 +17,7 @@
           [ ID <nId> ] ;
           [ BITMAP <cBitmap> ] ;
           [ ICON <cBitmap> ] ;
+          [ SHORTCUT <xKeySequence> ] ;
           [ <lCheckable:CHECKABLE> ] ;
           [ <lChecked:CHECKED> ] ;
           [ <lDisabled:DISABLED> ] ;
@@ -35,6 +36,7 @@
              .F., ;
              <nId>, ;
              <cBitmap>, ;
+             <xKeySequence>, ;
              <.lCheckable.>, ;
              <.lChecked.>, ;
              <.lDisabled.>, ;
