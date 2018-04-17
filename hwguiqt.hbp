@@ -17,6 +17,7 @@ source\HWGColumn.prg
 source\HWGComboBox.prg
 source\HWGControl.prg
 source\HWGCustomWindow.prg
+source\HWGDateEdit.prg
 source\HWGDatePicker.prg
 source\HWGDial.prg
 source\HWGDialog.prg
