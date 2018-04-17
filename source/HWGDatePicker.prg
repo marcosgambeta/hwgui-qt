@@ -16,6 +16,7 @@
 
 CLASS HWGDatePicker INHERIT HWGControl
 
+   DATA bSetGet
    DATA oActionButton
 
    METHOD new
@@ -26,7 +27,7 @@ ENDCLASS
 
 METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
-             dDate, ;
+             dDate, xVar, bSetGet, ;
              bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable, ;
              lDisabled, lInvisible ) CLASS HWGDatePicker
 
@@ -66,6 +67,12 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
       ::oQt:setText(transform(dDate,"99/99/9999"))
    ENDIF
 
+   IF valtype(xVar) == "D"
+      ::oQt:setText(transform(xVar,"99/99/9999"))
+   ENDIF
+
+   ::bSetGet := bSetGet
+
    IF valtype(bInit) == "B"
       ::bInit := bInit
    ENDIF
@@ -87,6 +94,9 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
          ::oQt:setVisible(.F.)
       ENDIF
    ENDIF
+
+   ::oQt:onTextEdited( {|oSender,cText|eval(::bSetGet,ctod(cText))} )
+   ::oQt:onTextChanged( {|oSender,cText|eval(::bSetGet,ctod(cText))} )
 
    IF ::oParent != NIL
       ::oParent:addControl(self)

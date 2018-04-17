@@ -29,6 +29,8 @@
           [ ON HIDE <bHide> ] ;
           [ ON ENABLE <bEnable> ] ;
           [ ON DISABLE <bDisable> ] ;
+          [ ON CHANGE <bChange> ] ; /* INACTIVE */
+          [ <lShowTime:SHOWTIME> ] ; /* INACTIVE */
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -49,6 +51,8 @@
              <xForeColor>, ;
              <xBackColor>, ;
              <dDate>, ;
+             NIL, ;
+             NIL, ;
              <{bInit}>, ;
              <{bSize}>, ;
              <{bMove}>, ;
@@ -81,11 +85,15 @@
           [ ON MOVE <bMove> ] ;
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
+          [ WHEN <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ VALID <bLFocus> ] ;
           [ ON SHOW <bShow> ] ;
           [ ON HIDE <bHide> ] ;
           [ ON ENABLE <bEnable> ] ;
           [ ON DISABLE <bDisable> ] ;
+          [ ON CHANGE <bChange> ] ; /* INACTIVE */
+          [ <lShowTime:SHOWTIME> ] ; /* INACTIVE */
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -106,6 +114,8 @@
              <xForeColor>, ;
              <xBackColor>, ;
              <dDate>, ;
+             <xVar>, ;
+             {|x|iif(x==NIL,<xVar>,<xVar>:=x)}, ;
              <{bInit}>, ;
              <{bSize}>, ;
              <{bMove}>, ;
