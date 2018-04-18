@@ -50,6 +50,7 @@ source\HWGStatic.prg
 source\HWGStatus.prg
 source\HWGTab.prg
 source\HWGTimer.prg
+source\HWGTimeEdit.prg
 source\HWGToolBar.prg
 source\HWGToolBarItem.prg
 source\HWGTrackBar.prg
