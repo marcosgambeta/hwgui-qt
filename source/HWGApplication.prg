@@ -16,6 +16,10 @@
 
 CLASS HWGApplication INHERIT HWGObject
 
+   //DATA cStyleSheet
+   ACCESS cStyleSheet INLINE ::oQt:styleSheet()
+   ASSIGN cStyleSheet(cStyleSheet) INLINE ::oQt:setStyleSheet(cStyleSheet)
+
    METHOD new
    METHOD execute
    METHOD release
@@ -24,9 +28,13 @@ CLASS HWGApplication INHERIT HWGObject
 
 ENDCLASS
 
-METHOD new () CLASS HWGApplication
+METHOD new ( cStyleSheet ) CLASS HWGApplication
 
    ::oQt := QApplication():new()
+
+   IF valtype(cStyleSheet) == "C"
+      ::oQt:setStyleSheet(cStyleSheet)
+   ENDIF
 
 RETURN self
 

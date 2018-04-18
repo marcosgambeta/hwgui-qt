@@ -7,9 +7,11 @@
 */
 
 #xcommand INIT APPLICATION <oObj> ;
+          [ STYLESHEET <cStyleSheet> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
-          [ <oObj> := ] __IIF(<.class.>,<className>,HWGApplication)():new() ;;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGApplication)():new( ;
+             <cStyleSheet> ) ;;
           [ <oObj>:cName := <(oObj)> ]
 
 #xcommand EXECUTE APPLICATION <oObj> => <oObj>:execute()
