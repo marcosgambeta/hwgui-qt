@@ -87,7 +87,7 @@ RETURN self
 //
 // RETURN NIL
 
-METHOD addNode ( cTitle, cIcon, lCheckable, lChecked ) CLASS HWGTreeNode
+METHOD addNode ( cTitle, cIcon, lCheckable, lChecked, oPrevious, oNext ) CLASS HWGTreeNode
 
    LOCAL oTreeNode
 
@@ -106,7 +106,7 @@ METHOD addNode ( cTitle, cIcon, lCheckable, lChecked ) CLASS HWGTreeNode
          oTreeNode:oQt:setFlags( hb_bitor( oTreeNode:oQt:flags(), Qt_ItemIsUserCheckable ) )
          // TODO: estado inicial: checado ou nao checado ?
          oTreeNode:oQt:setCheckState(0,Qt_Unchecked)
-      ENDIF   
+      ENDIF
    ENDIF
 
    IF valtype(lChecked) == "L"

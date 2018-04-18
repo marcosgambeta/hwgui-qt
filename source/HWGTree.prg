@@ -89,7 +89,7 @@ METHOD activate () CLASS HWGTree
 
 RETURN NIL
 
-METHOD addNode ( cTitle, cIcon, lCheckable, lChecked ) CLASS HWGTree
+METHOD addNode ( cTitle, cIcon, lCheckable, lChecked, oPrevious, oNext ) CLASS HWGTree
 
    LOCAL oTreeNode
 

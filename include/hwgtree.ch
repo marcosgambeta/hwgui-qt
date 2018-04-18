@@ -78,5 +78,7 @@
           [ ICON <cIcon> ] ;
           [ <lCheckable:CHECKABLE> ] ;
           [ <lChecked:CHECKED> ] ;
+          [ AFTER <oPrevious> ] ; /* INACTIVE */
+          [ BEFORE <oNext> ] ; /* INACTIVE */
           => ;
-          [ <oObj> := ] <oTree>:addNode( <cTitle>, <cIcon>, <.lCheckable.>, <.lChecked.> )
+          [ <oObj> := ] <oTree>:addNode( <cTitle>, <cIcon>, <.lCheckable.>, <.lChecked.>, <oPrevious>, <oNext> )
