@@ -211,7 +211,7 @@ METHOD delControl (oControl) CLASS HWGCustomWindow
 
       nIndex := ascan(::aControls, {|x|x:oQt:pointer == oControl:oQt:pointer})
 
-      IF oControl:oQt:close()
+      //IF oControl:oQt:close()
 
          // fill array aId with nId
          oControl:idControls(oControl, aId)
@@ -221,6 +221,8 @@ METHOD delControl (oControl) CLASS HWGCustomWindow
             hwgqt_markidasfree(aId[n])
          NEXT n
 
+         ::oQt:disconnectAll(.T.)
+
          ::delete()
 
          IF nIndex > 0
@@ -228,7 +230,7 @@ METHOD delControl (oControl) CLASS HWGCustomWindow
             asize(::aControls, len(::aControls)-1) // atualiza o tamanho da array
          ENDIF
 
-      ENDIF
+      //ENDIF
 
    ELSE
 
