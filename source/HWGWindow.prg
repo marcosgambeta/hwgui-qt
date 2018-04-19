@@ -25,6 +25,10 @@ CLASS HWGWindow INHERIT HWGCustomWindow
    DATA oEventLoop
    DATA oMdiArea
 
+   //DATA nOpacity
+   ACCESS nOpacity INLINE ::oQt:windowsOpacity()
+   ASSIGN nOpacity(nValue) INLINE ::oQt:setWindowOpacity(nValue)
+
    METHOD getText
    METHOD setText
 

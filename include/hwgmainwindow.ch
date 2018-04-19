@@ -17,6 +17,7 @@
           [ FONT <oFont> ] ;
           [ COLOR <xForeColor> ] ;
           [ BACKCOLOR <xBackColor> ] ;
+          [ OPACITY <nOpacity> ] ;
           [ MAIN ] ;
           [ <lMDI:MDI> ] ;
           [ STYLE <nStyle> ] ;
@@ -42,6 +43,7 @@
              <xBackColor>, ;
              <cTitle>, ;
              <cIcon>, ;
+             <nOpacity>, ;
              <.lMDI.>, ;
              <{bInit}>, ;
              <{bSize}>, ;
