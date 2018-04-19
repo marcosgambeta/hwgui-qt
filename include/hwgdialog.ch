@@ -17,6 +17,7 @@
           [ FONT <oFont> ] ;
           [ COLOR <xForeColor> ] ;
           [ BACKCOLOR <xBackColor> ] ;
+          [ OPACITY <nOpacity> ] ;
           [ STYLE <nStyle> ] ;
           [ ON INIT <bInit> ] ;
           [ ON SIZE <bSize> ] ;
@@ -40,6 +41,7 @@
              <xBackColor>, ;
              <cTitle>, ;
              <cIcon>, ;
+             <nOpacity>, ;
              <{bInit}>, ;
              <{bSize}>, ;
              <{bMove}>, ;

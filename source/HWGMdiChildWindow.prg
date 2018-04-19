@@ -14,6 +14,8 @@
 #endif
 #include "hbclass.ch"
 
+// TODO: opacity do not work with QMdiSubWindow ?
+
 CLASS HWGMdiChildWindow INHERIT HWGWindow
 
    METHOD new
@@ -22,7 +24,7 @@ CLASS HWGMdiChildWindow INHERIT HWGWindow
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
-             xForeColor, xBackColor, cTitle, cIcon, ;
+             xForeColor, xBackColor, cTitle, cIcon, nOpacity, ;
              bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGMdiChildWindow
 
    IF valtype(oParent) == "O"
@@ -48,6 +50,10 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
    IF valtype(cIcon) == "C"
       ::oQt:setWindowIcon( QIcon():new(cIcon) )
+   ENDIF
+
+   IF valtype(nOpacity) == "N"
+      ::oQt:setWindowOpacity( nOpacity )
    ENDIF
 
    ::lChild := .T.
