@@ -29,6 +29,8 @@
 
 #xcommand MINIMIZE WINDOW <oObj> => <oObj>:minimize()
 
+#xcommand FULLSCREEN WINDOW <oObj> => <oObj>:fullScreen()
+
 #xcommand RESTORE WINDOW <oObj> => <oObj>:restore()
 
 #xcommand SHOW WINDOW <oObj> => <oObj>:show()
