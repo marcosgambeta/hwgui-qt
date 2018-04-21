@@ -43,7 +43,7 @@ CLASS HWGControl INHERIT HWGCustomWindow
 
 ENDCLASS
 
-// TODO: nao retornar ID utilizado pelo usuario
+// TODO: nao retornar ID ja utilizado pelo usuario
 
 METHOd newId () CLASS HWGControl
 
