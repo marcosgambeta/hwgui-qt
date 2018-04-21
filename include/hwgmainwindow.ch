@@ -27,6 +27,10 @@
           [ ON PAINT <bPaint> ] ;
           [ ON GETFOCUS <bGFocus> ] ;
           [ ON LOSTFOCUS <bLFocus> ] ;
+          [ ON MAXIMIZE <bMaximize> ] ;
+          [ ON MINIMIZE <bMinimize> ] ;
+          [ ON FULLSCREEN <bFullScreen> ] ;
+          [ ON RESTORE <bRestore> ] ;
           [ ON EXIT <bExit> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
@@ -51,5 +55,9 @@
              <{bPaint}>, ;
              <{bGFocus}>, ;
              <{bLFocus}>, ;
+             <{bMaximize}>, ;
+             <{bMinimize}>, ;
+             <{bFullScreen}>, ;
+             <{bRestore}>, ;
              <{bExit}> ) ;;
           [ <oObj>:cName := <(oObj)> ]

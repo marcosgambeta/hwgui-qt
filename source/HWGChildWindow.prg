@@ -23,7 +23,7 @@ ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
              xForeColor, xBackColor, cTitle, cIcon, nOpacity, ;
-             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGChildWindow
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bMaximize, bMinimize, bFullScreen, bRestore, bExit ) CLASS HWGChildWindow
 
    IF valtype(oParent) == "O"
       ::oQt := QWidget():new()
@@ -56,7 +56,7 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
       ::bInit := bInit
    ENDIF
 
-   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bExit )
+   ::configureEvents( bSize, bMove, bPaint, bGFocus, bLFocus, bMaximize, bMinimize, bFullScreen, bRestore, bExit )
    ::connectEvents()
 
    HWGFILO():add(self)
