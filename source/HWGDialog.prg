@@ -21,6 +21,11 @@ CLASS HWGDialog INHERIT HWGCustomWindow
    DATA lModal INIT .T.
    DATA oEventLoop
 
+   DATA bMaximize
+   DATA bMinimize
+   DATA bFullScreen
+   DATA bRestore
+
    METHOD new
    METHOD activate
    METHOD close
@@ -32,12 +37,13 @@ CLASS HWGDialog INHERIT HWGCustomWindow
    METHOD onPaint
    METHOD onGetFocus
    METHOD onLostFocus
+   METHOD onWindowStateChange
 
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
              xForeColor, xBackColor, cTitle, cIcon, nOpacity, ;
-             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bExit ) CLASS HWGDialog
+             bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bMaximize, bMinimize, bFullScreen, bRestore, bExit ) CLASS HWGDialog
 
    IF valtype(oParent) == "O"
       ::oQt := QDialog():new(oParent:oQt)
@@ -92,6 +98,24 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
       ::bLFocus := bLFocus
       ::oQt:onWindowDeactivateEvent( {|oSender,oEvent| ::onLostFocus(oSender,oEvent) } )
    ENDIF
+
+   IF valtype(bMaximize) == "B"
+      ::bMaximize := bMaximize
+   ENDIF
+
+   IF valtype(bMinimize) == "B"
+      ::bMinimize := bMinimize
+   ENDIF
+
+   IF valtype(bFullScreen) == "B"
+      ::bFullScreen := bFullScreen
+   ENDIF
+
+   IF valtype(bRestore) == "B"
+      ::bRestore := bRestore
+   ENDIF
+
+   ::oQt:onWindowStateChangeEvent( {|oSender,oEvent| ::onWindowStateChange(oSender,oEvent) } )
 
    IF valtype(bExit) == "B"
       ::bExit := bExit
@@ -181,3 +205,31 @@ METHOD onLostFocus (oSender,oEvent) CLASS HWGDialog
    ENDIF
 
 RETURN NIL
+
+METHOD onWindowStateChange (oSender,oEvent) CLASS HWGDialog
+
+   IF ::oQt:isMaximized() .AND. oEvent:oldState() <> Qt_WindowMaximized
+      IF valtype(::bMaximize) == "B"
+         eval(::bMaximize, self)
+      ENDIF
+   ENDIF
+
+   IF ::oQt:isMinimized() .AND. oEvent:oldState() <> Qt_WindowMinimized
+      IF valtype(::bMinimize) == "B"
+         eval(::bMinimize, self)
+      ENDIF
+   ENDIF
+
+   IF ::oQt:isFullScreen() .AND. oEvent:oldState() <> Qt_WindowFullScreen
+      IF valtype(::bFullScreen) == "B"
+         eval(::bFullScreen, self)
+      ENDIF
+   ENDIF
+
+   IF ::oQt:windowState() == Qt_WindowNoState .AND. oEvent:oldState() <> Qt_WindowNoState
+      IF valtype(::bRestore) == "B"
+         eval(::bRestore, self)
+      ENDIF
+   ENDIF
+
+RETURN .F.
