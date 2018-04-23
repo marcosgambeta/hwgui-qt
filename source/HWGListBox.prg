@@ -24,6 +24,7 @@ CLASS HWGListBox INHERIT HWGControl
 
    METHOD new
    METHOD activate
+   METHOD clear
 
 ENDCLASS
 
@@ -109,3 +110,11 @@ METHOD activate () CLASS HWGListBox
    ENDIF
 
 RETURN NIL
+
+METHOD clear () CLASS HWGListBox
+
+   ::aItems := {}
+   ::nValue := 0
+   ::oQt:clear()
+
+RETURN .T.
