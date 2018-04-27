@@ -40,13 +40,15 @@
           [ STYLESHEET <cStyleSheet> ] ;
           [ ON INIT <bInit> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBar)():new( ;
              <oParent>, ;
              <cStyleSheet>, ;
              <{bInit}>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
 
 #xcommand END TOOLBAR => HWGFILO():remove()
