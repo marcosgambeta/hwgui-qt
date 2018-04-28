@@ -6,6 +6,24 @@
 
 */
 
+#xcommand BEGIN TOOLBAR [ <oObj> ] ;
+          [ OF <oParent> ] ;
+          [ STYLESHEET <cStyleSheet> ] ;
+          [ ON INIT <bInit> ] ;
+          [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
+          [ <class:CLASS> <className> ] ;
+          => ;
+          [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBar)():new( ;
+             <oParent>, ;
+             <cStyleSheet>, ;
+             <{bInit}>, ;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
+          [ <oObj>:cName := <(oObj)> ]
+
+#xcommand END TOOLBAR => HWGFILO():remove()
+
 // TODO: manter esta sintaxe com coordenadas ?
 
 #xcommand @ <nX>,<nY> TOOLBAR [ <oObj> ] ;
@@ -34,21 +52,3 @@
              <{bInit}>, ;
              <.lDisabled.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
-
-#xcommand BEGIN TOOLBAR [ <oObj> ] ;
-          [ OF <oParent> ] ;
-          [ STYLESHEET <cStyleSheet> ] ;
-          [ ON INIT <bInit> ] ;
-          [ <lDisabled:DISABLED> ] ;
-          [ <lInvisible:INVISIBLE> ] ;
-          [ <class:CLASS> <className> ] ;
-          => ;
-          [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBar)():new( ;
-             <oParent>, ;
-             <cStyleSheet>, ;
-             <{bInit}>, ;
-             <.lDisabled.>, ;
-             <.lInvisible.> ) ;;
-          [ <oObj>:cName := <(oObj)> ]
-
-#xcommand END TOOLBAR => HWGFILO():remove()
