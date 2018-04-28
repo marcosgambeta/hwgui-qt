@@ -16,6 +16,7 @@
           [ ID <nId> ] ;
           [ BITMAP <cBitmap> ] ;
           [ <lDisabled:DISABLED> ] ;
+          [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
           => ;
           [ <oObj> := ] __IIF(<.class.>,<className>,HWGToolBarItem)():new( ;
@@ -29,7 +30,8 @@
              .F., ;
              <nId>, ;
              <cBitmap>, ;
-             <.lDisabled.> ) ;;
+             <.lDisabled.>, ;
+             <.lInvisible.> ) ;;
           [ <oObj>:cName := <(oObj)> ]
 
 #xcommand TOOLBARSEPARATOR [ <oObj> ] ;
@@ -44,6 +46,7 @@
              NIL, ;
              NIL, ;
              NIL, ;
+             .T., ;
              .T. ) ;;
           [ <oObj>:cName := <(oObj)> ]
 

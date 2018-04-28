@@ -23,7 +23,7 @@ CLASS HWGToolBarItem INHERIT HWGControl
 
 ENDCLASS
 
-METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, lSeparator, nId, cBitmap, lDisabled ) CLASS HWGToolBarItem
+METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyleSheet, lSeparator, nId, cBitmap, lDisabled, lInvisible ) CLASS HWGToolBarItem
 
    IF lSeparator == NIL
       lSeparator := .F.
@@ -64,6 +64,12 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
          ENDIF
       ENDIF
 
+      IF valtype(lInvisible) == "L"
+         IF lInvisible
+            ::oQt:setVisible(.F.)
+         ENDIF
+      ENDIF
+
       ::oQt:onTriggered({||iif(valtype(::bAction)=="B",eval(::bAction),NIL)})
 
    ELSE
@@ -74,6 +80,8 @@ METHOD new ( oParent, cOption, bAction, cToolTip, cStatusTip, cWhatsThis, cStyle
       ELSE
          ::oQt := QAction():new():setSeparator(.T.)
       ENDIF
+
+      // TODO: disabled and invisible ?
 
    ENDIF
 
