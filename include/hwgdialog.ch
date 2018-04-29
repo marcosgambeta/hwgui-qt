@@ -12,6 +12,7 @@
           [ ICON <cIcon> ] ;
           [ AT <nX>,<nY> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
+          [ FIXED SIZE <nFixedWidth>,<nFixedHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ FONT <oFont> ] ;
@@ -46,6 +47,8 @@
              <cTitle>, ;
              <cIcon>, ;
              <nOpacity>, ;
+             <nFixedWidth>, ;
+             <nFixedHeight>, ;
              <{bInit}>, ;
              <{bSize}>, ;
              <{bMove}>, ;
