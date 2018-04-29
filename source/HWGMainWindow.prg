@@ -22,7 +22,7 @@ CLASS HWGMainWindow INHERIT HWGWindow
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
-             xForeColor, xBackColor, cTitle, cIcon, nOpacity, lMDI, ;
+             xForeColor, xBackColor, cTitle, cIcon, nOpacity, nFixedWidth, nFixedHeight, lMDI, ;
              bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bMaximize, bMinimize, bFullScreen, bRestore, bExit ) CLASS HWGMainWindow
 
    IF valtype(oParent) == "O"
@@ -48,6 +48,14 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
    IF valtype(nOpacity) == "N"
       ::oQt:setWindowOpacity( nOpacity )
+   ENDIF
+
+   IF valtype(nFixedWidth) == "N"
+      ::oQt:setFixedWidth(nFixedWidth)
+   ENDIF
+
+   IF valtype(nFixedHeight) == "N"
+      ::oQt:setFixedHeight(nFixedHeight)
    ENDIF
 
    ::lMain := .T.
