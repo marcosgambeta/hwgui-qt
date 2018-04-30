@@ -42,7 +42,8 @@ CLASS HWGDialog INHERIT HWGCustomWindow
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
-             xForeColor, xBackColor, cTitle, cIcon, nOpacity, nFixedWidth, nFixedHeight, nMinimumWidth, nMinimumHeight, ;
+             xForeColor, xBackColor, cTitle, cIcon, nOpacity, ;
+             nFixedWidth, nFixedHeight, nMinimumWidth, nMinimumHeight, nMaximumWidth, nMaximumHeight, ;
              bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bMaximize, bMinimize, bFullScreen, bRestore, bExit ) CLASS HWGDialog
 
    IF valtype(oParent) == "O"
@@ -84,6 +85,14 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
    IF valtype(nMinimumHeight) == "N"
       ::oQt:setMinimumHeight(nMinimumHeight)
+   ENDIF
+
+   IF valtype(nMaximumWidth) == "N"
+      ::oQt:setMaximumWidth(nMaximumWidth)
+   ENDIF
+
+   IF valtype(nMaximumHeight) == "N"
+      ::oQt:setMaximumHeight(nMaximumHeight)
    ENDIF
 
    IF valtype(bInit) == "B"

@@ -14,6 +14,7 @@
           [ SIZE <nWidth>,<nHeight> ] ;
           [ FIXED SIZE <nFixedWidth>,<nFixedHeight> ] ;
           [ MINIMUM SIZE <nMinimumWidth>,<nMinimumHeight> ] ;
+          [ MAXIMUM SIZE <nMaximumWidth>,<nMaximumHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ FONT <oFont> ] ;
@@ -54,6 +55,8 @@
              <nFixedHeight>, ;
              <nMinimumWidth>, ;
              <nMinimumHeight>, ;
+             <nMaximumWidth>, ;
+             <nMaximumHeight>, ;
              <.lMDI.>, ;
              <{bInit}>, ;
              <{bSize}>, ;
