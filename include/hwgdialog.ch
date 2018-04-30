@@ -13,6 +13,7 @@
           [ AT <nX>,<nY> ] ;
           [ SIZE <nWidth>,<nHeight> ] ;
           [ FIXED SIZE <nFixedWidth>,<nFixedHeight> ] ;
+          [ MINIMUM SIZE <nMinimumWidth>,<nMinimumHeight> ] ;
           [ TOOLTIP <cToolTip> ] ;
           [ STYLESHEET <cStyleSheet> ] ;
           [ FONT <oFont> ] ;
@@ -49,6 +50,8 @@
              <nOpacity>, ;
              <nFixedWidth>, ;
              <nFixedHeight>, ;
+             <nMinimumWidth>, ;
+             <nMinimumHeight>, ;
              <{bInit}>, ;
              <{bSize}>, ;
              <{bMove}>, ;
