@@ -24,7 +24,7 @@ CLASS HWGMdiChildWindow INHERIT HWGWindow
 ENDCLASS
 
 METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
-             xForeColor, xBackColor, cTitle, cIcon, nOpacity, ;
+             xForeColor, xBackColor, cTitle, cIcon, nOpacity, nFixedWidth, nFixedHeight, ;
              bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bMaximize, bMinimize, bFullScreen, bRestore, bExit ) CLASS HWGMdiChildWindow
 
    IF valtype(oParent) == "O"
@@ -54,6 +54,14 @@ METHOD new ( oParent, nX, nY, nWidth, nHeight, cToolTip, cStyleSheet, oFont, ;
 
    IF valtype(nOpacity) == "N"
       ::oQt:setWindowOpacity( nOpacity )
+   ENDIF
+
+   IF valtype(nFixedWidth) == "N"
+      ::oQt:setFixedWidth(nFixedWidth)
+   ENDIF
+
+   IF valtype(nFixedHeight) == "N"
+      ::oQt:setFixedHeight(nFixedHeight)
    ENDIF
 
    ::lChild := .T.
