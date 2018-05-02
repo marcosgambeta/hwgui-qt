@@ -32,6 +32,31 @@ CLASS HWGCustomWindow INHERIT HWGObject
    ACCESS nHeight INLINE ::oQt:height()
    ASSIGN nHeight(nHeight) INLINE ::oQt:resize(::oQt:width(),nHeight)
 
+   //DATA nFixedWidth         // largura fixa do widget
+   ACCESS nFixedWidth INLINE ::oQt:fixedWidth()
+   ASSIGN nFixedWidth(nFixedWidth) INLINE ::setFixedSize(nFixedWidth,::fixedHeight())
+   //DATA nFixedHeight        // altura fixa do widget
+   ACCESS nFixedHeight INLINE ::oQt:fixedHeight()
+   ASSIGN nFixedHeight(nFixedHeight) INLINE ::setFixedSize(::fixedWidth(),nFixedHeight)
+
+   METHOD setFixedSize
+   METHOD fixedWidth
+   METHOD fixedHeight
+
+   //DATA nMinimumWidth         // largura minima do widget
+   ACCESS nMinimumWidth INLINE ::oQt:minimumWidth()
+   ASSIGN nMinimumWidth(nMinimumWidth) INLINE ::oQt:setMinimumSize(nMinimumWidth,::oQt:minimumHeight())
+   //DATA nMinimumHeight        // altura minima do widget
+   ACCESS nMinimumHeight INLINE ::oQt:minimumHeight()
+   ASSIGN nMinimumHeight(nMinimumHeight) INLINE ::oQt:setMinimumSize(::oQt:minimumWidth(),nMinimumHeight)
+
+   //DATA nMaximumWidth         // largura maxima do widget
+   ACCESS nMaximumWidth INLINE ::oQt:maximumWidth()
+   ASSIGN nMaximumWidth(nMaximumWidth) INLINE ::oQt:setMaximumSize(nMaximumWidth,::oQt:maximumHeight())
+   //DATA nMaximumHeight        // altura maxima do widget
+   ACCESS nMaximumHeight INLINE ::oQt:maximumHeight()
+   ASSIGN nMaximumHeight(nMaximumHeight) INLINE ::oQt:setMaximumSize(::oQt:maximumWidth(),nMaximumHeight)
+
    DATA lHide INIT .F. // .T. = visivel .F. = invisivel
 
    //DATA lEnabled       // habilitado ou nao
@@ -355,3 +380,35 @@ METHOD idControls (oParent, a) CLASS HWGCustomWindow
    ENDIF
 
 RETURN NIL
+
+METHOD setFixedSize (nFixedWidth, nFixedHeight) CLASS HWGCustomWindow
+
+   IF valtype(nFixedWidth) == "N"
+      ::oQt:setFixedWidth(nFixedWidth)
+   ENDIF
+
+   IF valtype(nFixedHeight) == "N"
+      ::oQt:setFixedHeight(nFixedHeight)
+   ENDIF
+
+RETURN NIL
+
+METHOD fixedWidth () CLASS HWGCustomWindow
+
+   LOCAL nRet := 16777215
+
+   IF ::oQt:minimumWidth() == ::oQt:maximumWidth()
+      nRet := ::oQt:minimumWidth()
+   ENDIF
+
+RETURN nRet
+
+METHOD fixedHeight () CLASS HWGCustomWindow
+
+   LOCAL nRet := 16777215
+
+   IF ::oQt:minimumHeight() == ::oQt:maximumHeight()
+      nRet := ::oQt:minimumHeight()
+   ENDIF
+
+RETURN nRet
