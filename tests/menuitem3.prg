@@ -21,6 +21,7 @@ PROCEDURE Main ()
    LOCAL oMenuBar
    LOCAL oMenuA
    LOCAL oMenuA4
+   LOCAL oMenuA41
    LOCAL oMenuA5
 
    INIT APPLICATION oApp

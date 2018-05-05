@@ -19,6 +19,18 @@ PROCEDURE Main ()
    LOCAL oApp
    LOCAL oDialog
    LOCAL oTree
+   LOCAL oNode1
+   LOCAL oNode2
+   LOCAL oNode21
+   LOCAL oNode22
+   LOCAL oNode3
+   LOCAL oNode31
+   LOCAL oNode32
+   LOCAL oNode321
+   LOCAL oNode322
+   LOCAL oNode33
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT APPLICATION oApp
 

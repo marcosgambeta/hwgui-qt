@@ -27,7 +27,7 @@ PROCEDURE Main ()
 
    @ 20,20 EDITBOX oEditBox1 CAPTION "teste da classe HWGEditBox" SIZE 320-40,240-120-40
 
-   @ 20,140 EDITBOX oEditBox CAPTION "teste da classe HWGEditBox" SIZE 320-40,240-120-40
+   @ 20,140 EDITBOX oEditBox2 CAPTION "teste da classe HWGEditBox" SIZE 320-40,240-120-40
 
    ACTIVATE DIALOG oDialog
 

@@ -24,9 +24,11 @@ PROCEDURE Main ()
    LOCAL cEdit1 := ""
    LOCAL cEdit2 := ""
    LOCAL cEdit3 := ""
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT APPLICATION oApp
-   
+
    INIT DIALOG oDialog TITLE "Janela de diálogo" AT 300,300 SIZE 320,240
 
    // teste com mascaras no estilo Qt

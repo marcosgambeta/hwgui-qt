@@ -24,6 +24,8 @@ PROCEDURE Main ()
    LOCAL cEdit1 := ""
    LOCAL cEdit2 := ""
    LOCAL cEdit3 := ""
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT APPLICATION oApp
 

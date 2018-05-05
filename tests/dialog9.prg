@@ -46,7 +46,8 @@ RETURN
 STATIC FUNCTION dialogmodal (oParent)
 
    LOCAL oDialog
-   LOCAL oButton
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT DIALOG oDialog TITLE "Janela de diálogo MODAL" AT 300,300 SIZE 320,240 ;
       ON MAXIMIZE qout("maximized") ;
@@ -72,7 +73,8 @@ RETURN NIL
 STATIC FUNCTION dialognomodal (oParent)
 
    LOCAL oDialog
-   LOCAL oButton
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT DIALOG oDialog TITLE "Janela de diálogo NOMODAL" AT 300,300 SIZE 320,240 ;
       ON MAXIMIZE qout("maximized") ;

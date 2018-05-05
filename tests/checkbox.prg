@@ -24,6 +24,8 @@ PROCEDURE Main ()
    LOCAL lCB1 := .F.
    LOCAL lCB2 := .T.
    LOCAL lCB3 := .F.
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT APPLICATION oApp
 

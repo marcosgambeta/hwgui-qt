@@ -22,6 +22,8 @@ PROCEDURE Main ()
    LOCAL oCB1
    LOCAL oCB2
    LOCAL oCB3
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT APPLICATION oApp
 
@@ -42,7 +44,7 @@ PROCEDURE Main ()
    ACTIVATE DIALOG oDialog
 
    RELEASE DIALOG oDialog
-   
+
    RELEASE APPLICATION oApp
 
 RETURN

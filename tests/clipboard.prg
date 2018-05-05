@@ -20,6 +20,8 @@ PROCEDURE Main ()
    LOCAL oDialog
    LOCAL oEdit1
    LOCAL cEdit1 := "teste com clipboard"
+   LOCAL oButtonCopy
+   LOCAL oButtonRead
 
    INIT APPLICATION oApp
 

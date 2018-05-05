@@ -127,7 +127,7 @@ PROCEDURE Main ()
          @ 10,10 SAY oSay3A CAPTION "oSay3A da página 3A"
       END PAGE OF oTab3
       BEGIN PAGE "Página 3B" OF oTab3
-         @ 10,10 SAY oSay3 CAPTION "oSay3B da página 3B"
+         @ 10,10 SAY oSay3B CAPTION "oSay3B da página 3B"
       END PAGE OF oTab3
       BEGIN PAGE "Página 3C" OF oTab3
          @ 10,10 SAY oSay3C CAPTION "oSay3C da página 3C"

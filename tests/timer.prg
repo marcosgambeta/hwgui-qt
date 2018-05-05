@@ -19,6 +19,7 @@ PROCEDURE Main ()
    LOCAL oApp
    LOCAL oDialog
    LOCAL oSay
+   LOCAL oTimer
 
    INIT APPLICATION oApp
 

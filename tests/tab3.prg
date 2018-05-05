@@ -19,15 +19,11 @@ PROCEDURE Main ()
    LOCAL oApp
    LOCAL oDialog
    LOCAL oTab
+   LOCAL oFontTab
 
    INIT APPLICATION oApp
 
-   PREPARE FONT oFontTab  NAME "Arial Bold" WIDTH 12
-   PREPARE FONT oFontTab1 NAME "Arial" WIDTH 14
-   PREPARE FONT oFontTab2 NAME "Courier New" WIDTH 14
-   PREPARE FONT oFontTab3 NAME "Verdana" WIDTH 14
-   PREPARE FONT oFontTab4 NAME "Times New Roman" WIDTH 14
-   PREPARE FONT oFontTab5 NAME "Lucida Console" WIDTH 14
+   PREPARE FONT oFontTab NAME "Arial Bold" WIDTH 12
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGTab" SIZE 640,480
 

@@ -22,6 +22,8 @@ PROCEDURE Main ()
    LOCAl nLB1 := 1
    LOCAL oLB2
    LOCAl nLB2 := 3
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT APPLICATION oApp
 

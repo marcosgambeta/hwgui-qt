@@ -24,6 +24,8 @@ PROCEDURE Main ()
    LOCAL xCB1
    LOCAL xCB2
    LOCAL xCB3
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT APPLICATION oApp
 

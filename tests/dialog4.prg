@@ -18,7 +18,8 @@ PROCEDURE Main ()
 
    LOCAL oApp
    LOCAL oDialog
-   LOCAL oButton
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT APPLICATION oApp
 

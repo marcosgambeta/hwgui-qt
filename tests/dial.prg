@@ -24,7 +24,7 @@ PROCEDURE Main ()
 
    INIT DIALOG oDialog TITLE "Teste da classe HWGDial" SIZE 320,240
 
-   @ 10,10 DIAL oDial SIZE 100,100
+   @ 10,10 DIAL oDial INIT 0 SIZE 100,100
 
    ACTIVATE DIALOG oDialog
 

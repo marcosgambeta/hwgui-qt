@@ -18,6 +18,10 @@ PROCEDURE Main ()
 
    LOCAL oApp
    LOCAL oMainWindow
+   LOCAL oMenuBar
+   LOCAL oMenuA
+   LOCAL oMenuB
+   LOCAL oToolBar
 
    INIT APPLICATION oApp
 

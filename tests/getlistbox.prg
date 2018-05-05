@@ -20,7 +20,9 @@ PROCEDURE Main ()
    LOCAL oDialog
    LOCAL oLB
    LOCAl nLB := 1
-
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
+   
    INIT APPLICATION oApp
 
    INIT DIALOG oDialog TITLE "Janela de diálogo" AT 300,300 SIZE 320,240

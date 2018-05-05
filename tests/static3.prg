@@ -21,12 +21,9 @@ PROCEDURE Main ()
    LOCAL oSay1
    LOCAL oSay2
    LOCAL oSay3
-   LOCAL oFont1
-   LOCAL oFont2
-   LOCAL oFont3
 
    INIT APPLICATION oApp
-   
+
    INIT DIALOG oDialog TITLE "Teste da classe HWGStatic - ON INIT" SIZE 320,240
 
    @ 10,10 SAY oSay1 CAPTION "Campo 1" ON INIT hwgqt_MsgInfo("oSay1","ON INIT")

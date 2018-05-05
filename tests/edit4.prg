@@ -26,6 +26,8 @@ PROCEDURE Main ()
    LOCAL cEdit2 := ""
    LOCAL cEdit3 := "noborder"
    LOCAL cEdit4 := "readonly"
+   LOCAL oButtonOk
+   LOCAL oButtonCancel
 
    INIT APPLICATION oApp
 
