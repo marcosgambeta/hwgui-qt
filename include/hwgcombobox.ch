@@ -28,6 +28,15 @@
           [ ON HIDE <bHide> ] ;
           [ ON ENABLE <bEnable> ] ;
           [ ON DISABLE <bDisable> ] ;
+          [ INIT <nInit> ] ;
+          [ DISPLAYCOUNT <nDisplayCount> ] ; /* INACTIVE */
+          [ ITEMHEIGHT <nItemHeight> ] ; /* INACTIVE */
+          [ COLUMNWIDTH <nColumnWidth> ] ; /* INACTIVE */
+          [ MAXLENGTH <nMaxLength> ] ; /* INACTIVE */
+          [ ON CHANGE <bChange> ] ; /* INACTIVE */
+          [ ON INTERACTIVECHANGE <bIChange> ] ; /* INACTIVE */
+          [ <lEdit:EDIT> ] ; /* INACTIVE */
+          [ <lText:TEXT> ] ; /* INACTIVE */
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -48,7 +57,8 @@
              <xForeColor>, ;
              <xBackColor>, ;
              <aItems>, ;
-             , ;
+             <nInit>, ;
+             NIL, ;
              <{bInit}>, ;
              <{bSize}>, ;
              <{bMove}>, ;
@@ -85,6 +95,16 @@
           [ ON HIDE <bHide> ] ;
           [ ON ENABLE <bEnable> ] ;
           [ ON DISABLE <bDisable> ] ;
+          [ DISPLAYCOUNT <nDisplayCount> ] ; /* INACTIVE */
+          [ ITEMHEIGHT <nItemHeight> ] ; /* INACTIVE */
+          [ COLUMNWIDTH <nColumnWidth> ] ; /* INACTIVE */
+          [ MAXLENGTH <nMaxLength> ] ; /* INACTIVE */
+          [ ON CHANGE <bChange> ] ; /* INACTIVE */
+          [ WHEN <bGfocus> ] ;
+          [ VALID <bLfocus> ] ;
+          [ ON INTERACTIVECHANGE <bIChange> ] ; /* INACTIVE */
+          [ <lEdit:EDIT> ] ; /* INACTIVE */
+          [ <lText:TEXT> ] ; /* INACTIVE */
           [ <lDisabled:DISABLED> ] ;
           [ <lInvisible:INVISIBLE> ] ;
           [ <class:CLASS> <className> ] ;
@@ -106,6 +126,7 @@
              <xBackColor>, ;
              <aItems>, ;
              <xVar>, ;
+             {|x|iif(x==NIL,<xVar>,<xVar>:=x)}, ;
              <{bInit}>, ;
              <{bSize}>, ;
              <{bMove}>, ;

@@ -16,14 +16,24 @@
 
 CLASS HWGComboBox INHERIT HWGControl
 
+   ACCESS nValue INLINE ::oQt:currentIndex()+1
+   ASSIGN nValue(nValue) INLINE ::oQt:setCurrentIndex(nValue-1)
+
+   ACCESS cValue INLINE ::oQt:currentText()
+   //ASSIGN cValue(cValue) INLINE ::oQt:setCurrentText(cValue)
+
+   DATA aItems INIT {}
+   DATA bSetGet
+
    METHOD new
    METHOD activate
+   METHOD clear
 
 ENDCLASS
 
 METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip, cWhatsThis, ;
              cStyleSheet, oFont, xForeColor, xBackColor, ;
-             acItems, par12, ;
+             acItems, nInit, bSetGet, ;
              bInit, bSize, bMove, bPaint, bGFocus, bLFocus, bShow, bHide, bEnable, bDisable, ;
              lDisabled, lInvisible ) CLASS HWGComboBox
 
@@ -53,8 +63,15 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
    ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(acItems) == "A"
+      ::aItems := acItems
       ::oQt:addItems(acItems)
    ENDIF
+
+   IF valtype(nInit) == "N"
+      ::oQt:setCurrentIndex(nInit-1)
+   ENDIF
+
+   ::bSetGet := bSetGet
 
    IF valtype(bInit) == "B"
       ::bInit := bInit
@@ -75,6 +92,10 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
       ENDIF
    ENDIF
 
+   IF valtype(::bSetGet) == "B"
+      ::oQt:onCurrentIndexChanged1( {|oSender,nIndex|eval(::bSetGet,nIndex+1)} )
+   ENDIF
+
    IF ::oParent != NIL
       ::oParent:addControl(self)
    ENDIF
@@ -90,3 +111,11 @@ METHOD activate () CLASS HWGComboBox
    ENDIF
 
 RETURN NIL
+
+METHOD clear () CLASS HWGComboBox
+
+   ::aItems := {}
+   ::nValue := 0
+   ::oQt:clear()
+
+RETURN .T.
