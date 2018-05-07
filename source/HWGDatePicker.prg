@@ -95,8 +95,10 @@ METHOD new ( oParent, nId, nStyle, nX, nY, nWidth, nHeight, cToolTip, cStatusTip
       ENDIF
    ENDIF
 
-   ::oQt:onTextEdited( {|oSender,cText|eval(::bSetGet,ctod(cText))} )
-   ::oQt:onTextChanged( {|oSender,cText|eval(::bSetGet,ctod(cText))} )
+   IF valtype(::bSetGet) == "B"
+      ::oQt:onTextEdited( {|oSender,cText|eval(::bSetGet,ctod(cText))} )
+      ::oQt:onTextChanged( {|oSender,cText|eval(::bSetGet,ctod(cText))} )
+   ENDIF
 
    IF ::oParent != NIL
       ::oParent:addControl(self)
