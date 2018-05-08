@@ -16,11 +16,15 @@
 
 CLASS HWGMenu INHERIT HWGControl
 
+   //DATA lVisible       // visivel ou nao
+   ACCESS lVisible INLINE ::oQt:menuAction():isVisible()
+   ASSIGN lVisible(lValue) INLINE ::oQt:menuAction():setVisible(lValue)
+
    METHOD new
 
 ENDCLASS
 
-METHOD new ( oParent, cTitle, cStyleSheet, lDisabled ) CLASS HWGMenu
+METHOD new ( oParent, cTitle, cStyleSheet, oFont, xForeColor, xBackColor, lDisabled, lInvisible ) CLASS HWGMenu
 
    IF cTitle == NIL
       cTitle := ""
@@ -42,10 +46,18 @@ METHOD new ( oParent, cTitle, cStyleSheet, lDisabled ) CLASS HWGMenu
    ENDIF
 
    ::configureStyleSheet( cStyleSheet )
+   ::configureFont( oFont )
+   ::configureColors( ::oQt:foregroundRole(), xForeColor, ::oQt:backgroundRole(), xBackColor )
 
    IF valtype(lDisabled) == "L"
       IF lDisabled
          ::oQt:setEnabled(.F.)
+      ENDIF
+   ENDIF
+
+   IF valtype(lInvisible) == "L"
+      IF lInvisible
+         ::oQt:menuAction():setVisible(.F.)
       ENDIF
    ENDIF
 
