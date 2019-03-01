@@ -1,7 +1,7 @@
 rem
 rem HWGUIQt - biblioteca gráfica para Qt4xHb/Qt5xHb com sintaxe no estilo HWGUI
 rem
-rem Copyright (C) 2018 Marcos Antonio Gambeta <marcosgambeta AT outlook DOT com>
+rem Copyright (C) 2019 Marcos Antonio Gambeta <marcosgambeta AT outlook DOT com>
 rem
 rem Prompt de comando para utilização com MinGW.
 rem
