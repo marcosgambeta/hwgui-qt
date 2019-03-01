@@ -2,7 +2,7 @@
 
   HWGUIQt Project - Test Program
 
-  Copyright (C) 2018 Marcos Antonio Gambeta
+  Copyright (C) 2019 Marcos Antonio Gambeta
 
   E-mail:
   marcosgambeta AT outlook DOT com
