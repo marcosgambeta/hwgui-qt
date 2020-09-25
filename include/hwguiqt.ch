@@ -17,6 +17,10 @@
 #include "qt5xhb.ch"
 #endif
 
+#ifdef __QT6XHB__
+#include "qt6xhb.ch"
+#endif
+
 #include "winapi.ch"
 
 #xtranslate __IIF(.T., [<true>], [<false>]) => <true>
