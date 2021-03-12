@@ -8,7 +8,7 @@
   marcosgambeta AT outlook DOT com
 
   Website:
-  https://github.com/marcosgambeta/HWGUIQt
+  https://github.com/magsoftinfo/hwgui-qt
 
 */
 
