@@ -12,6 +12,9 @@
 #ifdef __QT5XHB__
 #include "qt5xhb.ch"
 #endif
+#ifdef __QT6XHB__
+#include "qt6xhb.ch"
+#endif
 #include "hbclass.ch"
 
 STATIC aObjects := {}
