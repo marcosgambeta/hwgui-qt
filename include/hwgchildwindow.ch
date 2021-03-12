@@ -1,6 +1,6 @@
 /*
 
-  HWGUIQt - módulo para Qt4xHb/Qt5xHb com sintaxe no estilo HWGUI
+  HWGUIQt - módulo para Qt4xHb/Qt5xHb/Qt6xHb com sintaxe no estilo HWGUI
 
   Copyright (C) 2021 Marcos Antonio Gambeta <marcosgambeta AT outlook DOT com>
 
