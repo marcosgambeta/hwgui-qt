@@ -1,0 +1,18 @@
+#
+# HWGUIQt - módulo para Qt4xHb/Qt5xHb/Qt6xHb com sintaxe no estilo HWGUI
+#
+# Copyright (C) 2021 Marcos Antonio Gambeta <marcosgambeta AT outlook DOT com>
+#
+
+description=HWGUI-Qt
+
+incpaths=include
+
+libpaths=lib\${hb_plat}\${hb_comp}
+
+libs=hwguiqt
+
+cpp=yes
+gui=yes
+
+{msvc}ldflags=/NODEFAULTLIB:msvcrt.lib
