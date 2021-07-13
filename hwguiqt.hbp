@@ -1,5 +1,5 @@
 #
-# HWGUIQt - módulo para Qt4xHb/Qt5xHb/Qt6xHb com sintaxe no estilo HWGUI
+# HWGUI-Qt - módulo para Qt4xHb/Qt5xHb/Qt6xHb com sintaxe no estilo HWGUI
 #
 # Copyright (C) 2021 Marcos Antonio Gambeta <marcosgambeta AT outlook DOT com>
 #
@@ -8,7 +8,7 @@
 
 -iinclude
 
--olib\${hb_plat}\${hb_comp}\hwguiqt
+-olib\${hb_plat}\${hb_comp}\hwgui-qt
 
 -workdir=obj
 
@@ -70,4 +70,3 @@ source\HWGUpDown.prg
 source\HWGWindow.prg
 source\miscfuncs.prg
 source\msgbox.prg
-
