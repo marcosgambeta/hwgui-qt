@@ -4,6 +4,16 @@
 # Copyright (C) 2021 Marcos Antonio Gambeta <marcosgambeta AT outlook DOT com>
 #
 
+-hblib
+
+-iinclude
+
+-olib\${hb_plat}\${hb_comp}\hwguiqt
+
+-workdir=obj
+
+-inc
+
 source\HWGAction.prg
 source\HWGApplication.prg
 source\HWGBitmap.prg
@@ -61,12 +71,3 @@ source\HWGWindow.prg
 source\miscfuncs.prg
 source\msgbox.prg
 
--iinclude
-
--hblib
-
--olib\hwguiqt
-
--workdir=obj
-
--inc
