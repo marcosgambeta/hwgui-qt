@@ -17,6 +17,10 @@
 #include "qt5xhb.ch"
 #endif
 
+#ifdef __QT5HBPP__
+#include "qt5hbpp.ch"
+#endif
+
 #ifdef __QT6XHB__
 #include "qt6xhb.ch"
 #endif
